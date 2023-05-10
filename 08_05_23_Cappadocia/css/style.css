@@ -281,3 +281,63 @@ section {
   grid-template-columns: repeat(2, 1fr);
   gap: 50px 39px;
 }
+
+
+/* price */
+
+.price__subtitle {
+  margin-top: -30px;
+  margin-left: 120px;
+}
+
+.price-content__inner {
+  display: flex;
+  position: relative;
+}
+
+.price-content__box-included {
+  max-width: 530px;
+  margin-right: 70px;
+}
+
+.price-content__box-excluded {
+  max-width: 370px;
+}
+
+.price-content__box-title {
+  font-family: 'RobotoCondensed-Regular';
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 28px;
+  margin-bottom: 50px;
+}
+
+.price-content__box-item {
+  margin-top: 20px;
+}
+
+.price-content__img {
+  position: absolute;
+  top: -120px;
+  right: 0;
+  transform: translateX(50%);
+}
+
+.price-content__inner::after,
+.price-content__inner::before {
+  content: '';
+  background: url('../images/small-ballon.png');
+  width: 73px;
+  height: 108px;
+  position: absolute;
+}
+
+.price-content__inner::after {
+  right: 72px;
+  bottom: 0;
+}
+
+.price-content__inner::before {
+  right: 145px;
+  top: 55px;
+}
