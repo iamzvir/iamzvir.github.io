@@ -262,6 +262,22 @@ section {
   margin-left: 120px;
 }
 
+.hotel__inner {
+  display: flex;
+  justify-content: space-between;
+}
+
 .hotel-content {
   max-width: 600px;
+}
+
+.hotel-content__text+.hotel-content__text {
+  margin-top: 20px;
+}
+
+.hotel-content__image {
+  margin-top: 80px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 50px 39px;
 }
