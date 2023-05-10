@@ -261,3 +261,7 @@ section {
   margin-top: -30px;
   margin-left: 120px;
 }
+
+.hotel-content {
+  max-width: 600px;
+}
