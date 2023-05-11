@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>To2rent</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=PT+Serif&family=Roboto+Condensed&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="css/reset.css" />
+  <link rel="stylesheet" href="css/myreset.css" />
+  <link rel="stylesheet" href="css/slick.css" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+
+<body>
+  <header class="header">
+    <!-- <div class="container"> решил зарубать бо у меню полоса выходит за пределы контейнера а оно (меню) всеравно по центру и не прижимается своими краями к краям контейнера, а значет можем этот блок сверстать без контейнера -->
+    <a class="logo" href="#">
+      <img class="logo__img" src="images/logo.svg" alt="logo" />
+    </a>
+    <nav class="menu">
+      <div class="burger-menu">
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+      <ul class="menu__list">
+        <li class="menu__item">
+          <a class="menu__link menu__link-active" href="#">О нас</a>
+        </li>
+        <li class="menu__item">
+          <a class="menu__link" href="#">Дома</a>
+        </li>
+        <li class="menu__item">
+          <a class="menu__link" href="#">Квартиры</a>
+        </li>
+        <li class="menu__item">
+          <a class="menu__link" href="#">Контакты</a>
+        </li>
+      </ul>
+    </nav>
+
+    <div class="slider">
+      <div class="slider__item">
+        <img src="images/slider-1.jpg" alt="" />
+      </div>
+      <div class="slider__item">
+        <img src="images/slider-1.jpg" alt="" />
+      </div>
+      <div class="slider__item">
+        <img src="images/slider-1.jpg" alt="" />
+      </div>
+    </div>
+    <form class="header-form">
+      <label class="header-form__title">Поиск Апартаментов</label>
+      <input class="header-form__input" type="text" placeholder="Введите город" />
+      <button class="header-form__btn" type="submit">Найти</button>
+    </form>
+  </header>
+
+  <section class="popular">
+    <h2 class="popular__title title">Самые популярные варианты</h2>
+    <div class="container">
+      <div class="popular__items">
+        <div class="popular__item">
+          <div class="popular__item-img">
+            <img src="images/moscow-icon.jpg" alt="moscow-icon" />
+          </div>
+          <div class="popular__item-text">
+            <p>Аппартаменты</p>
+            <p>Москва</p>
+          </div>
+          <a class="popular__item-btn" href="#">детали</a>
+        </div>
+        <div class="popular__item">
+          <div class="popular__item-img">
+            <img src="images/kiev-icon.jpg" alt="kiev-icon" />
+          </div>
+          <div class="popular__item-text">
+            <p>Аппартаменты</p>
+            <p>Киев</p>
+          </div>
+          <a class="popular__item-btn" href="#">детали</a>
+        </div>
+        <div class="popular__item">
+          <div class="popular__item-img">
+            <img src="images/la-icon.jpg" alt="la-icon" />
+          </div>
+          <div class="popular__item-text">
+            <p>Аппартаменты</p>
+            <p>Modern Лос Анджелес</p>
+          </div>
+          <a class="popular__item-btn" href="#">детали</a>
+        </div>
+        <div class="popular__item">
+          <div class="popular__item-img">
+            <img src="images/london-icon.jpg" alt="london-icon" />
+          </div>
+          <div class="popular__item-text">
+            <p>Аппартаменты</p>
+            <p>Семейный Лондон</p>
+          </div>
+          <a class="popular__item-btn" href="#">детали</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="info">
+    <div class="container">
+      <div class="info-box__wrapper">
+        <div class="info-box">
+          <div class="info-box__inner">
+            <img class="info-box__img" src="images/clock-icon.png" alt="clock-icon" />
+            <h3 class="info-box__title">
+              Мы экономим Ваше время и Ваши деньги
+            </h3>
+          </div>
+          <p class="info-box__text">
+            Вы можете легко подобрать себе самую лучшую недвижимость для
+            аренды на нашем сайте по выгодной цене. Наши менеджеры с
+            удовольствием помогут Вам и ответят на все вопросы.
+          </p>
+          <a class="info-box__btn" href="#">Подробнее</a>
+        </div>
+        
+        <div class="info-box">
+          <div class="info-box__inner">
+            <img class="info-box__img" src="images/world-icon.png" alt="world-icon" />
+            <h3 class="info-box__title">
+              Арендуйте лучшую недвижимость в крупных городах
+            </h3>
+          </div>
+          <p class="info-box__text">
+            Наша база элитной недвижимости насчитывает более 5000 вариантов в
+            крупных городах мира.Мы поможем Вам выбрать самую лучшую, также
+            предоставим дополнительный сервис
+          </p>
+          <a class="info-box__btn" href="#">Подробнее</a>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <section class="cottage" style="background-image: url(images/cottage-bg.jpg);">
+    <div class="container">
+      <div class="cottage__wrapper">
+        <h2 class="cottage__title title">Коттедж Modern Лос Анджелес</h2>
+        <a class="cottage__btn" href="#">Забронировать</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="contacts">
+    <div class="container">
+      <div class="contacts__inner">
+        <div class="contacts-managers">
+          <h3 class="contacts-managers__title title">Наши менеджеры</h3>
+          <div class="contacts-managers__items">
+            <div class="contacts-managers__item">
+              <img class="contacts-managers__img" src="images/moscow-man.jpg" alt="moscow-man">
+              <div class="contacts-managers__info">
+                <p>Макс</p>
+                <p>30 лет</p>
+                <p>Москва</p>
+              </div>
+              <a class="contacts-managers__btn contacts__btn" href="#">Связаться</a>
+            </div>
+
+            <div class="contacts-managers__item">
+              <img class="contacts-managers__img" src="images/kiev-woomen.jpg" alt="kiev-woomen">
+              <div class="contacts-managers__info">
+                <p>Анна</p>
+                <p>28 лет</p>
+                <p>Киев</p>
+              </div>
+              <a class="contacts-managers__btn contacts__btn" href="#">Связаться</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="contacts-blog">
+          <h3 class="contacts-blog__title title">
+            Блог
+          </h3>
+          <ul class="contacts-blog__list">
+            <li class="contacts-blog__item">
+              <a class="contacts-blog__link" href="#">Системы охраны и видеонаблюдения</a>
+            </li>
+            <li class="contacts-blog__item">
+              <a class="contacts-blog__link" href="#">Клубная недвижимость всегда в цене</a>
+            </li>
+            <li class="contacts-blog__item">
+              <a class="contacts-blog__link" href="#">Все плюсы от посуточной аренды квартир</a>
+            </li>
+            <li class="contacts-blog__item">
+              <a class="contacts-blog__link" href="#">Как выбрать жильё своей мечты в Киеве?</a>
+            </li>
+            <li class="contacts-blog__item">
+              <a class="contacts-blog__link" href="#">Топ 10 ВИП коттеджей Лос Анджелеса</a>
+            </li>
+            <li class="contacts-blog__item">
+              <a class="contacts-blog__link" href="#">Лучшие аппартаменты с панорамным видом</a>
+            </li>
+            <li class="contacts-blog__item">
+              <a class="contacts-blog__link" href="#">Дома для аренды на год в Майами</a>
+            </li>
+          </ul>
+        </div>
+
+        <div class="contacts-reviews">
+          <h3 class="contacts-reviews__title title">Отзывы</h3>
+          <div class="contacts-reviews__img">
+            <img src="images/reviews-img.jpg" alt="reviews-img">
+          </div>
+          <p class="contacts-reviews__text">
+            Это лучший сервис по подбору
+            аппартаментов. Пользуюсь услугами To rent уже 5 лет. Всегда идеально и именно то, что мне нужно.
+          </p>
+          <a class="contacts-reviews__btn contacts__btn" href="#">Еще отзывы</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="feedback">
+      <div class="container">
+        <div class="feedback__wrapper">
+          <ul class="feedback__list">
+            <li class="feedback__item">
+              <a class="feedback__link" href="#">О нас</a>
+            </li>
+            <li class="feedback__item">
+              <a class="feedback__link" href="#">Дома</a>
+            </li>
+            <li class="feedback__item">
+              <a class="feedback__link" href="#">Аппартаменты</a>
+            </li>
+            <li class="feedback__item">
+              <a class="feedback__link" href="#">Отзывы</a>
+            </li>
+            <li class="feedback__item">
+              <a class="feedback__link" href="#">Контакты</a>
+            </li>
+          </ul>
+          <form class="feedback__form">
+            <label class="feedback__label">Связаться с нами</label>
+            <input class="feedback__input" type="text" placeholder="Задать вопрос">
+            <button class="feedback__btn" type="submit">Отправить</button>
+          </form>
+        </div>
+      </div>
+    </div>
+    <a class="footer__logo logo" href="#">
+      <img class="logo__img" src="images/logo.svg" alt="logo" />
+    </a>
+  </footer>
+
+  <script src="js/jquery-3.6.4.min.js"></script>
+  <script src="js/slick.min.js"></script>
+  <script src="js/main.js"></script>
+</body>
+
+</html>
