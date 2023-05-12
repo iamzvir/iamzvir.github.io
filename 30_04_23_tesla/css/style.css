@@ -1,0 +1,613 @@
+/* specification */
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Roboto Condensed', sans-serif;
+  color: #FFFFFF;
+  background: #0B0B0B;
+  font-size: 24px;
+  line-height: 28px;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+button {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  color: inherit;
+}
+
+ul,
+li {
+  display: block;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+  padding: 0;
+}
+
+p {
+  margin: 0;
+  padding: 0;
+}
+
+input,
+input::placeholder,
+button,
+textarea {
+  outline: none;
+}
+
+.container {
+  max-width: 1220px;
+  padding: 0 10px;
+  margin: 0 auto;
+}
+
+.container-menu {
+  position: relative;
+}
+
+.section__title {
+  font-size: 36px;
+  line-height: 42px;
+  color: #B70021;
+}
+
+/* hero */
+/* позиционирование относительно слайдера у котрого по умолчанию position reltiv */
+.header {
+  height: 100vh;
+  position: absolute;
+  z-index: 5;
+  background: rgba(0, 0, 0, 0.3);
+  /* растягиваем и тень и хэдэр на всю ширину экрана */
+  left: 0;
+  right: 0;
+}
+
+.header-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 30px 0;
+}
+
+.burger {
+  width: 60px;
+  border: 1px solid #fff;
+  padding: 5px 0;
+  background: rgba(255, 255, 255, 0.1);
+  cursor: pointer;
+}
+
+.burger div {
+  width: 36px;
+  height: 2px;
+  background: #fff;
+  margin: 10px auto;
+}
+
+/* здесь тоже позиционирование относительно слайдера у котрого по умолчанию position reltiv */
+.burger-menu {
+  position: absolute;
+  background: #000000;
+  /* это один из способов сокрытия меню, теперь с помощью js мы будем его показывать, далее в main.js --> */
+  top: -100%;
+  left: 0;
+  width: 100%;
+  /* для плавности выезжания меню при его вызове нажатием на кнопку burger и закрытии на кнопку close__burger */
+  transition: top 0.5s ease;
+
+  /* перекрываем точки слайдера при активном меню */
+  z-index: 7;
+}
+
+
+/* 3й пункт из комментов jquery */
+/* если эти два класса у тега одновременно тогда --> */
+.burger-menu.active {
+  top: 0;
+}
+
+
+/* позиционируется относительно контейнера у которго задан второй класс и на нем позишн релейтив */
+.close__burger {
+  /* эта область нам нужна для удобной кликабельности на крестик, а значит и позиционируем его в эту область */
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  right: 10px;
+  /* бекграунд был для ориентиров центровки крестика */
+  /* background: green; */
+  top: 30px;
+  cursor: pointer;
+}
+
+.close__burger::after,
+.close__burger::before {
+  content: '';
+  width: 70px;
+  height: 2px;
+  background: #fff;
+  /* или можно вписать вместо display: block, position: absolute и тоже будет все ок, сорян, не будет, тогда перестают работать свойства top/left/right/bottom, так что отбой, пишем position: absolute */
+  /* display: block; */
+  position: absolute;
+}
+
+.close__burger::after {
+  transform: rotate(45deg);
+  /* далее делаем как сказано выше, позиционруем в область родителя close__burger */
+
+  /* нужно изучить, но по видосу оно как бы обнуляет значения top/left и тд, если укажем ему конкретную сторону */
+  transform-origin: left;
+  /* если немного не зашло, подганяем свойствами top/bottom/left/right */
+}
+
+.close__burger::before {
+  transform: rotate(-45deg);
+  /* далее делаем как сказано выше, позиционруем в область родителя close__burger */
+
+  /* нужно изучить, но по видосу оно как бы обнуляет значения top/left и тд, если укажем ему конкретную сторону */
+  transform-origin: left;
+  /* если немного не зашло, как здесь, подганяем свойствами top/bottom/left/right */
+  bottom: 0;
+}
+
+
+/* эта обертка нужна для того что бы флексами разместить блок в его изначальном состоянии (вертикальный список) в центре, так как сам список, флексы развернут горизонтально и там потом будет куча гемора с этим, а так мы спокайно делаем что нам нужно с вертикальным списком  */
+.burger-menu__inner {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+}
+
+.burger-menu__link {
+  font-size: 48px;
+  line-height: 56px;
+  font-weight: 700;
+  padding: 30px 25px 14px 0;
+  display: inline-block;
+  border-bottom: 3px solid;
+  border-bottom-color: #B70021;
+  min-width: 368px;
+  transition: all 0.5s ease;
+}
+
+.burger-menu__link:hover {
+  border-bottom: 3px solid;
+  border-bottom-color: #fff;
+  transform: scaleX(1.2);
+  margin-left: 37px;
+}
+
+.header-content__title {
+  font-family: 'Roboto', sans-serif;
+  font-size: 96px;
+  line-height: 112px;
+  margin-bottom: 30px;
+}
+
+.header-content__text {
+  width: 285px;
+  margin-bottom: 30px;
+}
+
+.btn {
+  display: block;
+  padding: 30px 0;
+  font-weight: 700;
+  text-align: center;
+  max-width: 290px;
+  background: rgba(255, 255, 255, 0.15);
+  border: 1px solid #FFFFFF;
+  transition: background 0.5s ease, border 0.5s ease;
+}
+
+.btn:hover {
+  background: #770302;
+  border: 1px solid #770302;
+}
+
+/* slider-head */
+
+.slier__img {
+  height: 100vh;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+.slider-head__dots {
+  display: flex;
+  position: absolute;
+  z-index: 6;
+
+  /* если оставить так, то на адаптиве будет гемор с этими точками, они будут сьежать и нада их будет подганять */
+  bottom: 25px;
+  /* left: 360px; */
+
+
+  /* а вот другой способ поставить их в наше положение и без емора на адаптиве */
+  left: 0;
+  right: 0;
+  /* и добавим падинг как у контейнера, чтобы контент не прилипал к краям на маленьких экранах */
+  padding: 0 10px;
+  /* ширина контейнера 1200px а с паддингами 1220px */
+  max-width: 1220px;
+  margin: 0 auto;
+
+}
+
+
+.slider-head__dots li+li {
+  margin-left: 19px;
+}
+
+.slider-head__dots button {
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  font-size: 0;
+  cursor: pointer;
+  background: #0B0B0B;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+.slider-head__dots li.slick-active button {
+  background: #fff;
+  border: 1px solid #000;
+}
+
+/* numbers */
+
+.numbers {
+  padding: 100px 0;
+}
+
+.numbers__items {
+  display: flex;
+  justify-content: space-around;
+}
+
+.numbers__item {
+  text-align: center;
+}
+
+.number__item-num {
+  font-family: 'Roboto', sans-serif;
+  font-size: 96px;
+  line-height: 112px;
+  margin: 19px 0 7px;
+}
+
+.number__item-num span {
+  font-family: 'Roboto Condensed';
+  font-size: 24px;
+  line-height: 28px;
+}
+
+.number__item-desc {
+  color: #B70021;
+  position: relative;
+}
+
+.number__item-num--speed span {
+  display: inline-block;
+  position: relative;
+}
+
+.number__item-num--speed span::after {
+  content: '+';
+  position: absolute;
+  top: -60px;
+  left: 0;
+}
+
+/* video */
+
+.video {
+  padding-bottom: 100px;
+}
+
+.iframe-video {
+  padding: 0 10px;
+}
+
+/* info */
+
+.info {
+  padding-bottom: 100px;
+}
+
+.info__wrapper {
+  display: grid;
+  gap: 100px 50px;
+  grid-template-columns: 570px 570px;
+}
+
+.info__img--3 {
+  grid-column-start: span 2;
+}
+
+.box__title {
+  font-weight: 400;
+  font-size: 36px;
+  line-height: 42px;
+  color: #B70021;
+}
+
+.info-box__content-text {
+  margin-top: 100px;
+  max-width: 260px;
+}
+
+.info-box__equipment {
+  display: flex;
+}
+
+.info-box__equipment-list {
+  margin: auto 0;
+}
+
+.info-box__equipment-title {
+  margin-top: auto;
+  margin-left: auto;
+}
+
+.info__text {
+  padding-left: 105px;
+  max-width: 550px;
+  position: relative;
+}
+
+.num-1::before,
+.num-2::before {
+  position: absolute;
+  left: 0;
+  top: -30px;
+  color: #B70021;
+}
+
+.num-1::before {
+  content: '01';
+}
+
+.num-2::before {
+  content: '02';
+}
+
+/* footer */
+
+.footer {
+  background: #690102;
+  padding: 80px 0 20px;
+}
+
+.footer__btn {
+  margin: 0 auto 80px;
+}
+
+.footer__list {
+  display: flex;
+  justify-content: center;
+}
+
+.footer__item {
+  font-weight: 700;
+  padding: 0 15px;
+  position: relative;
+}
+
+.footer__item+.footer__item::before {
+  content: '|';
+  position: absolute;
+  left: -3px;
+}
+
+
+
+/* media */
+
+
+
+@media (max-width: 1250px) {
+  .info__wrapper {
+    gap: 50px;
+    grid-template-columns: auto auto;
+  }
+
+  .info__img img {
+    width: 100%;
+  }
+
+  .info__text br {
+    display: none;
+  }
+
+}
+
+
+
+
+@media (max-width: 991px) {
+  .info-box__equipment {
+    flex-direction: column-reverse;
+  }
+
+  .info__wrapper {
+    gap: 40px 20px;
+    grid-template-columns: auto auto;
+    font-size: 20px;
+    line-height: 22px;
+  }
+
+  .info-box__equipment-title {
+    margin-left: 0;
+    margin-top: 0;
+  }
+
+  .info__text {
+    padding-left: 40px;
+  }
+
+  .num-1::before,
+  .num-2::before {
+    top: 0;
+  }
+
+  .footer__item {
+    margin-bottom: 10px;
+  }
+
+  .footer__list {
+    flex-wrap: wrap;
+  }
+}
+
+
+
+@media (max-width: 767px) {
+  .burger-menu__link:hover {
+    border-bottom-color: #B70021;
+    transform: none;
+    margin-left: 0;
+  }
+
+  .burger-menu__inner {
+    justify-content: center;
+  }
+
+  .numbers {
+    padding: 20px 0 80px 0;
+  }
+
+  .numbers__items {
+    flex-wrap: wrap;
+  }
+
+  .numbers__item {
+    width: 100%;
+  }
+
+  .number__item-name {
+    margin-top: 100px;
+  }
+
+  .video,
+  .info {
+    padding-bottom: 50px;
+  }
+
+  .info__wrapper {
+    font-size: 16px;
+    line-height: 20px;
+  }
+
+  .box__title {
+    font-size: 28px;
+  }
+
+  .info-box__content-text {
+    margin-top: 15px;
+  }
+
+  .info__img {
+    margin: auto 0;
+  }
+
+  .footer__item {
+    font-size: 20px;
+  }
+}
+
+
+
+
+@media (max-width: 440px) {
+  .logo img {
+    max-width: 200px;
+  }
+
+  .header-content__title {
+    font-size: 70px;
+    line-height: 84px;
+  }
+
+  .burger-menu__link {
+    font-size: 40px;
+    line-height: 52px;
+    min-width: 0;
+  }
+
+  .number__item-num {
+    font-size: 70px;
+    line-height: 84px;
+  }
+
+  .number__item-name {
+    margin-top: 50px;
+  }
+
+  .info__wrapper {
+    gap: 50px;
+    grid-template-columns: repeat(1, auto);
+  }
+
+  .info__img--3 {
+    grid-column: auto;
+    grid-row: auto;
+  }
+
+  .info-box__equipment {
+    align-items: center;
+    text-align: center;
+  }
+
+  .info-box__content {
+    text-align: center;
+  }
+
+  .info-box__content-text {
+    margin: 15px auto 0;
+  }
+
+  .footer__list {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .footer__item {
+    padding: 10px 0 0 0;
+  }
+
+  .footer__item+.footer__item::before {
+    display: none;
+  }
+
+  .footer__btn {
+    margin: 0 auto 40px;
+  }
+
+  .footer {
+    padding-bottom: 50px;
+  }
+}
