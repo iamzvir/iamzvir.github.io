@@ -1,0 +1,1070 @@
+/* specification */
+
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+}
+
+input,
+input::placeholder,
+button,
+textarea {
+  outline: none;
+}
+
+body {
+  /* font-family: 'PT Serif', serif; */
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 140%;
+  color: #1F1E1E;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 500;
+  padding: 0;
+  margin: 0;
+}
+
+ul,
+li {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.section-page {
+  padding: 100px 0;
+}
+
+.container {
+  max-width: 1140px;
+  margin: 0 auto;
+  padding: 0 10px;
+}
+
+.btn {
+  max-width: 250px;
+  display: block;
+  background: #886239;
+  border-radius: 30px;
+  padding: 19px 0 20px;
+  text-align: center;
+  color: #fff;
+}
+
+.title {
+  text-align: center;
+  font-size: 36px;
+}
+
+/* Hero */
+
+.header {
+  background: url('../images/header-bg.jpg')no-repeat center center / cover;
+}
+
+/* он является внутренним элементом хэдэра и ему ничего не мешает розтянуться на весь экран с помощью 100vh ничего не повредив, так как хэдэр  у нас пустой, а значит 100vh мыможем задать не хэдэру и хэдэр иннэру тоже, а только хэдэр иннеру */
+.header__inner {
+  min-height: 100vh;
+  padding: 16px 0;
+
+  /* розкидываем дочерние блоки по вертикали, типа вверху по центру и внизу они будут */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.header__top {
+  /* розкидываем дочерних по краям, а с третьим дочерним смотрим фокус ниже... */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  /* чтобы .menu отпустили на следующую строку */
+  flex-wrap: wrap;
+}
+
+.menu {
+  /* чтобы третий блок улетел на следующую строку */
+  width: 100%;
+  border-top: 1px solid #FFFFFF;
+  border-bottom: 1px solid #FFFFFF;
+  margin: 15px 0 46px 0;
+}
+
+.menu__btn {
+  display: inline-block;
+  width: 40px;
+  height: 30px;
+  border: none;
+  outline: none;
+  background: transparent;
+  position: absolute;
+  right: 10px;
+  top: 119px;
+  /* и еще одно обнуление для button из за которого средняя линия бургера не растягивалась на всю ширину */
+  padding: 0;
+  cursor: pointer;
+  display: none;
+}
+
+.menu__btn span {
+  display: block;
+  height: 2px;
+  background: #1F1E1E;
+}
+
+.menu__btn::after,
+.menu__btn::before {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  background: #1F1E1E;
+  left: 0;
+}
+
+.menu__btn::after {
+  top: 0;
+}
+
+.menu__btn::before {
+  bottom: 0;
+}
+
+.header-phone__inner {
+  display: flex;
+  align-items: center;
+}
+
+.header-phone__text {
+  font-weight: 700;
+  font-size: 16px;
+  color: #fff;
+}
+
+.header-phone__number {
+  background: #886239;
+  border-radius: 22px;
+  padding: 12px 31px 13px;
+  margin-left: 19px;
+  font-weight: 400;
+  color: #fff;
+
+  /* у нас ссылки наследуют свойства у родителя, или у ближайшего родственника, а значит шрифт и высоту он унаследует от header__phone
+
+  font-size: 16px;
+
+  */
+}
+
+
+.menu__list {
+  display: flex;
+  justify-content: space-evenly;
+  padding: 27px 0 24px;
+
+  /* не забываем про наследование, ссылки унаследую отсюда так зачем им тогда писать, правда? ) */
+  font-size: 16px;
+  line-height: 19px;
+  color: #FFFFFF;
+}
+
+.header__title {
+  font-family: 'PT Serif', serif;
+  font-weight: 700;
+  font-size: 90px;
+  line-height: 130px;
+  color: #1F1E1E;
+  text-align: center;
+
+
+  /* margin-bottom: auto; - говорит элементу оттолкнуться максимально вверх (еще заранее мы добавили верхнем блоку header__top отступ который не даст заголовку прилипнуть к нему)*/
+  margin-bottom: auto;
+}
+
+.header__descr {
+  max-width: 422px;
+  font-weight: 700;
+  font-size: 20px;
+  margin-bottom: 20px;
+
+}
+
+.header__arrow {
+  margin-top: 20px;
+  text-align: center;
+}
+
+/* direction */
+
+.direction__inner {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 32px;
+}
+
+
+.direction__img {
+  display: block;
+}
+
+.direction__text {
+  padding: 10px 19px 14px;
+  border: 1px solid #D9D9DE;
+  border-top: none;
+}
+
+/* travel-info */
+
+.travel-info {
+  background: url('../images/travel-info-bg.png')no-repeat top center / cover;
+  padding-top: 32px;
+}
+
+.travel-info__title {
+  color: #fff;
+  margin-bottom: 50px;
+}
+
+.travel-info__items {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 53px 74px;
+}
+
+.travel-info__img {
+  margin-bottom: 15px;
+}
+
+.travel-info__text {
+  font-size: 16px;
+  color: #fff;
+}
+
+/* popular */
+
+.popular__title {
+  margin-bottom: 40px;
+}
+
+.popular__items {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(4, 1fr);
+  grid-gap: 32px;
+  padding-bottom: 80px;
+  border-bottom: 2px solid #D9D9DE;
+}
+
+.popular__link {
+  padding: 17px 24px 19px;
+  color: #fff;
+  font-weight: 500;
+  font-size: 18px;
+
+
+  /* ссылки находясь в грид контейнере автоматически становятся грид элементами, и по этому мы можем также применять к ним флексы */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-repeat: no-repeat;
+  background-position: top center;
+  background-size: cover;
+
+  /* высоту задаем чтобы блоки растягивались, потму что изначально они будут формироваться относительно колличества контента в нем, но высоту задаем минимальную а не фиксированную, потому что блоки у нас есть большие и маленькие - а значит минимальная высота скажет блоку быть не меньше чем..., но если нада то будет растягиваться (что нам и нужно, а тянуть их будет наша грид сетка) */
+  min-height: 256px;
+}
+
+.popular__link:nth-child(3),
+.popular__link:nth-child(6) {
+
+  /* нам нужно что бы каждый из них, начинался там где он начинается (span), и занимал две колонки "2", по колонкам (grid-column)*/
+  grid-column: span 2;
+
+  /* и точно такое же - по рядам: тоесть по вертикали (начинался где начинался ми занимал два ряда) */
+  grid-row: span 2;
+}
+
+.popular__link-title {
+  margin-bottom: 15px;
+}
+
+.popular__link-title--big {
+  font-size: 24px;
+}
+
+.popular__price {
+  font-weight: 700;
+  font-size: 16px;
+  /* что бы толкнуть элементы popular__country,
+    popular__time вверх под заголовок указываем нижнему элементу в блоке - popular__price margin-top: auto;  */
+  margin-top: auto;
+}
+
+.popular__country,
+.popular__time {
+  font-weight: 400;
+  font-size: 16px;
+  margin-bottom: 15px;
+}
+
+/* map */
+
+
+.map__title {
+  margin-bottom: 46px;
+}
+
+
+
+/* about */
+
+.about__inner {
+  display: grid;
+  grid-template-columns: 448px 640px;
+  grid-gap: 32px;
+}
+
+.about-content__title {
+  text-align-last: left;
+  margin-bottom: 32px;
+}
+
+.about-content__text {
+  margin-bottom: 32px;
+}
+
+.about-content__link {
+  font-size: 16px;
+  line-height: 19px;
+  color: #C4C4C4;
+  text-decoration: underline;
+}
+
+.about-popup {
+  background: url('../images/video-bg.jpg')no-repeat top center / cover;
+
+  /* а что бы кнопка стала по центру пишем: */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* gallery */
+
+.gallery {
+  padding-top: 50px;
+  background: #886239;
+  color: #fff;
+}
+
+.gallery__top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 40px;
+
+  /* резервируем место под кнопки слайдера */
+  padding-right: 160px;
+}
+
+.gallery__link {
+  font-size: 16px;
+  line-height: 19px;
+  text-decoration: underline;
+}
+
+.gallery__item-inner {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 32px;
+}
+
+.gallery-btn {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  position: absolute;
+  top: -85px;
+  right: 0;
+}
+
+.slick-prev {
+  right: 60px;
+}
+
+/* tour */
+
+.tour__title {
+  font-weight: 700;
+  text-transform: uppercase;
+  margin-bottom: 77px;
+}
+
+.tour__text-box {
+  /* когда текст нужно разделить на колонки - это удобно делать свойством column-count */
+  column-count: 2;
+
+  /* а column-gap задает отступ между колонками */
+  column-gap: 46px;
+  padding-bottom: 65px;
+  border-bottom: 1px solid #D9D9DE;
+  margin-bottom: 44px;
+}
+
+.tour__text+.tour__text {
+  margin-top: 25px;
+}
+
+.tour__text-span {
+  font-weight: 700;
+}
+
+.tour__info {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-gap: 70px;
+}
+
+.tour__info-item {
+  font-family: 'PT Serif', serif;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 58px;
+  line-height: 75px;
+  color: #886239;
+  text-align: center;
+}
+
+.tour__info-text {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 26px;
+  text-align: center;
+  color: #1F1E1E;
+}
+
+/* booking */
+
+.booking {
+  background: #EAEAEA;
+  padding-top: 75px;
+}
+
+.booking__title {
+  font-weight: 700;
+  margin-bottom: 43px;
+}
+
+.booking__form {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  /* чтобы был перенос когда кто-то начнет выеживаться и захочет больше пространства */
+  flex-wrap: wrap;
+  max-width: 830px;
+  margin: 0 auto;
+}
+
+.booking__input {
+  width: 256px;
+  background: #fff;
+  border: 1px solid #D9D9DE;
+  padding: 11px 12px 14px;
+  color: #C4C4C4;
+  font-size: 16px;
+  margin-bottom: 28px;
+}
+
+.booking__input::placeholder,
+.booking__area::placeholder {
+  font-family: 'Roboto', sans-serif;
+  font-size: 16px;
+  color: #C4C4C4;
+}
+
+.booking__area {
+  width: 100%;
+  height: 122px;
+  padding: 14px 0 14px;
+  background: #fff;
+  border: 1px solid #D9D9DE;
+  padding: 11px 12px 14px;
+  color: #C4C4C4;
+  font-size: 16px;
+  resize: none;
+  margin-bottom: 67px;
+}
+
+.booking__btn {
+  width: 297px;
+  border: none;
+  font-size: 18px;
+  color: #FFFFFF;
+  cursor: pointer;
+}
+
+.booking__label {
+  font-size: 16px;
+  /* что бы выровнять кубик по центру, задаем booking__label{ display-flex; и align-items: center;}  */
+  display: flex;
+  align-items: center;
+}
+
+.booking__label-span {
+  border-bottom: 1px solid #1F1E1E;
+}
+
+
+/* заставляем оригинальный чекбокс  максимально "исчезнуть" из поля зрения и пишем ему свои стили. Это стандартная история как прятать такие элементы */
+.booking__checkbox {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  /* padding-left: 45px; */
+}
+
+
+/* делаем в html span для чекбокса и стилим: */
+.booking__checkbox-style {
+  width: 26px;
+  height: 26px;
+  border: 2px solid #C4C4C4;
+  border-radius: 2px;
+  position: absolute;
+  margin-left: -45px;
+  /* что бы выровнять кубик по центру, задаем booking__label{ display-flex; и align-items: center;}  */
+
+
+  /* вместо того что бы ровнять выбранный квадратик по центру для класса - .booking__checkbox:checked+.booking__checkbox-style::before с помощью позиционирования - делаем это на флэксах текущему классу */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* когда наш чекбокс будет выбран - нам нужно обратиться к соседнему элементу, а значит пишем так -->*/
+
+/* нам нужно на before поцепить значок типа "выбрано" */
+
+.booking__checkbox:checked+.booking__checkbox-style::before {
+  content: '';
+
+  width: 18px;
+  height: 18px;
+  background-color: #C4C4C4;
+
+  /* ровняем кубик по центру при использовании position absolute, или же этот способ отключаем и делаем тоже только на флэксах только уже для - .booking__checkbox-style
+
+/* position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); */
+}
+
+/* обьяснение по инпуту:
+Сначала мы спрятали истенный инпут, потому что - его никак нельзя с помощью css кастомизировать, далее мы нарисовали свой кастомный инпут, с помощь отрицательного марджина (и там я так и не понял зачем было задавать скрытому инпуту паддинг) отодвинули его на нужную нам позицию, следующий шаг дает нам возможность обратиться к нашему инпуту, но только тогда когда его состояние будет "checked" - это вот эта запись:
+ .booking__checkbox:checked + .booking__checkbox-style::before {} для мы использовали селектор + (плюс) это селектор обращения к соседнему элементу (если состояние у инпута чекед, то пожалуйста на бифор)
+*/
+
+/* footer */
+
+.footer {
+  background: #1F1E1E;
+  padding: 80px 0;
+}
+
+.footer__logo {
+  margin-bottom: 69px;
+  text-align: center;
+}
+
+.footer__box {
+  color: rgba(255, 255, 255, 0.8);
+  max-width: 830px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 14px;
+}
+
+.footer__info {
+  width: 255px;
+}
+
+.footer__box-title {
+  font-weight: 500;
+  margin-bottom: 7px;
+  color: #fff;
+}
+
+.footer__copy {
+
+  margin-bottom: 3px;
+}
+
+.footer__link {
+  text-decoration: underline;
+  color: #fff;
+}
+
+.footer__address {
+  width: 165px;
+}
+
+.footer__contacts {
+  width: 210px;
+}
+
+.footer__mail {
+  /* чтоб начинался с новой строки */
+  display: block;
+}
+
+
+
+
+/* responsive */
+
+
+@media (max-width: 1199px) {
+  .direction__inner {
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 20px;
+  }
+
+  .direction__img {
+    width: 100%;
+  }
+
+  .travel-info__items {
+    text-align: center;
+  }
+
+  .popular__link {
+    min-height: 272px;
+  }
+
+  .popular__items {
+    grid-gap: 10px;
+  }
+
+  .about__inner {
+    grid-template-columns: auto;
+    grid-gap: 50px;
+  }
+
+  .about-popup {
+    min-height: 700px;
+    background-position: 0 0;
+  }
+
+  .gallery__item-inner {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .gallery__item-img {
+    width: 100%;
+  }
+
+  .tour__info {
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 54px 15px;
+  }
+}
+
+
+
+
+@media (max-width: 991px) {
+  .section-page {
+    padding: 50px 0;
+  }
+
+  .header-phone__text {
+    font-size: 14px;
+    font-weight: 400;
+  }
+
+  .header__title {
+    font-size: 72px;
+    line-height: 86px;
+  }
+
+  .header__descr {
+    color: #fff;
+    font-weight: 400;
+  }
+
+  .travel-info__items {
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 53px 74px;
+  }
+
+  .popular__link:nth-child(3),
+  .popular__link:nth-child(6) {
+    grid-column: auto;
+    grid-row: auto;
+  }
+
+  .popular__items {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .popular__link {
+    min-height: 308px;
+  }
+
+  .popular__link-title,
+  .popular__link-title--big {
+    font-size: 16px;
+  }
+
+  .popular__country,
+  .popular__time {
+    font-size: 14px;
+  }
+
+  .map__iframe {
+    height: 470px;
+  }
+
+  .tour__text-box {
+    /* делит текстовый блок на колонки */
+    column-count: auto;
+  }
+}
+
+
+
+
+@media (max-width: 830px) {
+  .booking__input {
+    width: 100%;
+  }
+}
+
+
+
+
+
+@media (max-width: 700px) {
+  .footer__box {
+    flex-direction: column-reverse;
+    text-align: center;
+  }
+
+  .footer__contacts,
+  .footer__address {
+    margin-bottom: 50px;
+  }
+}
+
+
+
+
+@media (max-width: 767px) {
+  .header__title {
+    font-size: 58px;
+    line-height: 64px;
+  }
+
+  .header-phone__text {
+    display: none;
+  }
+
+  .direction__inner {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .travel-info__items {
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 50px;
+  }
+
+  .popular__items {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .popular__link {
+    min-height: 356px;
+  }
+
+  .map__iframe {
+    height: 400px;
+  }
+
+  .tour__info {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .booking__form {
+    flex-direction: column;
+  }
+
+  .booking__label {
+    margin-top: 30px;
+  }
+}
+
+
+
+
+@media (max-width: 575px) {
+  .header__title {
+    font-size: 46px;
+    line-height: 52px;
+  }
+
+  .title {
+    font-size: 30px;
+  }
+
+  .header__logo {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 25px;
+  }
+
+  .header-phone__number {
+    margin-left: 0;
+  }
+
+  .menu {
+    border: none;
+  }
+
+  .menu__list {
+    /* не нужно его отключать, так как с включением потом гемор будет, так отключаясь js прописывает свой класс в html а включение или возврат на исходнуюю прописан в css и беда в том что при возврате css не может перебить html, по этому есть другие варианты  */
+    display: block;
+    background: #886239;
+    position: absolute;
+    left: 0;
+    right: 0;
+    display: none;
+  }
+
+  .menu__list.menu__list--active {
+    display: block;
+  }
+
+  .menu__link {
+    display: block;
+    text-align: center;
+    padding: 10px;
+  }
+
+  .menu__btn {
+    display: block;
+  }
+
+  .direction__inner {
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 10px;
+  }
+
+  .popular__items {
+    grid-template-columns: repeat(1, 1fr);
+  }
+
+  .popular__link {
+    min-height: 537px;
+  }
+
+  .gallery__item-inner {
+    grid-gap: 10px 0;
+  }
+
+  .gallery__link {
+    font-size: 14px;
+    text-decoration: none;
+    margin-top: 15px;
+  }
+
+  .gallery__top {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .tour__info {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
+
+
+
+@media (max-width: 480px) {
+  .title {
+    font-size: 26px;
+  }
+
+  .header__title {
+    font-size: 36px;
+    line-height: 42px;
+  }
+
+  .header-phone__number,
+  .header__descr {
+    font-size: 16px;
+  }
+
+  .btn {
+    max-width: 208px;
+    padding: 15px 0;
+    font-size: 16px;
+  }
+
+  .header-phone__number {
+    border-radius: 30px;
+  }
+
+  .travel-info__items {
+    grid-template-columns: repeat(1, 1fr);
+    grid-gap: 70px;
+  }
+
+  .popular__link {
+    min-height: 436px;
+  }
+
+  .about-popup {
+    min-height: 490px;
+    background-position: -20px 0;
+  }
+
+  .gallery__item-inner {
+    grid-template-columns: repeat(1, 1fr);
+  }
+
+  .tour__text+.tour__text {
+    font-size: 16px;
+  }
+
+  .tour__info-item {
+    font-size: 40px;
+    line-height: 52px;
+  }
+
+  .tour__text-box {
+    padding-bottom: 35px;
+    margin-bottom: 15px;
+  }
+
+  .tour__info-text {
+    font-size: 18px;
+    line-height: 20px;
+  }
+
+  .booking__label {
+    font-size: 12px;
+    margin-left: 35px;
+  }
+
+  .booking__checkbox-style {
+    width: 20px;
+    height: 20px;
+    margin-left: -30px;
+  }
+
+  .booking__label-span {
+    line-height: 18px;
+  }
+
+}
+
+
+
+
+@media (max-width: 380px) {
+  .title {
+    font-size: 24px;
+  }
+
+  .header__title {
+    font-size: 30px;
+    line-height: 42px;
+  }
+
+  .direction__inner {
+    grid-template-columns: repeat(1, 1fr);
+    gap: 30px 0px;
+  }
+
+  .popular__link {
+    min-height: 332px;
+  }
+
+  .tour__info-item {
+    font-size: 34px;
+  }
+
+  .tour__info-text {
+    font-size: 16px;
+  }
+}
+
+
+
+
+@media (max-width: 320px) {
+  .title {
+    font-size: 20px;
+  }
+
+  .section-page {
+    padding-bottom: 0;
+  }
+
+  .about {
+    padding-bottom: 50px;
+  }
+
+  .gallery {
+    padding-top: 25px;
+  }
+
+  .travel-info {
+    margin-top: 50px;
+  }
+
+  .booking {
+    margin-top: 50px;
+    padding-bottom: 50px;
+  }
+
+  .popular__link-title,
+  .popular__link-title--big {
+    font-size: 14px;
+  }
+
+  .popular__link {
+    min-height: 286px;
+  }
+
+  .about-popup {
+    min-height: 333px;
+    background-position: -40px 0;
+  }
+
+  .booking__label-span {
+    border: none;
+  }
+}
