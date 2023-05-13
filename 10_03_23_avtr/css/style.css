@@ -1,0 +1,497 @@
+/* specification */
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+}
+
+@font-face {
+  font-family: 'Corporate-A-Bold';
+  font-style: normal;
+  font-weight: 700;
+  display: swap;
+  src: url('../fonts/Corporate-A-Bold.woff2') format('woff2'),
+    url('../fonts/Corporate-A-Bold.woff') format('woff');
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* чтобы картинки на даптиве были резиновые */
+img {
+  max-width: 100%;
+}
+
+button {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+}
+
+ul,
+li {
+  display: block;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  font-family: 'Roboto Condensed', sans-serif;
+  background: linear-gradient(180deg, #070A1B 0%, #2A3170 100%);
+  font-size: 16px;
+  line-height: 1.2em;
+  font-weight: 400;
+  color: #fff;
+}
+
+section {
+  padding-top: 150px;
+}
+
+.section__title {
+  font-family: 'Corporate A';
+  color: #F402A2;
+  text-transform: uppercase;
+  font-size: 18px;
+  margin-bottom: 25px;
+}
+
+.btn {
+  display: block;
+  outline: none;
+  border: 1px solid #F402A2;
+  width: 100%;
+  font-family: 'Corporate A';
+  font-size: 18px;
+  line-height: 1.2em;
+  color: #F402A2;
+  text-transform: uppercase;
+  padding: 14px 0;
+  margin-top: 25px;
+  transition: border 0.5s ease, color 0.5s ease;
+}
+
+.btn:hover {
+  border: 1px solid #53A1CB;
+  color: #53A1CB;
+}
+
+/* HEADER */
+
+.container {
+  max-width: 1220px;
+  padding: 0 10px;
+  margin: 0 auto;
+}
+
+.header {
+  background: #070A1B;
+}
+
+.header__top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 30px 0;
+}
+
+.header__logo {
+  margin-left: 115px;
+}
+
+.list {
+  display: flex;
+}
+
+.list__item:not(:first-of-type) {
+  margin-left: 30px;
+}
+
+.list__link {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: background 0.5s ease;
+}
+
+.list__link:hover {
+  background: #C1A1D2;
+}
+
+.header__content {
+  background: url('../images/header-bg.png')no-repeat center center/cover;
+  /* используем vh для отображения под все высоту экрана */
+  min-height: calc(100vh - 120px);
+  /* используем флэксы для центровки элементов */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  position: relative;
+}
+
+.header__content::before {
+  content: '';
+  background: url('../images/decor.svg');
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  bottom: -25px;
+}
+
+.header__content-title {
+  /* подключили шрифт через @face{} */
+  font-family: 'Corporate-A-Bold';
+  line-height: 1.2em;
+  font-size: 72px;
+  font-family: 'Corporate-A-Bold';
+  margin-bottom: 5px;
+}
+
+.header__content-descr {
+  font-size: 24px;
+  margin-bottom: 50px;
+}
+
+
+/* concept*/
+
+.concept__inner {
+  max-width: 900px;
+  margin-left: auto;
+}
+
+.concept__text {
+  font-size: 24px;
+  line-height: 1.2em;
+  margin-bottom: 25px;
+}
+
+/*premier*/
+
+.premier__inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 60px;
+}
+
+.premier__column {
+  /* или же мы могли сделать этот отступ между "premier__column" с помощью свойства "gap: 60px" которое нужно было бы записать "premier__inner" а здесь бы не пришлось задавать ширину вообще */
+  max-width: 570px;
+}
+
+.premier__text:not(:first-of-type) {
+  margin-top: 20px;
+}
+
+.premier__img-1 {
+  margin-top: 25px;
+}
+
+
+.premier__img-2 {
+  margin-bottom: 21px;
+}
+
+/* video */
+
+.video__btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.video__btn-span {
+  padding-top: 2px;
+  margin-left: 9px;
+}
+
+.video__btn svg {
+  transition: fill 0.5s ease;
+}
+
+/* моя ошибка 
+.video__btn svg:hover {
+  fill: #53A1CB;
+}
+*/
+
+.video__btn path {
+  transition: fill 0.5s ease;
+}
+
+.video__btn:hover path {
+  fill: #53A1CB;
+}
+
+/* design */
+
+.design__interior {
+  display: grid;
+  grid-template-columns: 255px 255px auto 330px;
+  grid-template-rows: auto auto;
+  /* 14px указали для того что бы не прилипла часть текста во второй колонке к верху картинки, в случае если в первой колонке станет меньше текста */
+  gap: 0 44px;
+  margin-bottom: 105px;
+}
+
+.design__interior-img {
+  /* чтобы колнка начиналась со второй линии пишем 2, а заканчивалась на последней пишем через слэш -1 */
+  grid-column: 2/-1;
+}
+
+.design__item--one-cell {
+  /* 1/3 значит что у насть есть мнимые три линии, и здесь мы говорим первой ячейке занимать по вертикали все пространство от первой горизонтальной линии до третьей - в нашем случае она же и последняя, тоесть нижняя */
+  grid-row: 1/3;
+}
+
+.design__item--two-cell {
+  /* привязываем таким образом элемент к нижней линии, тоесть если контент в первой ячейке добавится и таблица розтянется, то наш элемент останется у нижней границы и не поползет в вверх, но он всеравно полезет и что бы этого избежать используем флэксы уже для самого элемента */
+  grid-row-end: -1;
+  /* или же вот так
+  grid-row: 2/3;
+  */
+  display: flex;
+  align-items: flex-end;
+}
+
+.design__item--three-cell {
+  grid-column-end: -1;
+  grid-row-end: -1;
+  /* или
+    grid-column: 4/4;
+    grid-row: 3/2;
+  */
+
+  /* здесь так же дожимаем элемент к нижней линии */
+  display: flex;
+  align-items: flex-end;
+}
+
+
+.design__item-text--margin:not(:last-of-type) {
+  margin-bottom: 15px;
+}
+
+
+/* slider */
+
+.design-slider {
+  padding-bottom: 25px;
+}
+
+.design-slider__item {
+  /* хоть в макете растояние между картинками 60px, но мы делаем по тридцать с каждой стороны для каждой картинки и того в сумме и получится 60px */
+  margin: 0 30px;
+}
+
+.slick-track {
+  margin-left: -50px;
+}
+
+.arrow {
+  position: absolute;
+  cursor: pointer;
+  bottom: 0;
+  left: 50%;
+}
+
+.arrow-left {
+  transform: translateX(-95px);
+}
+
+.arrow-right {
+  transform: translateX(18px);
+}
+
+.design__box {
+  display: flex;
+  justify-content: center;
+  gap: 60px;
+  margin-top: 150px;
+}
+
+.design__box-column {
+  max-width: 255px;
+}
+
+.design__box-text {
+  margin-bottom: 15px;
+}
+
+.design__img {
+  margin-top: 150px;
+  max-width: 100%;
+  display: block;
+}
+
+/* footer */
+
+.footer {
+  padding: 133px 0;
+  background: #070A1B;
+}
+
+.footer__inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+
+/* responsive */
+
+@media (max-width: 1030px) {
+  .design__interior {
+    display: block;
+  }
+
+  .design__interior-img {
+    margin: 25px 0;
+    width: 100%;
+  }
+
+  .design__item--three-cell .design__interior-img {
+    max-width: 100%;
+    width: auto;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+
+@media (max-width: 767px) {
+
+  .header__content-title {
+    font-size: 58px;
+  }
+
+  .header__content-descr {
+    font-size: 20px;
+  }
+
+  .header__logo {
+    margin-left: 0;
+  }
+
+  .header__top {
+    flex-wrap: wrap;
+  }
+
+  .list__item:not(:first-of-type) {
+    margin-left: 10px;
+  }
+
+  .list__link {
+    width: 35px;
+    height: 35px;
+  }
+
+  .premier__inner {
+    flex-direction: column;
+  }
+
+  .design__box {
+    margin-top: 80px;
+    display: block;
+  }
+
+  .design__box-column {
+    max-width: 100%;
+  }
+
+  .design__img {
+    margin-top: 80px;
+  }
+
+  .footer__inner {
+    flex-direction: column;
+  }
+
+  .footer__logo {
+    margin: 25px 0;
+    width: 70%;
+  }
+
+  .footer {
+    padding: 80px 0;
+  }
+}
+
+
+
+@media (max-width: 575px) {
+  .header__content-title {
+    font-size: 42px;
+  }
+
+  .header__content-descr {
+    font-size: 16px;
+  }
+
+  .header__logo img {
+    width: 70%;
+  }
+
+  .concept__text {
+    font-size: 18px;
+  }
+
+  .btn {
+    font-size: 16px;
+  }
+}
+
+
+
+@media (max-width: 480px) {
+  .header__top {
+    padding: 10px 0;
+  }
+
+  .list {
+    justify-content: center;
+    width: 100%;
+    padding-top: 20px;
+  }
+}
+
+
+
+@media (max-width: 380px) {
+  .header__content::before {
+    width: 35px;
+    height: 35px;
+    background-size: cover;
+  }
+
+  .header__top {
+    flex-direction: column;
+  }
+
+
+  .header__content-title {
+    font-size: 32px;
+  }
+
+  .burger,
+  .header__logo {
+    margin-left: auto;
+  }
+
+  section {
+    padding-top: 100px;
+  }
+
+  .btn {
+    font-size: 14px;
+  }
+}
