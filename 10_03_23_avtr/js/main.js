@@ -10,7 +10,7 @@ $(function(){
         breakpoint: 481,
         settings: {
           slideToShow: 1,
-          arrows: false,
+//           arrows: false,
           variableWidth: false,
         }
       }
