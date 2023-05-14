@@ -1,0 +1,685 @@
+/* specification */
+
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+}
+
+ul,
+li {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+  padding: 0;
+  font-weight: 700;
+}
+
+p {
+  margin: 0;
+  padding: 0;
+  line-height: 1.3em;
+}
+
+button {
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+
+input {
+  outline: none;
+}
+
+.section__title {
+  color: #717171;
+  font-size: 32px;
+  line-height: 39px;
+  margin-bottom: 50px;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  line-height: 1.3em;
+  color: #0A0A0A;
+}
+
+
+.container {
+  max-width: 1220px;
+  padding: 0 10px;
+  margin: 0 auto;
+}
+
+/* header */
+
+.header {
+  background: #0A0A0A;
+  padding: 32px 0;
+}
+
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 24px;
+  line-height: 29px;
+  color: #717171;
+}
+
+.menu {
+  display: flex;
+  flex-grow: 1;
+  flex-basis: 0;
+}
+
+/* для верхнего телефона, а такой же только нижний, на флэксах, потому обоим не подходят такие правила */
+.header__phone {
+  flex-grow: 1;
+  flex-basis: 0;
+  text-align: right;
+}
+
+.menu__item+.menu__item {
+  margin-left: 30px;
+}
+
+/* headline */
+
+.headline {
+  background: #F5F5F7;
+  padding: 70px 0 40px;
+  text-align: center;
+}
+
+.headline__title {
+  font-weight: 700;
+  font-size: 64px;
+  line-height: 77px;
+  color: #490E84;
+  text-align: center;
+  margin-bottom: 40px;
+  text-transform: uppercase;
+}
+
+.headline__btn {
+  margin: 25px auto 0;
+}
+
+.btn {
+  width: 350px;
+  display: block;
+  background: #490E84;
+  border-radius: 30px;
+  border: 1px solid transparent;
+  color: #fff;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 29px;
+  text-transform: uppercase;
+  padding: 22px 0 19px;
+  transition: background 0.5s ease, color 0.5s ease, border 0.5s ease;
+}
+
+.headline__btn:hover {
+  color: #490E84;
+  background: #F5F5F7;
+  border: 1px solid #490E84;
+}
+
+/* news */
+
+.news {
+  padding-top: 87px;
+}
+
+.news__inner {
+  display: flex;
+  align-items: center;
+  margin-top: 50px;
+}
+
+.news__text {
+  max-width: 560px;
+}
+
+.news__text-paragraph:not(:last-of-type) {
+  margin-bottom: 30px;
+}
+
+.news__text-paragraph--bold {
+  font-weight: 700;
+  font-size: 20px;
+}
+
+.news__img {
+  margin-left: 191px;
+}
+
+/* range */
+
+.range {
+  padding-top: 150px;
+}
+
+.range__inner {
+  margin-top: 50px;
+  display: flex;
+  justify-content: space-between;
+
+}
+
+.range__item {
+  text-align: center;
+}
+
+.range__item-img {
+  border-radius: 30px;
+  width: 240px;
+  height: 320px;
+  object-fit: cover;
+}
+
+.range__item-title {
+  margin-top: 20px;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 1.3em;
+}
+
+.range__item-text {
+  margin-top: 10px;
+}
+
+/* order */
+
+.order {
+  padding-top: 150px;
+  padding-bottom: 100px;
+}
+
+.order__inner {
+  display: flex;
+  background: #574B63;
+  color: #fff;
+}
+
+.order__form-title {
+  font-size: 32px;
+  line-height: 39px;
+  color: #fff;
+  margin-bottom: 72px;
+}
+
+.order__form {
+  width: 100%;
+  padding: 135px 93px 138px 94px;
+}
+
+.order__form-input {
+  width: 100%;
+  border: none;
+  background: none;
+  border-bottom: 1px solid #F5F5F5;
+  color: #FFFFFF;
+  opacity: 0.5;
+  padding-bottom: 10px;
+  margin-bottom: 30px;
+}
+
+.order__form-text::placeholder,
+.order__form-input::placeholder {
+  color: #FFFFFF;
+  opacity: 0.5;
+}
+
+.order__form-btn {
+  width: 240px;
+  display: block;
+  background: #FFFFFF;
+  border: 1px solid transparent;
+  border-radius: 30px;
+  padding: 16px 0;
+  color: #490E84;
+  font-weight: 700;
+  text-transform: uppercase;
+  transition: background 0.5s ease, color 0.5s ease, border 0.5s ease;
+  margin: 30px auto 0;
+}
+
+.order__form-btn:hover {
+  background: #574B63;
+  color: #fff;
+  border: 1px solid #fff;
+}
+
+/* footer */
+
+.footer {
+  padding: 51px 0;
+  background: #0A0A0A;
+}
+
+.footer__inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #717171;
+}
+
+.footer__phone {
+  font-size: 24px;
+  line-height: 29px;
+}
+
+
+/* burger disabled */
+.menu-btn {
+  display: none;
+}
+
+
+/* responsive */
+
+
+@media (max-width: 1199px) {
+  .headline__img {
+    width: 70%;
+  }
+
+  .phone,
+  .menu {
+    flex-basis: auto;
+    flex-grow: unset;
+  }
+
+  .order__inner {
+    display: block;
+    text-align: center;
+  }
+
+  .order__img {
+    width: 100%;
+  }
+}
+
+
+
+
+@media (max-width: 991px) {
+  .news__text-paragraph--bold {
+    font-size: 18px;
+  }
+
+  .news__img {
+    margin-left: 0;
+    width: 100%;
+  }
+
+  .range {
+    padding-top: 100px;
+  }
+
+  .range__inner {
+    flex-wrap: wrap;
+    margin-top: 0;
+    justify-content: center;
+  }
+
+  .range__item {
+    margin-top: 50px;
+    margin-right: 50px;
+  }
+}
+
+
+
+
+@media (max-width: 767px) {
+  .header {
+    padding: 20px 0;
+  }
+
+  .nav {
+    font-size: 20px;
+    line-height: normal;
+  }
+
+  .menu {
+    /* вывод из общего потока */
+    position: absolute;
+    /* розтяжка на весь экран */
+    left: 0;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    /* задаем бэкграунд */
+    background: #0a0a0a;
+    /* ровняем текст по центру экрана */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* ставим элементы друг под другом */
+    flex-direction: column;
+    transform: translateY(-100%);
+    transition: transform 0.5s ease;
+  }
+
+  /* включаем меню */
+  .menu-open .menu {
+    transform: translateY(0%);
+  }
+
+  .menu__item+.menu__item {
+    margin-left: 0;
+  }
+
+  .menu__item {
+    margin-top: 50px;
+    font-size: 56px;
+  }
+
+  /* делаем видимыми прпавшие элементы шапки, кнопку, телефон и логотип. */
+
+  .header__logo,
+  .header__phone {
+    position: relative;
+    z-index: 10;
+  }
+
+  /****** start burger ******/
+
+  .menu-btn {
+    /* display: block; - включает нашу кнопку */
+    display: block;
+    width: 30px;
+    height: 30px;
+    background: transparent;
+    order: 1;
+    position: relative;
+    z-index: 10;
+  }
+
+  .btn-line {
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background: #fff;
+    left: 0;
+    transition: all 0.5s ease;
+  }
+
+  .btn-line:nth-child(1) {
+    top: 0;
+  }
+
+  .btn-line:nth-child(2) {
+    top: 10px;
+  }
+
+  .btn-line:nth-child(3) {
+    top: 10px;
+  }
+
+  .btn-line:nth-child(4) {
+    top: 20px;
+  }
+
+
+  /*** когда menu-open присвоен или активет  ***/
+  .menu-open .btn-line:nth-child(1) {
+    /* убираем линию с поля зрения */
+    transform: scaleX(0);
+  }
+
+  .menu-open .btn-line:nth-child(2) {
+    /* поворот по часовой.. */
+    transform: rotate(45deg);
+  }
+
+  .menu-open .btn-line:nth-child(3) {
+    /* поворот против часовой.. */
+    transform: rotate(-45deg);
+  }
+
+  .menu-open .btn-line:nth-child(4) {
+    /* убираем линию с поля зрения */
+    transform: scaleX(0);
+  }
+
+
+  /******  end burger  *******/
+
+  .btn {
+    width: 320px;
+    font-size: 22px;
+    line-height: 26px;
+    padding: 15px 0 15px;
+  }
+
+  .news {
+    padding-top: 25px;
+  }
+
+  .news__inner {
+    display: block;
+  }
+
+  .news__text {
+    max-width: none;
+  }
+
+  .news__img {
+    display: block;
+    margin: 0 auto;
+    width: auto;
+  }
+
+  .news__text-paragraph:last-of-type {
+    margin-bottom: 30px;
+  }
+
+  .news__text-paragraph--bold {
+    font-size: 16px;
+  }
+
+  .footer {
+    padding: 30px 0;
+  }
+}
+
+
+
+
+@media (max-width: 630px) {
+  .order__form {
+    padding: 80px 50px;
+  }
+}
+
+
+
+
+@media (max-width: 575px) {
+  .headline__title {
+    font-size: 54px;
+    line-height: 60px;
+  }
+
+  .btn {
+    width: 230px;
+    font-size: 18px;
+    line-height: 22px;
+    padding: 12px 0;
+  }
+
+  .range__item {
+    margin-right: 0;
+    width: 100%;
+  }
+
+  .order__form {
+    padding: 60px 30px;
+  }
+
+  .order__form-title {
+    font-size: 28px;
+    line-height: 32px;
+  }
+
+  .order__form-btn {
+    width: 230px;
+  }
+
+  .footer__inner {
+    flex-direction: column-reverse;
+  }
+
+  .footer__logo {
+    margin: 20px 0;
+  }
+}
+
+
+
+@media (max-width: 480px) {
+  .headline__title {
+    font-size: 46px;
+    line-height: 52px;
+  }
+
+  .btn {
+    width: 200px;
+    font-size: 16px;
+    line-height: 20px;
+  }
+
+  .section__title {
+    font-size: 28px;
+    line-height: 34px;
+    margin-bottom: 0px;
+  }
+
+  .news__img {
+    width: 100%;
+  }
+
+  .range__item {
+    margin-right: 0;
+  }
+
+  .order__form-title {
+    font-size: 24px;
+    line-height: 30px;
+    margin-bottom: 60px;
+  }
+
+  .order {
+    padding-bottom: 50px;
+    padding-top: 100px;
+  }
+}
+
+
+
+@media (max-width: 380px) {
+  .menu__item {
+    margin-top: 30px;
+    font-size: 46px;
+  }
+
+  .header__phone {
+    font-size: 18px;
+  }
+
+  .headline__title {
+    font-size: 38px;
+    line-height: 42px;
+  }
+
+  .btn {
+    width: 175px;
+    font-size: 16px;
+    line-height: 20px;
+    padding: 8px 0;
+  }
+
+  .headline {
+    padding: 35px 0 30px;
+  }
+
+  .news__inner {
+    margin-top: 20px;
+  }
+
+  .order__form-btn {
+    width: 175px;
+    padding: 8px 0;
+    font-size: 14px;
+  }
+
+  .order__form-title {
+    font-size: 20px;
+    line-height: 30px;
+  }
+
+  .order__form {
+    padding: 50px 15px;
+  }
+
+  .order__form-text {
+    font-size: 12px;
+  }
+
+  .order,
+  .range {
+    padding-top: 80px;
+  }
+
+}
+
+
+
+@media (max-width: 320px) {
+
+  .menu__item,
+  .headline__title {
+    font-size: 36px;
+  }
+
+  .news {
+    padding-top: 50px;
+  }
+
+  .section__title {
+    font-size: 24px;
+  }
+
+  .order__form-title {
+    font-size: 19px;
+    line-height: normal;
+    margin-bottom: 50px;
+  }
+
+  .order,
+  .range {
+    padding-top: 50px;
+  }
+}
