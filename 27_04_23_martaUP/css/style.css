@@ -1,0 +1,596 @@
+/* specification */
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Source Sans Pro", sans-serif;
+  font-size: 15px;
+  line-height: 24px;
+  color: #272727;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+button {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  color: inherit;
+}
+
+ul,
+li {
+  display: block;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+  padding: 0;
+  font-weight: 700;
+  color: #202020;
+}
+
+p {
+  margin: 0;
+  padding: 0;
+}
+
+input,
+input::placeholder,
+button,
+textarea {
+  outline: none;
+}
+
+.section-title {
+  font-size: 35px;
+  line-height: 45px;
+}
+
+/* hero */
+
+.header {
+  background: url("../images/header-bg.jpg") no-repeat center / cover;
+  color: #fff;
+  padding: 30px 0 268px;
+}
+
+.container {
+  max-width: 1190px;
+  padding: 0 10px;
+  margin: 0 auto;
+}
+
+.header__top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.menu__list {
+  display: flex;
+}
+
+.logo__img {
+  display: block;
+}
+
+.menu__item {
+  margin: 0 25px;
+}
+
+.menu__link {
+  font-weight: 600;
+  text-transform: uppercase;
+  color: #fff;
+  opacity: 0.5;
+  transition: opacity 0.5s ease;
+}
+
+.menu__link-active,
+.menu__link:hover {
+  opacity: 1;
+}
+
+.login,
+.signup {
+  font-family: "Source Sans Pro";
+  font-weight: 600;
+  font-size: 15px;
+  line-height: 24px;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.signup {
+  border-radius: 20px;
+  width: 143px;
+  color: #250f8a;
+  background: #fff;
+  padding: 8px 0;
+  text-align: center;
+  margin-left: 44px;
+}
+
+.header__slider {
+  margin-top: 140px;
+}
+
+.slider-item__box {
+  display: flex;
+}
+
+.slider-item__content {
+  max-width: 505px;
+  margin-right: 66px;
+}
+
+.slider-item__title {
+  color: #fff;
+  font-size: 45px;
+  line-height: 60px;
+  margin-bottom: 10px;
+}
+
+.slider-item__text {
+  font-size: 24px;
+  margin: 25px 0 60px;
+}
+
+.slider-item__btn {
+  display: block;
+  font-weight: 600;
+  width: 200px;
+  padding: 13px 0;
+  text-align: center;
+  color: #250f8a;
+  background: #ffca00;
+  border-radius: 25px;
+  text-transform: uppercase;
+}
+
+.header-dots {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.header-dots li+li {
+  margin-top: 10px;
+}
+
+.header-dots button {
+  font-size: 0;
+  display: block;
+  width: 7px;
+  height: 7px;
+  border-radius: 3.5px;
+  background: #fff;
+  opacity: 0.5;
+  cursor: pointer;
+  margin: 0 auto;
+}
+
+.header-dots .slick-active button {
+  width: 15px;
+  opacity: 1;
+}
+
+/* specialised */
+
+.specialised {
+  background: url("../images/specia-bg.svg") no-repeat left bottom;
+  padding: 55px 0 93px;
+}
+
+.specialised-title {
+  text-align: center;
+  margin-bottom: 96px;
+}
+
+.specialised__items {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.specialised-item {
+  width: 280px;
+  text-align: center;
+}
+
+.specialised-item__title {
+  font-size: 20px;
+  margin: 23px 0 10px;
+}
+
+.specialised-item__text {
+  opacity: 0.7;
+}
+
+/* advantages */
+
+.advantages {
+  background: #f4f9fd url("../images/advantages-bg.svg") no-repeat right 65%;
+  padding: 70px 0 55px;
+}
+
+.advantages-box {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.advantages-box:nth-child(even) {
+  flex-direction: row-reverse;
+}
+
+.advantages-box__content {
+  max-width: 460px;
+  padding-left: 45px;
+  position: relative;
+}
+
+.advantages-box__bg {
+  position: absolute;
+  top: -30px;
+  left: 0;
+}
+
+.advantages-box__title {
+  font-size: 35px;
+  line-height: 45px;
+  padding-bottom: 10px;
+}
+
+.advantages-box__text {
+  margin-top: 15px;
+}
+
+/* reviews */
+
+.reviews {
+  background: url("../images/reviews-bg.jpg") no-repeat center / cover;
+  padding: 40px 0 80px;
+  color: #fff;
+}
+
+.reviews__title {
+  width: 380px;
+  margin: 0 auto 48px;
+  text-align: center;
+  color: #fff;
+}
+
+.reviews__items {
+  display: flex;
+  justify-content: center;
+}
+
+.reviews__item {
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 5px;
+  padding: 35px 20px;
+  max-width: 300px;
+  margin: 0 10px;
+}
+
+.reviews__item-head {
+  display: flex;
+}
+
+.reviews__item-img {
+  margin-right: 20px;
+}
+
+.reviews__item-name {
+  color: #fff;
+  font-weight: 600;
+}
+
+.reviews__item-position {
+  opacity: 0.5;
+}
+
+.reviews__item-text {
+  text-align: center;
+}
+
+.reviews__item-text::before {
+  content: "“";
+  display: block;
+  font-size: 40px;
+  line-height: 30px;
+  font-weight: 700;
+  margin-top: 35px;
+}
+
+/* footer */
+
+.footer {
+  padding: 20px 0;
+}
+
+.footer__inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.footer__link a {
+  margin-left: 30px;
+}
+
+.footer__copy {
+  margin-right: 30px;
+}
+
+/* responsive */
+
+
+@media (max-width: 1630px) {
+
+  .advantages,
+  .specialised {
+    background-size: 80px;
+  }
+}
+
+@media (max-width: 1200px) {
+  .header-dots {
+    position: static;
+    transform: none;
+    display: flex;
+    justify-content: center;
+    padding-top: 30px;
+  }
+
+  .header-dots li+li {
+    margin: 0 0 0 40px;
+  }
+
+  .slider-item__title {
+    font-size: 40px;
+    line-height: 52px;
+  }
+
+  .specialised {
+    background-position-y: 60px;
+    background-size: 60px;
+  }
+}
+
+@media (max-width: 1060px) {
+  .slider-item__title {
+    font-size: 34px;
+    line-height: 40px;
+  }
+
+  .advantages-box {
+    flex-direction: column;
+    margin-bottom: 50px;
+  }
+
+  .advantages-box:nth-child(even) {
+    flex-direction: column;
+  }
+
+  .advantages-box__content {
+    margin-bottom: 30px;
+  }
+}
+
+@media (max-width: 992px) {
+  .slider-item__image {
+    display: none;
+  }
+
+  .slider-item__content {
+    margin: 0;
+  }
+
+  .slider-item__box {
+    justify-content: center;
+  }
+
+  .header {
+    padding-bottom: 180px;
+  }
+
+  .reviews__items {
+    flex-wrap: wrap;
+  }
+
+  .reviews__item {
+    margin-bottom: 20px;
+  }
+}
+
+@media (max-width: 925px) {
+  .header__top {
+    flex-wrap: wrap;
+  }
+
+  .button-box {
+    width: 100%;
+    text-align: right;
+    margin-top: 15px;
+  }
+
+  .signup {
+    margin-left: 30px;
+  }
+}
+
+
+@media (max-width: 767px) {
+  .specialised {
+    padding: 20px 0 10px;
+  }
+
+  .specialised-title {
+    margin-bottom: 70px;
+  }
+
+  .specialised__items {
+    flex-wrap: wrap;
+  }
+
+  .specialised-item {
+    margin-bottom: 35px;
+  }
+
+  .advantages-box__images img {
+    width: auto;
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 630px) {
+  .footer__link a {
+    margin-left: 20px;
+  }
+}
+
+/* на этом этапе делаем кнопку бургер в html */
+@media (max-width: 580px) {
+  .menu__list {
+    display: none;
+    /* эти свойства для позиции при нажатии на бургер, за которое отвечает jquery (включая тем самым наш .menu__list) */
+    position: absolute;
+    top: 130px;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    /* вот теперь и ссылка будет ростянута на всю ширину */
+    width: 100%;
+    background: #1766b3;
+    z-index: 5;
+  }
+
+  .menu__item {
+    margin: 0;
+  }
+
+  .menu__link {
+    /* здесь display: block; сработает только в связке с width: 100%; для .menu__list */
+    display: block;
+    padding: 10px 0;
+  }
+
+  /* кнопка бургер меню */
+  .menu__burger {
+    width: 30px;
+    height: 20px;
+    position: relative;
+  }
+
+  .menu__burger::after,
+  .menu__burger::before {
+    content: "";
+    width: 100%;
+    height: 2px;
+    background: #fff;
+    position: absolute;
+  }
+
+  .menu__burger span {
+    width: 100%;
+    height: 2px;
+    background: #fff;
+    position: absolute;
+    top: 9px;
+  }
+
+  .menu__burger::after {
+    top: 0;
+  }
+
+  .menu__burger::before {
+    bottom: 0;
+  }
+
+  .advantages {
+    background-image: none;
+  }
+
+  .footer__link {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 460px) {
+  .header__slider {
+    margin-top: 80px;
+  }
+
+  .slider-item__title {
+    font-size: 32px;
+  }
+
+  .slider-item__text {
+    font-size: 18px;
+  }
+
+  .specialised {
+    background-image: none;
+  }
+
+  .advantages-box__title {
+    font-size: 30px;
+    line-height: 36px;
+    padding-bottom: 10px;
+  }
+
+  .reviews__title {
+    width: auto;
+  }
+
+  .footer__inner {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .footer__copy {
+    margin-right: 0;
+    margin-top: 10px;
+  }
+}
+
+@media (max-width: 380px) {
+  .section-title {
+    font-size: 28px;
+    line-height: 32px;
+  }
+
+  .advantages-box__title {
+    font-size: 22px;
+    line-height: 30px;
+    padding-bottom: 5px;
+  }
+}
+
+/* исправление бага после включением свойства свойства display: none; и включением свойства свойства display: block; с помощь jquery в html  */
+
+@media (min-width: 580px) {
+  .menu__list {
+    display: flex !important;
+  }
+}
