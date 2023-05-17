@@ -1,0 +1,1328 @@
+/* specification */
+
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+}
+
+/* способ подключения уже скачанных шрифтов из папки из проэкта ("ну типа с компа"), пишем сокращение (@ff) и жмем энтер, и далее уже указываем нужные нам пути хранения нужных для нас файлов */
+
+/* оригинал
+
+@font-face {
+  font-family: 'FontName';
+  src: url('FileName.eot');
+  src: url('FileName.eot?#iefix') format('embedded-opentype'),
+    url('FileName.woff') format('woff'),
+    url('FileName.ttf') format('truetype'),
+    url('FileName.svg#FontName') format('svg');
+  font-style: normal;
+  font-weight: normal;
+}
+
+*/
+
+
+/* с изменением после ориги */
+
+@font-face {
+  /* так же смотрим что бы название шрифта было так же соответствующим 'SF Pro Display' */
+  font-family: 'SF Pro Display';
+
+  src: url('../fonts/SF-Pro-Display-Regular.woff2') format('woff2'),
+    url('../fonts/SF-Pro-Display-Regular.woff') format('woff');
+
+  /* самый топовый способ оптимизации шрифта ("шоб короче все было круто") */
+  font-display: swap;
+  font-style: normal;
+
+  /* здесь так же не забываем менять на соответствующий вариант (но здесь все ок, так как Regular - это normal (400)) */
+  font-weight: normal;
+}
+
+@font-face {
+  /* так же смотрим что бы название шрифта было так же соответствующим 'SF Pro Display' */
+  font-family: 'SF Pro Display';
+
+  src: url('../fonts/SF-Pro-Display-Bold.woff2') format('woff2'),
+    url('../fonts/SF-Pro-Display-Bold.woff') format('woff');
+
+  /* самый топовый способ оптимизации шрифта ("шоб короче все было круто") */
+  font-display: swap;
+  font-style: normal;
+
+  /* здесь так же не забываем менять на соответствующий вариант (bold (700))*/
+  font-weight: bold;
+}
+
+
+@font-face {
+  /* так же смотрим что бы название шрифта было так же соответствующим 'spaceagecyrillic' */
+  font-family: 'spaceagecyrillic';
+
+  src: url('../fonts/spaceagecyrillic-regular.woff2') format('woff2'),
+    url('../fonts/spaceagecyrillic-regular.woff') format('woff');
+
+  /* самый топовый способ оптимизации шрифта ("шоб короче все было круто") */
+  font-display: swap;
+  font-style: normal;
+
+  /* здесь так же не забываем менять на соответствующий вариант (normal (400))*/
+  font-weight: normal;
+}
+
+/* P.S Вот так мы подключили два разных шрифта (в форматах woff, woff2) и так же разные их стили (regilar, bold) */
+
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+button {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  color: inherit;
+}
+
+ul,
+li {
+  display: block;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+  padding: 0;
+}
+
+p {
+  margin: 0;
+  padding: 0;
+}
+
+input,
+input::placeholder,
+button,
+textarea {
+  outline: none;
+}
+
+body {
+  font-family: 'SF Pro Display';
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 19px;
+  color: #fff;
+}
+
+.title {
+  padding: 100px 0;
+  font-weight: 400;
+  font-size: 48px;
+  line-height: 48px;
+  font-family: 'spaceagecyrillic';
+}
+
+.button {
+  font-family: 'SF Pro Display';
+  border: 1px solid #fff;
+  font-size: 18px;
+  line-height: 21px;
+  color: #fff;
+  padding: 20px 45px;
+}
+
+.container {
+  max-width: 1220px;
+  padding: 0 10px;
+  margin: 0 auto;
+}
+
+/* hero */
+
+
+.header {
+  background: url('../images/header-bg.jpg')no-repeat top center / cover;
+}
+
+.header__inner {
+  min-height: 100vh;
+  /* делаем наши дочерние элементы и блоки флекс-послушными, теперь им можна задавать флекс свойства и выстраивать так как нам нужно с помощью флексов */
+  display: flex;
+  flex-direction: column;
+
+  /* непосредственно сам процесс построения с помощью флексов */
+  justify-content: space-between;
+}
+
+.header__top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  /* трицаточку вниз мы создали на случай - если у заголовка h1 станет много текста, то чтобы он не прилип своим верхом к низу нашего блока header__top */
+  padding: 75px 0 30px;
+}
+
+.menu__list {
+  /*разворачиваем список в горизонталь */
+  display: flex;
+}
+
+/* задаем нашим li расстояние, но можно было и просто оставить стандартный варинт, так как всеравно будем отталкивать от списка на максимальную дальность сам телефон и там еще и кнопка, тоесть рядом со списком ничего нет а значит тот лишний отступ нам не сильно и грозил.*/
+.menu__item+.menu__item {
+  margin-left: 30px;
+}
+
+.menu__link {
+  /* стилизуем наши ссылки */
+  text-transform: uppercase;
+  font-size: 18px;
+  line-height: 21px;
+  transition: color 0.5s ease;
+}
+
+.menu__link--active,
+.footer__info-link--active,
+.menu__link:hover {
+  color: #CB0E0E;
+}
+
+.phone {
+  font-size: 24px;
+  line-height: 29px;
+
+  /* чтобы максимально далеко оттолкнуться от сосоеда пишем: */
+  margin-left: auto;
+}
+
+.login {
+  margin-left: 22px;
+  margin-right: 134px;
+}
+
+.header__content {
+  max-width: 600px;
+}
+
+.header__title {
+  font-family: 'spaceagecyrillic';
+
+  /* немного убавим жирность, так как h1 сам по себе тоже жирный, вот получился маленький перебор, по этому и отменяем лишнюю жирность ) */
+  font-weight: 400;
+
+  font-size: 60px;
+  line-height: 60px;
+
+  /* дальше отклоняемся и подгоняем на глаз, отступ текста от заголовка */
+  margin-bottom: 15px;
+}
+
+.header__title-span {
+  font-family: 'spaceagecyrillic';
+  font-size: 110px;
+
+  /* если убрать высоту строки, то более похоже на макет */
+  /* line-height: 110px; */
+}
+
+.header__text {
+  display: flex;
+  justify-content: space-between;
+
+  /* если вдруг добавится еще текст, то чтобы он перенесся на след. строку запишем: */
+  flex-wrap: wrap;
+
+  font-size: 24px;
+  line-height: 29px;
+  margin-bottom: 50px;
+}
+
+
+.header__btn {
+  width: 100%;
+  border: 1px solid #FFFFFF;
+
+  /* боковые падинги для того чтобы при уменьшении кнопки края не прилипали к тексту */
+  padding: 15px 10px 15px;
+
+
+  font-family: 'SF Pro Display';
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 29px;
+  text-transform: uppercase;
+  color: #FFFFFF;
+}
+
+.header__description {
+  display: flex;
+
+  /* отпрвка их в правую сторону: */
+  justify-content: flex-end;
+
+  /* отступ вниз нужно сопоставить с нашой высотой экрана, так как у нас там выше хэдэру задано 100vh, итого: */
+  margin-bottom: 5%;
+
+  /* и еще добавим отступ сверху, на случай если контента станет больше чтобы оно там все не слиплось а наоборот создаст отступ и расширит сам хэдэр */
+  margin-top: 40px;
+}
+
+.header__description-text {
+  width: 165px;
+  font-size: 14px;
+  line-height: 17px;
+}
+
+.header__description-text+.header__description-text {
+  margin-left: 52px;
+}
+
+/* about */
+
+.about {
+  background: url('../images/about-bg.jpg')no-repeat top center / cover;
+  padding-bottom: 100px;
+}
+
+.about__item {
+  display: flex;
+  justify-content: space-between;
+
+  /* если контент будет добавляться то что бы он перепрыгивал на новую строку пищем: */
+  flex-wrap: wrap;
+
+  /* если задать марджин, то фон не растянется, тоесть отступ будет, все ок, но! у нижнего элемента фон закончться и отступ уже будет белым, тоесть стандартный, а если нужно сохранить фон то используем паддинг */
+}
+
+.about__item:not(:last-of-type) {
+  padding-bottom: 150px;
+}
+
+/* для смены картинки на драгую сторону в блоке */
+.about__item:nth-child(odd) {
+  flex-direction: row-reverse;
+}
+
+/* что бы картинка при адаптиве могла уменьшаться пишем: */
+
+.about__img {
+  max-width: 100%;
+}
+
+.about__content {
+  width: 600px;
+}
+
+.about__content-title {
+  font-size: 30px;
+  line-height: 36px;
+  margin-bottom: 5px;
+}
+
+.about__content-subtitle {
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 14px;
+  text-transform: uppercase;
+  color: #036CCA;
+  margin-bottom: 30px;
+}
+
+.about__content-text {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 50px;
+}
+
+.about__content-text p {
+  width: 165px;
+}
+
+.about__table {
+  margin-bottom: 50px;
+}
+
+/* тег "caption" делает надпись над таблицей */
+.about__table-caption {
+  /* отправляем caption вниз под таблицу */
+  caption-side: bottom;
+  text-align: left;
+  font-size: 12px;
+  line-height: 14px;
+  margin-top: 20px;
+  padding-left: 14px;
+  position: relative;
+}
+
+.about__table-caption::before {
+  content: '*';
+  position: absolute;
+  left: 0;
+}
+
+.about__table-tr {
+  border: 1px solid #fff;
+  border-left: none;
+  border-right: none;
+}
+
+/* таким образом мы обращаемся к СОСЕДНЕЙ TR тоесть ко всем последующим рядам кроме первого! */
+.about__table-tr+.about__table-tr {
+  font-weight: 700;
+  font-size: 36px;
+  line-height: 43px;
+  text-align: center;
+}
+
+/* это тоже какбы находиться в строке, но обернуто в спан, что дает нам возможность отдельной стилизации */
+.about__table-tr span {
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 17px;
+
+  /* делаем спан блочным, что бы он перенесся на следующую строку  */
+  display: block;
+}
+
+/* расстояние между границами задаем TD */
+.about__table-td {
+  padding: 10px 30px 10px 0;
+}
+
+/* how-to */
+
+.how-to {
+  background: url('../images/howto-bg.jpg')no-repeat top center /cover;
+  padding-bottom: 100px;
+}
+
+.how-to__box {
+  text-align: center;
+}
+
+.how-to__box circle,
+.how-to__box text,
+foreignObject {
+  transition: all 0.5s ease;
+  cursor: pointer;
+  font-size: 18px;
+}
+
+/* при наведении на <g> при ховере, наш <circle> будет принимать вот эти параметры: */
+.how-to__box g:hover circle {
+  r: 20px;
+  fill: #036CCA;
+}
+
+/* при наведении на <g> при ховере, наш <text> будет принимать вот эти параметры: */
+.how-to__box g:hover text {
+  fill: #036CCA;
+
+  /* (часть 7) подгонка текста делаем в html через увеличение свойства viewBox="0 0 565 555" а именно его третьего значения( это вертикальная правая линия бока svg и паралельно с этим так же увеличиваем width на тоже количество пикселей что и viewBox) */
+  font-size: 36px;
+}
+
+/* при наведении на <g> при ховере, наш <foreignObject> будет принимать вот эти параметры: */
+.how-to__box g:hover foreignObject {
+  /* цвет у нас уже не fill а color, потому что это уже у нас как html элемент а не svg */
+  color: #036CCA;
+  /* размер лупашим по своему усмотрению ибо то что в макете не катит очень большое */
+  font-size: 22px;
+}
+
+foreignObject {
+  text-align: left;
+}
+
+svg {
+
+  /* ВНИМАНИЕ ЧИТАЕМ ПО ПОРЯДКУ (по номеру части) */
+
+  /* (часть 1) чтоб не обрезало крайние элементы, нам нужно расширить область, нужно в html в теге svg там где viewBox изменить значения пикселей на десять (делаем расширение верхней горизонтальной линии и правой вертикальной линий, а это по логике из имеющихся четырех значений, последние два) */
+
+  /* так же ниже во втором комменте смотрим способ вставки текста непосредственно внутрь самого svg файла (в части 3) */
+}
+
+/* (часть 6)  далее что бы при наведении либо на кружок или на текст они вместе подсвечивались - итак нужно следующее: один из способов - это нужно обьеденить тег <text> и <circle> вместе, это можна сделать с помощью безобидного тега <g> (о нем можно почитать в гугле) */
+
+/* to-book */
+
+.to-book {
+  background: url('../images/tobook-bg.jpg')no-repeat top center / cover;
+  min-height: 100vh;
+}
+
+.to-book__inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.to-book__text p {
+  width: 165px;
+  font-size: 14px;
+  line-height: 17px;
+}
+
+.to-book__text {
+  display: flex;
+}
+
+
+.to-book__text p:not(:last-of-type) {
+  margin-right: 53px;
+}
+
+/* info */
+
+.info {
+  background: url('../images/info-bg.jpg')no-repeat top center / cover;
+  padding-bottom: 100px;
+}
+
+.special-offer__inner {
+  display: flex;
+  justify-content: space-between;
+}
+
+.special-offer__item-box {
+  border: 1px solid #fff;
+  width: 500px;
+  padding: 40px 0 35px;
+}
+
+.special-offer__item-text {
+  font-size: 24px;
+  line-height: 29px;
+  text-align: center;
+  max-width: 236px;
+  margin: 0 auto;
+}
+
+.special-offer__item-text span {
+  color: #CB0E0E;
+}
+
+.special-offer__price {
+  margin-top: 115px;
+}
+
+.special-offer__old-price {
+  text-align: right;
+  font-size: 14px;
+  line-height: 17px;
+  margin: 0 75px 15px auto;
+  position: relative;
+}
+
+.special-offer__old-price::before {
+  content: '';
+  position: absolute;
+  width: 68px;
+  height: 1px;
+  background: #CB0E0E;
+  transform: rotate(17.1deg);
+  top: 7px;
+  right: 0;
+
+}
+
+.special-offer__new-price {
+  text-align: center;
+  font-size: 48px;
+  line-height: 57px;
+}
+
+
+.special-offer__btn {
+  width: 100%;
+  margin-top: 25px;
+}
+
+/* services */
+
+.services {
+  /* опять жеж таки поддинг потому что он тянет за собой фон, а если будет марджин то внизу за ним не тянется фон и будет белое пространство, но мы так делаем только если нада сохранить фон секции между элементами блока этой секции */
+  padding-bottom: 200px;
+}
+
+.services__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.srvices__box-list {
+  max-width: 622px;
+  font-size: 24px;
+  line-height: 29px;
+}
+
+.srvices__list-title {
+  margin-bottom: 25px;
+}
+
+.srvices__item {
+  padding-left: 35px;
+  position: relative;
+}
+
+.srvices__item::before {
+  content: '';
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background: #FFFFFF;
+  border-radius: 50%;
+  left: 0;
+  top: 4px;
+}
+
+.services__list-decr {
+  font-size: 12px;
+  line-height: 14px;
+  margin-top: 25px;
+}
+
+.srvices__buttons {
+  max-width: 500px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.srvices__buttons button:not(:last-of-type) {
+  margin-bottom: 50px;
+}
+
+.button--first {
+  position: relative;
+}
+
+.button--first::before {
+  content: '';
+  position: absolute;
+  background: url('../images/services-photo.png');
+  width: 192px;
+  height: 150px;
+  bottom: 43px;
+  right: 0;
+}
+
+/* slider */
+
+.slider {
+  text-align: center;
+}
+
+.slider__inner {
+  border: 1px solid #fff;
+  margin-bottom: 50px;
+  padding: 100px 0;
+}
+
+
+.slider__box-img {
+  margin: 0 auto;
+}
+
+.slider__descr {
+  font-family: 'spaceagecyrillic';
+  font-size: 24px;
+  line-height: 38px;
+}
+
+.slider__arrow {
+  cursor: pointer;
+  position: absolute;
+  /* это позволит им стать по центру картинки и нижней и верхней */
+  top: 50%;
+  /* если какуюто стрелку перестанет быть видно, то пишем на всякий случай z-index */
+  z-index: 5;
+}
+
+.slider__arrow-left {
+  left: 75px;
+}
+
+.slider__arrow-right {
+  right: 75px;
+}
+
+/* contacts */
+
+.contacts {
+  background: #010203;
+  padding-bottom: 100px;
+}
+
+
+.contacts__inner {
+  display: flex;
+  justify-content: space-between;
+}
+
+.contacts__title {
+  padding-bottom: 50px;
+}
+
+.contacts__text {
+  max-width: 450px;
+  font-size: 24px;
+  line-height: 29px;
+  margin-bottom: 80px;
+}
+
+.contacts__form {
+  display: flex;
+  flex-direction: column;
+  max-width: 500px;
+  width: 100%;
+}
+
+.contacts__input {
+  background: #010203;
+  border: none;
+  border-bottom: 1px solid #fff;
+  padding: 20px 0;
+  margin-bottom: 30px;
+  color: #fff;
+
+}
+
+.contacts__input::placeholder {
+  font-family: 'SF Pro Display';
+  font-size: 14px;
+  line-height: 17px;
+  color: #fff;
+}
+
+.contacts__btn {
+  margin-top: 70px;
+}
+
+.contacts__guranrees {
+  max-width: 600px;
+}
+
+.contacts__guranrees-text {
+  font-size: 24px;
+  line-height: 29px;
+}
+
+.contacts__guranrees-img {
+  display: block;
+  margin-left: auto;
+}
+
+/* footer */
+
+.footer {
+  background: url('../images/footer-bg.jpg')no-repeat top center / cover;
+  padding: 100px 0 150px;
+}
+
+.footer__inner {
+  display: flex;
+  /* отправляем всех вправо */
+  justify-content: flex-end;
+}
+
+.footer__text,
+.footer__menu-item,
+.footer__info-item {
+  font-size: 16px;
+  line-height: 19px;
+}
+
+.footer__text {
+  width: 160px;
+
+  margin-right: 52px;
+}
+
+.footer__text p+p {
+  margin-top: 50px;
+}
+
+.footer__menu {
+  width: 115px;
+  margin-right: 102px;
+}
+
+.footer__menu-item+.footer__menu-item {
+  margin-top: 20px;
+}
+
+.footer__info-item+.footer__info-item {
+  margin-top: 20px;
+}
+
+.footer__info-link,
+.footer__menu-link {
+  text-transform: uppercase;
+  transition: color 0.5s ease;
+}
+
+.footer__info-link:hover,
+.footer__menu-link:hover {
+  color: #CB0E0E;
+}
+
+
+/*** burger кнопка ***/
+.burger-menu {
+  display: none;
+}
+
+/**** список вместо картинки созвездия svg ****/
+.how-to__box-list {
+  display: none;
+}
+
+/* Responsive */
+
+
+@media (max-width: 1370px) {
+  .login {
+    margin-right: 0;
+  }
+
+  .to-book {
+    background-position: top left;
+  }
+
+  .srvices__buttons {
+    width: 450px;
+  }
+}
+
+
+
+
+@media (max-width: 1140px) {
+  .about__item:not(:last-of-type) {
+    padding-bottom: 100px;
+  }
+
+  .about__item {
+    justify-content: center;
+  }
+
+  .about {
+    padding-bottom: 50px;
+  }
+
+  .about__img {
+    margin-bottom: 50px;
+  }
+
+  .contacts__inner {
+    display: block;
+  }
+
+  .contacts__text {
+    max-width: none;
+
+  }
+
+  .contacts__form {
+    max-width: none;
+    width: 100%;
+  }
+
+  .contacts__guranrees {
+    /* max-width: none;
+    width: 100%; */
+  }
+
+  .contacts__guranrees-text {}
+}
+
+
+
+
+@media (max-width: 1060px) {
+  .special-offer__inner {
+    display: block;
+  }
+
+  .special-offer__item-box {
+    width: 100%;
+  }
+
+  .special-offer__item-text {
+    max-width: none;
+  }
+
+  .services__inner {
+    display: block;
+  }
+
+  .special-offer__btn {
+    width: 100%;
+    margin: 25px 0;
+  }
+
+  .srvices__box-list {
+    margin-right: 0;
+    max-width: none;
+    width: 100%;
+    margin-bottom: 170px;
+  }
+
+  .srvices__buttons {
+    max-width: none;
+    width: 100%;
+  }
+
+  .services {
+    padding-bottom: 50px;
+  }
+
+  .slick-slide img {
+    width: 100%;
+  }
+}
+
+
+
+
+@media (max-width: 991px) {
+  .header__top {
+    padding-top: 50px;
+  }
+
+  .menu__link {
+    font-size: 16px;
+  }
+
+  .phone {
+    font-size: 20px;
+    line-height: normal;
+  }
+
+  .menu__item+.menu__item {
+    margin-left: 20px;
+  }
+
+  .how-to__box svg {
+    display: none;
+  }
+
+  .how-to__box-list {
+    display: block;
+  }
+
+  .how-to__box-item {
+    text-align: left;
+    padding: 0 0 40px 20px;
+    margin-left: 20px;
+    position: relative;
+    border-left: 1px solid #fff;
+  }
+
+  .how-to__box-item::before {
+    content: '';
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background: #fff;
+    border-radius: 50%;
+    left: -10px;
+    top: 0;
+  }
+
+  .how-to__box-item:last-child {
+    padding-bottom: 0;
+  }
+
+  .to-book__inner {
+    display: block;
+  }
+
+  .to-book__text {
+    justify-content: end;
+  }
+
+  .to-book__text p {
+    font-size: 16px;
+  }
+
+  .to-book {
+    min-height: 50vh;
+  }
+}
+
+
+
+
+
+@media (max-width: 767px) {
+
+  .header__top {
+    padding-top: 30px;
+  }
+
+  .menu {
+    order: 1;
+  }
+
+  .phone {
+    margin-left: 0;
+  }
+
+  .login {
+    order: -1;
+  }
+
+  .menu__list {
+    display: block;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    background: #6d7e99;
+    color: #fff;
+    padding: 20px 0;
+    transform: translateY(-100%);
+    transition: transform 0.5s ease;
+    z-index: 1;
+  }
+
+  .menu__list--open.menu__list {
+    transform: translateY(0);
+  }
+
+  .menu__link {
+    display: block;
+    text-align: center;
+    padding: 10px 0;
+  }
+
+  .menu__item+.menu__item {
+    margin-left: 0;
+    margin-top: 20px;
+  }
+
+  .burger-menu {
+    display: inline-block;
+    width: 40px;
+    height: 30px;
+    position: relative;
+    z-index: 2;
+  }
+
+  .burger-menu span {
+    display: block;
+    width: 100%;
+    height: 2px;
+    background: #fff;
+  }
+
+  .burger-menu span::after,
+  .burger-menu span::before {
+    content: '';
+    width: 100%;
+    height: 2px;
+    background: #fff;
+    position: absolute;
+    left: 0;
+  }
+
+  .burger-menu span::after {
+    top: 0;
+  }
+
+  .burger-menu span::before {
+    bottom: 0;
+  }
+}
+
+
+
+
+
+@media (max-width: 630px) {
+  .header__content {
+    max-width: none;
+  }
+
+  .header__title {
+    font-size: 46px;
+    line-height: normal;
+  }
+
+  .header__title-span {
+    font-size: 84px;
+  }
+
+  .title {
+    font-size: 42px;
+    padding: 50px 0;
+  }
+
+
+  .about__content,
+  .about__table {
+    width: 100%;
+  }
+
+  .about__item:not(:last-of-type) {
+    padding-bottom: 30px;
+  }
+
+  .about__content-text {
+    display: block;
+  }
+
+  .about__content-text p {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+
+  /* убираем первую тээрку, тоесть перевый ряд */
+  .about__table-tr:first-child {
+    display: none;
+  }
+
+  /* задействуем текст из наших aria-label */
+  .about__table-td {
+    display: block;
+    /* отправляем половину текста вправо */
+    text-align: right;
+    border-bottom: 1px solid #fff;
+  }
+
+  .about__table-td:last-child {
+    border-bottom: none;
+  }
+
+  .about__table-td::before {
+    content: attr(aria-label);
+    /* отправляем текст влево */
+    float: left;
+  }
+
+  /* далее возвращаем спан в строчное сосот., и он займет нормальную позицию */
+  .about__table-tr span {
+    display: inline-block;
+  }
+
+  .about__table-tr+.about__table-tr {
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 22px;
+  }
+
+}
+
+
+
+
+
+@media (max-width: 575px) {
+  .button {
+    display: block;
+    width: 100%;
+  }
+
+  .title {
+    font-size: 38px;
+    line-height: normal;
+  }
+
+  .title.services__title {
+    font-size: 36px;
+  }
+
+  .to-book__text {
+    display: block;
+  }
+
+  .to-book__text p {
+    width: 100%;
+  }
+
+  .to-book__text p:not(:last-of-type) {
+    margin-right: 0;
+    margin-bottom: 25px;
+  }
+
+  .footer__inner {
+    display: block;
+    text-align: center;
+  }
+
+  .footer__text,
+  .footer__menu {
+    width: 100%;
+    margin-right: 0;
+  }
+
+  .footer__text p+p {
+    margin-top: 0px;
+  }
+
+  .footer__menu {
+    margin: 25px 0;
+  }
+
+  .footer {
+    padding: 25px 0;
+  }
+}
+
+
+
+
+@media (max-width: 480px) {
+  .header__title {
+    font-size: 36px;
+  }
+
+  .title {
+    font-size: 30px;
+    line-height: normal;
+  }
+
+  .header__title-span {
+    font-size: 65px;
+    line-height: normal;
+  }
+
+  .header__btn,
+  .button {
+    font-size: 18px;
+  }
+
+  .header__text {
+    font-size: 18px;
+  }
+
+  .about__content-title {
+    font-size: 28px;
+  }
+
+  .slider__arrow-right {
+    right: 0;
+  }
+
+  .slider__arrow-left {
+    left: 0;
+  }
+
+  .slider__descr {
+    font-size: 20px;
+    line-height: 30px;
+  }
+
+  .srvices__box-list {
+    max-width: none;
+    font-size: 20px;
+  }
+
+  .title.services__title {
+    font-size: 28px;
+  }
+
+  .contacts__text,
+  .contacts__guranrees-text {
+    font-size: 20px;
+  }
+
+  .contacts__guranrees-img {
+    margin-left: 0;
+    width: 100%;
+  }
+}
+
+
+
+
+
+@media (max-width: 380px) {
+  .header__title {
+    font-size: 28px;
+    line-height: 32px;
+  }
+
+  .title {
+    font-size: 26px;
+  }
+
+  .title.to-book__title {
+    font-size: 24px;
+  }
+
+  .title.services__title {
+    font-size: 23px;
+  }
+
+  .header__title-span {
+    font-size: 50px;
+    line-height: normal;
+  }
+
+  .header__btn,
+  .button {
+    font-size: 16px;
+    padding: 10px;
+  }
+
+  .burger-menu {
+    width: 30px;
+  }
+
+  .about__table-tr+.about__table-tr {
+    font-size: 18px;
+    line-height: 20px;
+  }
+
+  .about {
+    padding-bottom: 30px;
+  }
+
+  .special-offer__new-price {
+    font-size: 38px;
+  }
+
+  .info,
+  .contacts {
+    padding-bottom: 50px;
+  }
+
+  .contacts__input {
+    margin-bottom: 15px;
+  }
+
+  .contacts__btn {
+    margin-top: 25px;
+  }
+
+  .contacts__text {
+    margin-bottom: 40px;
+  }
+}
+
+
+
+
+
+@media (max-width: 320px) {
+  .phone {
+    font-size: 18px;
+  }
+}
