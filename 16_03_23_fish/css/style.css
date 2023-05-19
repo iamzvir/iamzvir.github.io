@@ -625,6 +625,7 @@ body {
   /*такая запись означает что правило срботает, если у класса menu__list будет появляться класс menu__list--active*/
   .menu__list.menu__list--active {
     top: 75px;
+    z-index: 3;
   }
 
   .menu__link {
@@ -744,12 +745,13 @@ body {
 
 
 @media (max-width: 767px) {
-  .logo img {
-    width: 80%;
-  }
 
   .header__top {
-    padding-bottom: 68px;
+    padding-top: 10px;
+  }
+
+  .menu__phone {
+    margin-right: 0;
   }
 
   .header__content-title {
@@ -803,10 +805,11 @@ body {
 @media (max-width: 575px) {
   .header__top {
     align-items: center;
+    padding-top: 15px;
   }
 
   .menu {
-    margin: 0 20px 0 auto;
+    margin: -80px 20px 0 auto;
   }
 
   .menu__list.menu__list--active {
@@ -819,8 +822,8 @@ body {
   }
 
   .menu__phone {
-    margin-right: 0;
-    margin-top: 0;
+    margin-right: 15px;
+    margin-top: -75px;
   }
 
   .header__content-title {
@@ -919,7 +922,26 @@ body {
 
 @media (max-width: 380px) {
   .header__content-title {
-    font-size: 36px;
+    font-size: 32px;
+  }
+
+  .menu__phone {
+    margin-right: 0;
+  }
+
+  .phone__img {
+    width: 70%;
+  }
+
+  .menu__btn {
+    width: 30px;
+    height: 20px;
+  }
+
+  .menu__btn::after,
+  .menu__btn::before,
+  .menu__btn span {
+    height: 2px;
   }
 
   .btn {
