@@ -1,0 +1,938 @@
+/* specification */
+
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+button {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  color: inherit;
+}
+
+ul,
+li {
+  display: block;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+  padding: 0;
+}
+
+p {
+  margin: 0;
+  padding: 0;
+}
+
+input,
+input::placeholder,
+button,
+textarea {
+  outline: none;
+}
+
+body {
+  font-family: 'Noto Sans', sans-serif;
+  font-size: 14px;
+  line-height: 19px;
+  color: #303030;
+}
+
+section {
+  padding-top: 150px;
+}
+
+.section__title {
+  margin-bottom: 60px;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 33px;
+  color: #868585;
+}
+
+
+/* hero */
+
+.container {
+  max-width: 1220px;
+  padding: 0 10px;
+  margin: 0 auto;
+}
+
+.header {
+  background: url('../images/header-bg.jpg')no-repeat top center /cover;
+  padding: 70px 0 40px;
+  color: #fff;
+}
+
+.header__inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  min-height: calc(100vh - 110px);
+  text-align: center;
+}
+
+.header__desc {
+  font-size: 18px;
+  line-height: 25px;
+}
+
+.header__title {
+  font-weight: 700;
+  font-size: 64px;
+  line-height: 87px;
+}
+
+.header__text {
+  font-size: 42px;
+  line-height: 57px;
+  margin-bottom: 50px;
+}
+
+
+.btn__path {
+  /* не работает потому что у этого паза изначально в html нет такого свойства - так запишем же а цвет укажем - transparent (прозрачный)  */
+  transition: fill 0.5s ease;
+}
+
+
+/* при наведении на кнопку цвет должен меняться у svg и он как правило меняется у какого то PATH, как понять у какого именно?
+  тоесть никто не знает ) и нужно вычеслять методом тыка - смотрим описание в html файле... */
+
+
+/* при наведении на btn, классу btn__path добавляем свойство fill, которое и будет менять цвет на нужный нам:  */
+.btn:hover .btn__path {
+  fill: #A9A32A;
+  /* теперь вроди все круто но не видно стрелку, это мы решаем с помощь перемены местами наших пазов, тот который отвечает за стрелку мы переносим и ставим над тем что отвечает за круг и все. */
+}
+
+.header__btn-text {
+  color: #fff;
+}
+
+.btn__text {
+  font-size: 18px;
+  line-height: 25px;
+  /* что бы применялись все свойства но при этом он оставался сторчным пишем: */
+  display: inline-block;
+  /* лтрицательным марджином заганяем текст в нашу картинку, но влево мы сместим а вот вверх уже не сработает, читаем про марджны, а значит используем другой метод - свойство transform*/
+
+  transform: translate(-58px, -15px);
+  /* transform: translateX(); ,transform: translateY(); так писать не правильно и это не сработает, пишем все первом свойстве */
+}
+
+.social__list {
+  display: flex;
+}
+
+.social__item:not(:last-of-type) {
+  margin-right: 20px;
+}
+
+/* services */
+
+.services__inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.services__content {
+  max-width: 530px;
+  padding-right: 20px;
+}
+
+.services__item+.services__item {
+  margin-top: 50px;
+}
+
+.services__item-title {
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 25px;
+  margin-bottom: 15px;
+}
+
+/* если картинка была  бы не в обертке, то ее спасло бы от растягивания при добавлении контента свойство object-fit: cover;
+*/
+
+/* info */
+
+.info {
+  padding-bottom: 150px;
+}
+
+.info__inner {
+  display: flex;
+  justify-content: space-between;
+}
+
+.info__box {
+  width: 510px;
+}
+
+.info-tabs {
+  margin-bottom: 100px;
+}
+
+.info-tabs__items {
+  margin-bottom: 120px;
+}
+
+.info-tabs__item {
+  font-size: 18px;
+  /* высота строки дает тот отступ в 5px, так что можем его отдельно не задавать */
+  line-height: 25px;
+}
+
+.info-tabs__item+.info-tabs__item {
+  margin-left: 40px;
+}
+
+.info-tabs__item--active {
+  border-bottom: 1px solid #303030;
+}
+
+
+/* нам не нужно что бы они все отображались, тоесть все кроме активного, нада скрыть */
+.info-tabs__content {
+  display: none;
+}
+
+/* а первому тоесть активному пишем модификатор в html, а здесь прописываем: */
+.info-tabs__content--active {
+  display: block;
+}
+
+.info-slider__img {
+  margin-right: 40px;
+  /* это разместит текст с правой стороны от картинки */
+  float: left;
+}
+
+.info-slider__text {
+  /* с упором на будущее, если текста станет больше, чтобы он не уперся в стрелки слайдера */
+  padding-bottom: 15px;
+}
+
+.slick-arrow {
+  position: absolute;
+  left: 275px;
+  bottom: 0;
+  /* чтобы исключить наезд слайдера на стрелки особенно ту что ближе к слайдеру укажем им z-index */
+  z-index: 5;
+  cursor: pointer;
+}
+
+.slick-arrow path {
+  transition: fill 0.5s ease;
+}
+
+.slick-arrow:hover path {
+  fill: #A9A32A;
+}
+
+.slick-right {
+  left: 340px;
+}
+
+.info__list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.info__list-item {
+  width: 235px;
+  margin-bottom: 17px;
+}
+
+.info__list-title {
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 25px;
+  margin-bottom: 5px;
+}
+
+.info__content {
+  width: 600px;
+}
+
+.info__content-text {
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 25px;
+  margin-bottom: 17px;
+}
+
+/* blockquote */
+
+.blockquote {
+  background: url('../images/blockquote-bg.jpg')no-repeat top center /cover;
+  padding: 128px 0 144px;
+}
+
+.blockquote__text {
+  text-align: center;
+  font-size: 42px;
+  line-height: 57px;
+  color: #fff;
+  max-width: 675px;
+  margin: 0 auto;
+}
+
+/* clients */
+
+/* слайдер там по ходу увэсь блок будэ двыгать :) */
+
+
+.clients-slider-box {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.clients-slider__img {
+  width: 510px;
+  object-fit: cover;
+  /* сюда пишем отступ для стрелок вниз */
+  margin-bottom: 30px;
+}
+
+/* не будем трогать наши стрелки, а запишем марджин картинке
+ .clients-slider .slick-arrow {
+  bottom: -32px;
+} 
+*/
+
+.cliens-slider__box-title {
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 25px;
+  max-width: 480px;
+}
+
+
+/* вариант 1
+.cliens-slider__box-list {
+  margin: 30px 0 60px 50px;
+}
+
+.cliens-slider__box-item + .cliens-slider__box-item {
+  margin-top: 15px;
+}
+*/
+
+/* вариант 2  (так типа браузер меньше напрягается в подсчетах отступов)*/
+.cliens-slider__box-list {
+  margin: 30px 0 55px 50px;
+}
+
+.cliens-slider__box-item {
+  margin-top: 15px;
+}
+
+/* step */
+
+.step {
+  padding-bottom: 150px;
+}
+
+.step__inner {
+  display: flex;
+  justify-content: space-between;
+  /* align-items: center; */
+}
+
+.step__content {
+  width: 510px;
+}
+
+.step__content-title {
+  margin-bottom: 60px;
+}
+
+.step__list-title {
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 25px;
+  margin-bottom: 2px;
+  margin-top: 5px;
+}
+
+/* СЧЕТЧИК */
+.step__list {
+  /* обнуляем счетчик, придумываем свое название в counter-reset "number" */
+  counter-reset: number;
+}
+
+/* затем li нужно прописать инкремент */
+
+.step__list-item {
+  /* затем пишем свое название в counter-increment "number" */
+  counter-increment: number;
+}
+
+/* а дальше всю вечеринку вешать li на before */
+
+.step__list-item::before {
+  /* 0 нужен для вставки перед цифрой */
+  content: '0' counter(number);
+  color: #868585;
+}
+
+/* c 10го элемента свойство "content", будет обрабатываться уже без 0, как мы ниже можем это видеть */
+.step__list-item:nth-child(n+10)::before {
+  content: counter(number);
+}
+
+
+.step__list-item+.step__list-item {
+  margin-top: 30px;
+}
+
+/* теперь мы можем менять картинку с любым размером и она автоматически подгонится под размеры ранее заданные блокам step__img, step__img img  */
+.step__img {
+  max-width: 600px;
+}
+
+.step__img img {
+  object-fit: cover;
+  width: 100%;
+  height: 730px;
+}
+
+/* footer */
+
+.footer {
+  background: url('../images/footer-bg.jpg')no-repeat top center / cover;
+  padding: 70px 0 50px;
+  color: #fff;
+}
+
+.footer__top {
+  display: flex;
+  justify-content: space-between;
+}
+
+.footer__form {
+  width: 510px;
+}
+
+.footer__title {
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 33px;
+  margin-bottom: 60px;
+}
+
+.footer__input {
+  border: none;
+  border-bottom: 1px solid #FFFFFF;
+  padding: 11px 0;
+  width: 100%;
+  background: transparent;
+  display: block;
+  font-family: 'Noto Sans';
+  font-size: 14px;
+  line-height: 19px;
+  color: #FFFFFF;
+  margin-bottom: 60px;
+}
+
+.footer__input::placeholder {
+  font-family: 'Noto Sans';
+  font-size: 14px;
+  line-height: 19px;
+  color: #FFFFFF;
+}
+
+.footer__button {
+  font-size: 18px;
+  line-height: 25px;
+}
+
+.footer__contacts {
+  width: 600px;
+}
+
+.footer-contacts__list-item+.footer-contacts__list-item {
+  margin-top: 30px;
+}
+
+.footer-contacts__list-text {
+  font-size: 18px;
+  line-height: 25px;
+}
+
+.footer__bottom {
+  margin-top: 150px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.footer__bottom-text {
+  font-size: 14px;
+  line-height: 16px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/**** Responsive ****/
+
+
+
+
+@media (max-width: 1199px) {
+  section {
+    padding-top: 100px;
+  }
+
+  .section__title {
+    margin-bottom: 100px;
+  }
+
+  .info,
+  .step {
+    padding-bottom: 30px;
+  }
+
+  .info__inner {
+    flex-direction: column-reverse;
+    align-items: center;
+  }
+
+  .info__content {
+    width: 100%;
+  }
+
+  .info__content-img {
+    display: none;
+  }
+
+  .info__content-text {
+    margin-bottom: 50px;
+  }
+
+  .blockquote__text {
+    font-size: 40px;
+    line-height: 52px;
+  }
+
+  .blockquote {
+    padding: 100px 0;
+  }
+
+  .clients-img {
+    width: 100%;
+
+  }
+
+  .clients-slider__img {
+    margin-right: 20px;
+  }
+
+  .footer__top {
+    justify-content: space-around;
+  }
+
+  .footer__contacts {
+    width: 350px;
+  }
+
+  .footer__form {
+    width: 370px;
+  }
+}
+
+
+
+
+@media (max-width: 991px) {
+  .header__title {
+    font-size: 50px;
+    line-height: 74px;
+  }
+
+  .services__inner {
+    display: block;
+  }
+
+  .services__content {
+    max-width: none;
+    padding-right: 0;
+    margin-bottom: 25px;
+  }
+
+  .services__img img {
+    width: 100%;
+  }
+
+  .section__title {
+    margin-bottom: 25px;
+  }
+
+  .blockquote__text {
+    font-size: 36px;
+    line-height: 42px;
+  }
+
+  .clients-slider .slick-left {
+    left: 0;
+  }
+
+  .clients-slider .slick-right {
+    left: 75px;
+  }
+
+  .clients-slider__img {
+    margin-bottom: 0;
+  }
+
+  .step__inner {
+    display: block;
+  }
+
+  .step__content {
+    width: 100%;
+  }
+
+  .step__img {
+    max-width: none;
+    margin-top: 25px;
+  }
+
+  .step__list-item {
+    padding-left: 35px;
+    position: relative;
+  }
+
+  .step__list-item::before {
+    content: '0' counter(number);
+    color: #868585;
+    position: absolute;
+    left: 0;
+    top: 2px;
+  }
+}
+
+
+
+
+@media (max-width: 767px) {
+  .header__title {
+    font-size: 38px;
+    line-height: 60px;
+  }
+
+  .header__text {
+    font-size: 30px;
+    line-height: 42px;
+  }
+
+  .btn__svg {
+    width: 80px;
+  }
+
+  .btn__text {
+    font-size: 16px;
+    transform: translate(-62px, -22px);
+  }
+
+  .blockquote__text {
+    font-size: 30px;
+    line-height: 40px;
+  }
+
+  .clients-slider .slick-arrow {
+    bottom: 360px;
+  }
+
+  .cliens-slider__box-list {
+    margin-bottom: 20px;
+  }
+
+  .clients-slider-box {
+    flex-direction: column;
+    align-items: normal;
+    justify-content: unset;
+  }
+
+
+  .clients-slider__img {
+    margin-right: 0;
+    margin-bottom: 60px;
+    width: auto;
+  }
+
+  .footer__form,
+  .footer__contacts {
+    width: 280px;
+  }
+
+  .footer-contacts__list-item {
+    font-size: 14px;
+  }
+
+  .footer__top {
+    justify-content: space-between;
+  }
+}
+
+
+
+
+
+@media (max-width: 630px) {
+
+  .footer__form,
+  .footer__contacts {
+    width: 260px;
+  }
+
+  .footer__logo {
+    display: none;
+  }
+}
+
+
+
+
+@media (max-width: 575px) {
+
+  .section__title,
+  .footer__title {
+    font-size: 20px;
+    line-height: 28px;
+  }
+
+  .header__title {
+    font-size: 30px;
+    line-height: 50px;
+  }
+
+  .header__text {
+    font-size: 20px;
+    line-height: 26px;
+    margin-bottom: 40px;
+  }
+
+  .header__desc {
+    font-size: 16px;
+  }
+
+  .btn__svg {
+    width: 80px;
+  }
+
+  .info__content-text {
+    font-weight: 400;
+    font-size: 16px;
+  }
+
+  .info-tabs__items {
+    margin-bottom: 25px;
+  }
+
+  .info-tabs {
+    margin-bottom: 80px;
+  }
+
+  .info-slider__img {
+    margin-right: 0;
+    float: none;
+  }
+
+  .info-slider__img {
+    width: 100%;
+    margin-bottom: 15px;
+  }
+
+  .info-slider__text {
+    padding-bottom: 30px;
+  }
+
+  .info__box {
+    max-width: 510px;
+    width: 100%;
+  }
+
+  .info__list-item {
+    width: 100%;
+  }
+
+  .blockquote__text {
+    font-size: 28px;
+    line-height: 34px;
+  }
+
+  .blockquote {
+    padding: 60px 0;
+  }
+
+  .cliens-slider__box-title {
+    font-size: 16px;
+  }
+
+  .clients-slider .slick-arrow {
+    bottom: 380px;
+  }
+
+  .footer__top {
+    display: block;
+  }
+
+  .footer__form,
+  .footer__contacts {
+    width: 100%;
+  }
+
+  .footer__contacts {
+    margin-top: 50px;
+    text-align: center;
+  }
+
+  .footer__input {
+    margin-bottom: 25px;
+  }
+}
+
+
+
+
+
+@media (max-width: 460px) {
+  section {
+    padding-top: 70px;
+  }
+
+  .header__title {
+    font-size: 28px;
+    line-height: 30px;
+    margin: 25px 0;
+  }
+
+  .header__text {
+    font-size: 18px;
+    line-height: normal;
+  }
+
+  .header__desc {
+    font-size: 14px;
+    line-height: normal;
+  }
+
+  .slick-arrow {
+    left: 0;
+  }
+
+  .slick-right {
+    left: 65px;
+  }
+
+  .info-tabs__item+.info-tabs__item {
+    margin-left: 25px;
+  }
+
+  .info-tabs__item {
+    font-size: 14px;
+  }
+
+  .info__list-title {
+    font-size: 16px;
+  }
+
+  .blockquote__text {
+    font-size: 24px;
+    line-height: 32px;
+  }
+
+  .clients-slider .slick-arrow {
+    bottom: 390px;
+  }
+}
+
+
+
+
+
+@media (max-width: 380px) {
+  .btn__text {
+    font-size: 14px;
+  }
+
+  .info-tabs__items {
+    text-align: center;
+  }
+
+  .info-tabs {
+    margin-bottom: 40px;
+  }
+
+  .info-tabs__item+.info-tabs__item {
+    margin-left: 15px;
+  }
+
+  .blockquote__text {
+    font-size: 20px;
+    line-height: 28px;
+  }
+
+  .clients-slider__img {
+    margin-bottom: 10px;
+  }
+
+  .clients-slider .slick-arrow {
+    top: -15px;
+  }
+
+  .footer__bottom {
+    display: block;
+    text-align: center;
+    margin-top: 80px;
+  }
+
+  .social__list {
+    justify-content: center;
+    margin-top: 25px;
+  }
+
+  .footer {
+    padding-bottom: 20px;
+  }
+
+  .footer__title {
+    margin-bottom: 30px;
+  }
+}
