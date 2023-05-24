@@ -1,0 +1,788 @@
+@font-face {
+  font-family: 'Georgia';
+  src: url('../fonts/Georgia.woff2') format('woff2'),
+    url('../fonts/Georgia.woff') format('woff');
+  font-display: swap;
+  font-style: normal;
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: 'Georgia';
+  src: url('../fonts/Georgia-Bold.woff2') format('woff2'),
+    url('../fonts/Georgia-Bold.woff') format('woff');
+  font-display: swap;
+  font-style: normal;
+  font-weight: 700;
+}
+
+@font-face {
+  font-family: 'Lato';
+  src: url('../fonts/Lato-Regular.woff2') format('woff2'),
+    url('../fonts/Lato-Regular.woff') format('woff');
+  font-display: swap;
+  font-style: normal;
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: 'Lato';
+  src: url('../fonts/Lato-Bold.woff2') format('woff2'),
+    url('../fonts/Lato-Bold.woff') format('woff');
+  font-display: swap;
+  font-style: normal;
+  font-weight: 700;
+}
+
+body {
+  font-family: 'Lato', sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 28px;
+  color: #505050;
+}
+
+.title {
+  font-family: 'Georgia', serif;
+  font-size: 32px;
+  line-height: 38px;
+  color: #4E5665;
+  text-align: center;
+  font-weight: 400;
+  margin-bottom: 30px;
+}
+
+.container {
+  max-width: 1190px;
+  padding: 0 10px;
+  margin: 0 auto;
+}
+
+.container-content {
+  max-width: 950px;
+  margin: 0 auto;
+}
+
+.section-line {
+  border-bottom: 1px solid rgba(208, 212, 216, 0.5);
+}
+
+.header__top {
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.0001) 0%, rgba(0, 0, 0, 0.6) 100%), url('../images/header__top-bg2.jpg') no-repeat center / cover;
+  min-height: 100vh;
+  color: #fff;
+  padding: 40px;
+}
+
+.header__top-inner {
+  border: 2px solid #ECB84C;
+  border-bottom: none;
+  display: flex;
+  flex-direction: column;
+  min-height: calc(100vh - 80px);
+}
+
+.header__title {
+  font-family: 'Georgia', serif;
+  font-weight: 700;
+  margin: auto;
+  font-size: 200px;
+  line-height: 227px;
+  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.5);
+}
+
+.header__text {
+  font-family: 'Georgia', serif;
+  font-size: 24px;
+  line-height: 27px;
+  text-shadow: 0px 2px 1px rgba(0, 0, 0, 0.5);
+  /* ровняем текст с линиями по боковым линиям */
+  margin-bottom: -12px;
+  /* текст центронулся благодаря заданым ниже афтеру и бефору ширину в 100% они как бы расширились и поставили пацаненыша по центру */
+  display: flex;
+  white-space: nowrap;
+  align-items: center;
+
+}
+
+.header__text::after,
+.header__text::before {
+  content: '';
+  width: 100%;
+  border-top: 2px solid #ECB84C;
+}
+
+.header__text::after {
+  margin-left: 30px;
+}
+
+.header__text::before {
+  margin-right: 30px;
+}
+
+.menu {
+  border-bottom: 1px solid rgba(208, 212, 216, 0.5);
+}
+
+.menu__list {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.menu__link {
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 19px;
+  padding: 24px 10px 20px;
+  display: inline-block;
+  border-bottom: 4px solid transparent;
+  color: #909090;
+  margin: 0 6px;
+  transition: all 0.5s ease;
+}
+
+.menu__link:hover,
+.menu__link-active {
+  border-bottom: 4px solid #ECB84C;
+  color: #4E5665;
+}
+
+
+
+/* reason */
+
+.reason {
+  padding-top: 80px;
+}
+
+.reason__link-inner {
+  text-align: right;
+  color: #ECB84C;
+}
+
+.reason__statistics {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  margin-top: 30px;
+  text-align: center;
+  padding-bottom: 80px;
+}
+
+.reason__statistics-num {
+  font-weight: 700;
+  font-size: 22px;
+  line-height: 30px;
+
+  margin-top: 32px;
+}
+
+.reason__statistics-text {
+  font-size: 14px;
+  line-height: 17px;
+  font-weight: 700;
+  color: #909090;
+}
+
+
+/* about */
+
+.about {
+  padding-top: 80px;
+}
+
+.about__text {
+  margin-bottom: 64px;
+}
+
+.about__item {
+  margin-bottom: 100px;
+  padding: 70px 0;
+  background-repeat: no-repeat;
+  background-position: right;
+  border-radius: 4px;
+}
+
+/* для четных блоков меняем расположение картинки на противопожное от нечетных */
+.about__item:nth-child(even) {
+  background-position: left;
+}
+
+/* для четных блоков меняем местами текст картинку */
+.about__item:nth-child(even) .about__box {
+  margin-left: auto;
+}
+
+.about__box {
+  background: #fff;
+  position: relative;
+  max-width: 470px;
+}
+
+.about__images-box img {
+  max-width: 100%;
+}
+
+.about__box-left {
+  padding: 33px 40px 18px;
+}
+
+.about__box-right {
+  padding: 40px 39px 36px 41px;
+}
+
+.about__box-left::after,
+.about__box-left::before,
+.about__box-right::after,
+.about__box-right::before {
+  content: '';
+  width: 33px;
+  height: 33px;
+  position: absolute;
+}
+
+/* ПРАВИЛО - ЕСЛИ ЭЛЕМЕНТЫ ДЕКОРА МОЖНО СДЕЛАТЬ С ПОМОЩЬЮ CSS, ТО НЕ СОМНЕВАЯСЬ ДЕЛАЕМ В CSS, так как экономим место и скорость загрузки страницы, вывод 2й вариант канечно идеальнее чем первый, но их два в целях дмонстрации как можно было бы сделать и так и отак. */
+
+/* варик c картинкой */
+.about__box-left::after {
+  background: url('../images/decor-left.svg');
+  top: 19px;
+  left: 19px;
+}
+
+/* варики c бордюрами */
+.about__box-left::before {
+  border-bottom: 2px solid #ECB84C;
+  border-right: 2px solid #ECB84C;
+  right: 19px;
+  bottom: 19px;
+}
+
+.about__box-right::after {
+  border-top: 2px solid #ECB84C;
+  border-right: 2px solid #ECB84C;
+  top: 19px;
+  right: 19px;
+}
+
+.about__box-right::before {
+  border-left: 2px solid #ECB84C;
+  border-bottom: 2px solid #ECB84C;
+  left: 19px;
+  bottom: 19px;
+}
+
+.about__box-title {
+  font-family: 'Georgia', serif;
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 25px;
+  margin-bottom: 20px;
+}
+
+.about__preview-text {
+  margin-top: 53px;
+  margin-bottom: 80px;
+}
+
+.about__images-box {
+  padding-top: 73px;
+  padding-bottom: 22px;
+  /* релатив для позиционирования линий и точек */
+  position: relative;
+}
+
+.about__dot {
+  width: 32px;
+  height: 32px;
+  background: rgba(236, 184, 76, .75);
+  /* здесь у нас изначально был релатив для создания кружка в кружке, и что бы изначально все не сломалось указываем здесь абсолют, точка в точке не сломается так она ищет ближайшего чувака с такими же параметрами позиционирования, так что теперь меняем на абсолют */
+  /* position: relative; */
+  position: absolute;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.about__dot::after {
+  content: '';
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #FFD600;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.about__dot::before {
+  content: '';
+  background: url('../images/line.svg');
+  width: 244px;
+  height: 122px;
+  position: absolute;
+  top: -103px;
+  left: 12px;
+  /* отображается только при ховере */
+  display: none;
+}
+
+.about__dot-text {
+  font-weight: 700;
+  font-size: 14px;
+  position: absolute;
+  top: -135px;
+  left: 130px;
+  white-space: nowrap;
+  /* отображается только при ховере */
+  display: none;
+}
+
+/* при наведении на точку .about__dot, появится линия .about__dot::before*/
+.about__dot:hover::before {
+  display: block;
+}
+
+/* при наведении на точку .about__dot, появляется текст about__dot-text*/
+.about__dot:hover .about__dot-text {
+  display: block;
+}
+
+.about__dot-roof {
+  top: 140px;
+  right: 347px;
+}
+
+.about__dot-wing {
+  top: 195px;
+  left: 150px;
+}
+
+.about__dot-door {
+  top: 195px;
+  left: 500px;
+}
+
+.about__dot-wheel {
+  bottom: 50px;
+  right: 310px;
+}
+
+/* photo */
+
+.photo {
+  padding: 80px 0;
+}
+
+.photo__text {
+  padding-bottom: 48px;
+  margin-bottom: 56px;
+  position: relative;
+}
+
+.photo__text::after {
+  content: '';
+  width: 270px;
+  height: 1px;
+  background-color: rgba(208, 212, 216, 0.5);
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+}
+
+.photo__slider {
+  max-width: 640px;
+  margin: 0 auto;
+  box-shadow: 0px 2px 24px 0px #0000004C;
+}
+
+.photo__img {
+  width: 640px;
+}
+
+.slick__btn {
+  width: 40px;
+  height: 40px;
+  background: #ECB84C;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 5;
+}
+
+.photo__slider .slick-next {
+  right: -20px;
+}
+
+.photo__slider .slick-prev {
+  left: -20px;
+}
+
+/* footer */
+
+.footer {
+  padding: 56px 0 32px;
+  background: #F8F8F8;
+}
+
+.footer__items {
+  display: flex;
+  justify-content: space-between;
+}
+
+.footer__item {
+  max-width: 140px;
+}
+
+.footer__item--company {
+  max-width: 120px;
+  margin-left: 180px;
+}
+
+.footer__item--blog {
+  max-width: 300px;
+  margin-right: 85px;
+}
+
+.footer__item-title {
+  text-transform: uppercase;
+  font-size: 15px;
+  line-height: 20px;
+  color: #4E5665;
+  margin-bottom: 20px;
+}
+
+.footer__item-link {
+  font-size: 14px;
+  line-height: 19px;
+  margin-bottom: 8px;
+}
+
+.footer__item-link--social {
+  padding-left: 30px;
+  position: relative;
+
+}
+
+/* можна и без позиционирования, но некоторые значки не ровно напротив будут и там больше гемора, хотя можна флэксами выровнять тоже но, на оно ) и верстка шо есть куча способов решения задачи */
+.footer__item-link--social::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 2px;
+  width: 16px;
+  height: 16px;
+}
+
+.footer__item-link--message::before {
+  background: url('../images/message-icon.svg') no-repeat;
+  width: 17px;
+}
+
+.footer__item-link--facebook::before {
+  background: url('../images/facebook-icon.svg') no-repeat;
+}
+
+.footer__item-link--instagram::before {
+  background: url('../images/insta-icon.svg') no-repeat;
+}
+
+.footer__item-link--youtube::before {
+  background: url('../images/youtube-icon.svg') no-repeat;
+}
+
+.footer__item-link--email::before {
+  background: url('../images/mail-icon.svg') no-repeat;
+  height: 13px;
+}
+
+.footer__copy {
+  text-align: center;
+  margin-top: 40px;
+  font-size: 14px;
+  line-height: 19px;
+}
+
+/* burger */
+
+.menu__btn {
+  display: none;
+}
+
+
+
+
+
+/* responsive */
+
+
+
+@media (max-width: 1170px) {
+  .about__dot-wheel {
+    right: 260px;
+  }
+}
+
+
+
+
+@media (max-width: 1050px) {
+  .about__dot-door {
+    left: 390px;
+  }
+
+  .about__dot-roof {
+    right: 270px;
+  }
+
+  .footer__item--company {
+    margin-left: 0;
+  }
+
+  .footer__item--blog {
+    margin-right: 0;
+  }
+}
+
+
+
+
+@media (max-width: 991px) {
+  .about__dot {
+    display: none;
+  }
+
+  .about__images-box {
+    padding: 0;
+  }
+}
+
+
+
+
+
+@media (max-width: 767px) {
+  .header__title {
+    font-size: 130px;
+    line-height: 150px;
+  }
+
+  .header__text {
+    font-size: 20px;
+  }
+
+  .title {
+    font-size: 26px;
+    line-height: 30px;
+    margin-bottom: 20px;
+  }
+
+  .reason__statistics {
+    margin-top: 30px;
+    padding-bottom: 40px;
+    flex-wrap: wrap;
+  }
+
+  .reason,
+  .about {
+    padding-top: 60px;
+  }
+
+  .about__box {
+    margin: 0 auto;
+  }
+
+  .about__item {
+    padding: 400px 0 70px;
+    background-position: top;
+    margin-bottom: 0;
+  }
+
+  .about__item:nth-child(even) {
+    background-position: top;
+  }
+
+  .photo__slider .slick-next {
+    right: 25px;
+  }
+
+  .photo__slider .slick-prev {
+    left: 25px;
+  }
+
+  .footer__items {
+    flex-wrap: wrap;
+  }
+
+  .footer__item {
+    max-width: none;
+    width: 50%;
+    margin-bottom: 35px;
+    padding-right: 25px;
+  }
+}
+
+
+
+
+@media (max-width: 630px) {
+  .header__top {
+    padding: 20px;
+  }
+
+  .header__top-inner {
+    min-height: calc(100vh - 40px);
+  }
+
+  .menu__list {
+    display: none;
+  }
+
+  .menu__list-open {
+    display: block;
+    text-align: center;
+    background: #fff;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+  }
+
+  .menu__btn {
+    display: block;
+    width: 40px;
+    cursor: pointer;
+    position: absolute;
+    top: 35px;
+    right: 45px;
+    z-index: 3;
+  }
+
+  .menu__btn span {
+    display: block;
+    margin-bottom: 10px;
+    height: 4px;
+    width: 100%;
+    background: #ECB84C;
+  }
+}
+
+
+
+
+@media (max-width: 575px) {
+  .reason__statistics-item {
+    width: 50%;
+    margin-bottom: 30px;
+  }
+
+  .reason__statistics {
+    flex-wrap: wrap;
+    justify-content: space-around;
+  }
+
+  .photo {
+    padding: 40px 0;
+  }
+}
+
+
+
+
+@media (max-width: 480px) {
+  .header__title {
+    font-size: 90px;
+    line-height: 110px;
+    margin: 0;
+  }
+
+  .header__text {
+    font-size: 18px;
+    display: block;
+    white-space: unset;
+    margin: 0;
+  }
+
+  .header__text::after,
+  .header__text::before {
+    display: none;
+  }
+
+  .header__top-inner {
+    border: 2px solid #ECB84C;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .reason {
+    padding-top: 40px;
+  }
+
+  .reason__statistics {
+    padding-bottom: 20px;
+  }
+
+  .about__preview-text {
+    margin-top: 40px;
+    margin-bottom: 30px;
+  }
+
+  .footer__items {
+   display: block;
+   text-align: center;
+  }
+
+  .footer__item {
+    width: 100%;
+    padding-right: 0;
+  }
+}
+
+
+
+
+@media (max-width: 380px) {
+  .header__title {
+    font-size: 70px;
+    line-height: 90px;
+  }
+
+  .header__text {
+    font-size: 15px;
+  }
+
+  .header__top {
+    padding: 15px;
+  }
+
+  .menu__list-open {
+    text-align: left;
+    padding-left: 35px;
+  }
+
+  .title {
+    font-size: 24px;
+  }
+
+  .reason__statistics {
+    padding-bottom: 0px;
+  }
+
+  .about__item {
+    padding-bottom: 50px;
+  }
+
+  .photo__slider .slick__btn {
+    width: 30px;
+    height: 30px;
+  }
+}
