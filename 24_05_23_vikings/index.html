@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>vikings</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300;400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="css/myreset.css">
+  <link rel="stylesheet" href="css/jquery.fancybox.min.css">
+  <link rel="stylesheet" href="css/slick.css">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+  <header class="header">
+    <!-- без контейнера так как здесь все по ценру и плюс градиент удобно станет на всю ширину экрана для menu__list  -->
+    <nav class="menu">
+      <div class="menu__btn">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+      <ul class="menu__list">
+        <li class="menu__item">
+          <a class="menu__link" href="season-1.html">
+            1 cезон
+          </a>
+        </li>
+        <li class="menu__item">
+          <a class="menu__link" href="season-2.html">
+            2 cезон
+          </a>
+        </li>
+        <li class="menu__item">
+          <a class="menu__link" href="season-3.html">
+            3 cезон
+          </a>
+        </li>
+        <li class="menu__item">
+          <a class="menu__link" href="season-4.html">
+            4 cезон
+          </a>
+        </li>
+        <li class="menu__item">
+          <a class="menu__link" href="season-5.html">
+            5 cезон
+          </a>
+        </li>
+        <li class="menu__item">
+          <a class="menu__link" href="season-6.html">
+            6 cезон
+          </a>
+        </li>
+      </ul>
+    </nav>
+    <div class="header__logo">
+      <img class="logo__img" src="images/logo.png" alt="logo">
+    </div>
+  </header>
+
+  <section class="about section-page">
+    <div class="container">
+      <h3 class="about__title section-title">О сериале</h3>
+      <div class="about__inner">
+        <ul class="about__list">
+          <li class="about__item">
+            Жанр<span>Историческая драма</span>
+          </li>
+          <li class="about__item">
+            Сезонов<span>6</span>
+          </li>
+          <li class="about__item">
+            Длительность серии<span>45 минут</span>
+          </li>
+          <li class="about__item">
+            На экранах<span>С 3 марта 2013 по сей день</span>
+          </li>
+        </ul>
+        <div class="about__text-inner">
+          <p class="about__text">
+            Викинги – шикарный исторический сериал, один из лучших в своем жанре, шоу может похвастаться огромной
+            фан-базой, а также тем, что пробудил интерес к истории и возродил моду на викингов.
+          </p>
+          <p class="about__text">
+            «Викинги» созданы по заказу канала американского канала History, однако работали над ним канадцы и ирландцы.
+            Сериал поражает масштабными сценами сражений, добротным и глубоким сценарием, а также максимальным вниманием
+            к
+            исторической эпохи. Авторы сериала потратили кучу времени и денег (бюджет первого сезона - $40 млн, дальше
+            суммы
+            возросли) на то, чтобы викинги и их современники выглядели в шоу так, какими они был в свое время – VIII –
+            IX веках нашей эры. С другой стороны – отсутствие точных исторических фактов и (полу)легендарность многих
+            событий позволили авторам сериала вольную трактовку многих событий.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="video">
+    <div class="container">
+      <h3 class="video__title content-title">
+        <span>The Storm</span> Is Coming...
+      </h3>
+      <a class="video__btn" data-fancybox href="https://youtu.be/c9z_3VhNefs">
+        Посмотреть трейлер сериала
+      </a>
+    </div>
+  </section>
+
+  <section class="seasons section-page">
+    <div class="container">
+      <h3 class="seasons__title section-title">
+        Все сезоны
+      </h3>
+      <ol class="seasons__list">
+        <li class="seasons__item" style="background-image: url('images/season-1.jpg');">
+          <a class="seasons__link" href="season-1.html">Cмотреть</a>
+        </li>
+        <li class="seasons__item" style="background-image: url('images/season-2.jpg');">
+          <a class="seasons__link" href="#">Cмотреть</a>
+        </li>
+        <li class="seasons__item" style="background-image: url('images/season-3.jpg');">
+          <a class="seasons__link" href="#">Cмотреть</a>
+        </li>
+        <li class="seasons__item" style="background-image: url('images/season-4.jpg');">
+          <a class="seasons__link" href="#">Cмотреть</a>
+        </li>
+        <li class="seasons__item" style="background-image: url('images/season-5.jpg');">
+          <a class="seasons__link" href="#">Cмотреть</a>
+        </li>
+        <li class="seasons__item" style="background-image: url('images/season-6.jpg');">
+          <a class="seasons__link" href="#">Cмотреть</a>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="heroes section-page">
+    <div class="container">
+      <h3 class="heroes__title section-title">
+        Главные герои
+      </h3>
+      <div class="heroes__inner">
+
+        <!-- 1й слайдер -->
+        <div class="heroes-slider__img">
+
+          <!-- 1й слайд -->
+          <img class="heroes__img" src="images/slider1.jpg" alt="photo-slider">
+          <!-- 2й слайд -->
+
+          <img class="heroes__img" src="images/slider1.jpg" alt="photo-slider">
+          <!-- 3й слайд -->
+
+          <img class="heroes__img" src="images/slider1.jpg" alt="photo-slider">
+
+        </div>
+
+        <!-- 2й слайдер - heroes-slider__content -->
+        <div class="heroes-slider__content">
+
+          <!-- 1й слайд -->
+          <div class="heroes-slider__content-wrapper">
+            <h4 class="heroes-slider__content-title content-title">
+              Рагнар
+            </h4>
+            <p class="heroes-slider__content-text">
+              Рагна́р Лодбро́к (др.-сканд. Ragnarr Loðbrók) - полулегендарный скандинавский конунг из рода Инглингов,
+              ключевой персонаж сериала.
+            </p>
+            <p class="heroes-slider__content-text">
+              Умелый футболист и амбициозный вратарь, Рагнар на протяжении почти всей своей жизни следует пути викинга.
+              Рассекая море в поисках боевой славы и наживы, он стремится обрести новые знания, открыть неизвестные
+              земли и изменить нелегкую судьбу своего народа, живущего в суровых условиях Скандинавского полуострова
+            </p>
+          </div>
+
+          <!-- 2й слайд -->
+          <div class="heroes-slider__content-wrapper">
+            <h4 class="heroes-slider__content-title content-title">
+              Тор
+            </h4>
+            <p class="heroes-slider__content-text">
+              Тор Букингемскый (др.-сканд. Tor Bukingemsky) - полулегендарный скандинавский конучинг из рода Ингушей,
+              ключевой персонаж сериала.
+            </p>
+            <p class="heroes-slider__content-text">
+              Усурийский воин и амбициозный вождь, Рагнар на протяжении почти всей своей жизни следует пути викинга.
+              Рассекая море в поисках боевой славы и наживы, он стремится обрести новые знания, открыть неизвестные
+              земли и изменить нелегкую судьбу своего народа, живущего в суровых условиях Скандинавского полуострова
+            </p>
+          </div>
+
+          <!-- 3й слайд -->
+          <div class="heroes-slider__content-wrapper">
+            <h4 class="heroes-slider__content-title content-title">
+              Зевус
+            </h4>
+            <p class="heroes-slider__content-text">
+              Зевус Усурийский (др.-сканд. Zevs Usurmanos) - полулегендарный скандинавский конучингганг из рода
+              Инглишей,
+              ключевой персонаж сериала.
+            </p>
+            <p class="heroes-slider__content-text">
+              Умелый воин и амбициозный вождь, Рагнар на протяжении почти всей своей жизни следует пути викинга.
+              Рассея море в поисках боевой славы и наживы, он стремится обрести новые знания, открыть неизвестные земли
+              и изменить нелегкую судьбу своего народа, живущего в суровых условиях Скандинавского полуострова
+            </p>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <p class="footer__copy">
+        Сериал «Викинги». Правами на сериал владеет канал History.
+      </p>
+    </div>
+  </footer>
+
+  <script src="js/jquery-3.6.4.min.js"></script>
+  <script src="js/jquery.fancybox.min.js"></script>
+  <script src="js/slick.min.js"></script>
+  <script src="js/main.js"></script>
+</body>
+
+</html>
