@@ -1,0 +1,866 @@
+body {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 26px;
+  color: #544837;
+}
+
+h3 {
+  margin-bottom: 22px;
+}
+
+.title {
+  font-weight: 700;
+  font-size: 36px;
+  line-height: 54px;
+  color: #2F281E;
+}
+
+.btn {
+  display: block;
+  border-radius: 4px;
+  padding: 11px 0;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 24px;
+  text-align: center;
+  background: #FF9900;
+  color: #FFFFFF;
+}
+
+.container {
+  max-width: 1140px;
+  padding: 0 10px;
+  margin: 0 auto;
+}
+
+/* hero start */
+
+.logo img {
+  display: inline-block;
+}
+
+.header-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 0;
+}
+
+.menu__list {
+  display: flex;
+}
+
+.menu__item+.menu__item {
+  margin-left: 24px;
+}
+
+.menu__link {
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 28px;
+  color: #2F281E;
+}
+
+.header-top__buttons {
+  display: flex;
+  margin-left: 52px;
+}
+
+.sign-in {
+  width: 102px;
+  background-color: #fff;
+  border: 1px solid #BCD0E5;
+  color: #173A56;
+  margin-right: 14px;
+}
+
+.sign-up {
+  width: 110px;
+}
+
+.menu {
+  margin-left: auto;
+}
+
+.offer {
+  margin-top: 50px;
+  display: flex;
+  align-items: center;
+
+}
+
+.offer-content {
+  max-width: 500px;
+  margin-right: 20px;
+}
+
+.offer-content__title {
+  font-weight: 700;
+  font-size: 44px;
+  line-height: 54px;
+  color: #2F281E;
+  margin-bottom: 30px;
+}
+
+.offer-content__text {
+  max-width: 455px;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 28px;
+  margin-bottom: 45px;
+}
+
+.offer-content__buttons {
+  display: flex;
+  align-items: center;
+}
+
+.offer-content__btn {
+  margin-right: 30px;
+  width: 175px;
+}
+
+.offer-content__link {
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 24px;
+  text-decoration: underline;
+  color: #FF9900;
+  padding-left: 25px;
+  position: relative;
+}
+
+.offer-content__link::before {
+  content: '';
+  position: absolute;
+  background: url('../images/watch.svg');
+  width: 17px;
+  height: 19px;
+  left: 0;
+  top: 2px;
+}
+
+/* hero end */
+
+/* start info */
+
+.info {
+  padding-top: 110px;
+  padding-bottom: 90px;
+  margin: 0 auto;
+  background: url('../images/info-inner-bg.svg')no-repeat center bottom / cover;
+}
+
+
+.info__title {
+  max-width: 540px;
+  text-align: center;
+  margin: 0 auto;
+}
+
+.info__items {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 55px;
+  margin-bottom: 35px;
+}
+
+.info__item {
+  width: 240px;
+}
+
+.info__item-img {
+  margin-bottom: 30px;
+}
+
+.info__item-title {
+  margin-bottom: 13px;
+  font-weight: 600;
+  font-size: 22px;
+  line-height: 33px;
+  color: #2F281E;
+}
+
+.info__btn {
+  width: 175px;
+  text-transform: uppercase;
+  margin: 0 auto;
+}
+
+/* end info */
+
+/* start direction */
+
+.direction {
+  padding-top: 120px;
+  padding-bottom: 55px;
+}
+
+.direction__box {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 100px;
+}
+
+.direction__box:nth-child(even) {
+  flex-direction: row-reverse;
+}
+
+.direction__content {
+  max-width: 485px;
+}
+
+.direction__content-title {
+  margin-bottom: 22px;
+}
+
+.direction__content-subtitle {
+  margin-bottom: 30px;
+}
+
+.direction__content-head {
+  margin-bottom: 12px;
+}
+
+.direction__content-text {
+  margin-bottom: 25px;
+}
+
+.direction__image {
+  width: 520px;
+}
+
+.direction__content-item {
+  padding-left: 65px;
+  position: relative;
+}
+
+.direction__content-item+.direction__content-item {
+  margin-top: 30px;
+}
+
+.direction__content-item::before {
+  content: '';
+  background: url('../images/chek.svg');
+  width: 35px;
+  height: 35px;
+  position: absolute;
+  left: 0;
+  top: 7px;
+}
+
+/* end direction */
+
+/* start team */
+
+.team {
+  background: url('../images/team-bg.svg') no-repeat center top / cover;
+  padding-bottom: 410px;
+}
+
+.team__inner {
+  position: relative;
+}
+
+.team__item-image {
+  width: 98px;
+  height: 98px;
+  overflow: hidden;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+/* текстовое поле */
+.team__item-text {
+  line-height: 24px;
+  color: #2F281E;
+  background: #FFFFFF;
+  box-shadow: 0px 2px 15px rgba(23, 58, 86, 0.1);
+  border-radius: 26px;
+  padding: 14px 20px;
+  position: absolute;
+  top: -30px;
+  right: 75px;
+  white-space: nowrap;
+}
+
+.team__item-text--right::before {
+  right: unset;
+  bottom: -7px;
+  left: 15px;
+}
+
+.team__item-text--right::after {
+  right: unset;
+  bottom: -10px;
+  left: 0px;
+}
+
+.team__item-text--right {
+  top: unset;
+  right: unset;
+  left: 70px;
+  bottom: 80px;
+}
+
+/* кружки стили */
+.team__item-text::before,
+.team__item-text::after {
+  content: '';
+  position: absolute;
+  background-color: #fff;
+  border-radius: 50%;
+}
+
+/* большой кружок, размер */
+.team__item-text::before {
+  width: 17px;
+  height: 17px;
+}
+
+/* маленький кружок, зазмер */
+.team__item-text::after {
+  width: 9px;
+  height: 9px;
+}
+
+/* позиция большого кружка */
+.team__item-text::before {
+  right: 20px;
+  bottom: -7px;
+}
+
+
+/* позиция маленького кружка */
+.team__item-text::after {
+  right: 5px;
+  bottom: -10px;
+}
+
+/* аватарки */
+.team__item {
+  position: absolute;
+  /* задаем размеры для удобства центровки текста для картинок */
+  width: 98px;
+  height: 98px;
+}
+
+/* 1я аватарка */
+.team__item--1 {
+  right: 95px;
+  top: 157px;
+}
+
+/* 2я аватарка */
+.team__item--2 {
+  right: 0;
+  bottom: -130px;
+}
+
+/* 3я аватарка */
+.team__item--3 {
+  right: 300px;
+  bottom: -300px;
+}
+
+/* 4я аватарка */
+.team__item--4 {
+  left: 220px;
+  bottom: -160px;
+}
+
+/* 5я аватарка */
+.team__item--5 {
+  left: 0;
+  top: 223px;
+
+}
+
+.team__box {
+  margin: 0 auto;
+  text-align: center;
+  max-width: 542px;
+  padding-top: 230px;
+}
+
+.team__box-text {
+  color: #567592;
+  margin-bottom: 45px;
+}
+
+.team__box-btn {
+  width: 216px;
+  margin: 0 auto;
+}
+
+/* end team */
+
+/* start blog */
+
+.blog {
+  padding-top: 30px;
+}
+
+.blog__title {
+  margin-bottom: 9px;
+}
+
+.blog-slider {
+  margin-top: 55px;
+  padding-bottom: 120px;
+  border-bottom: 1px solid rgba(188, 208, 229, 0.496913);
+}
+
+/* start решаем вопрост расстояния меджду элементами */
+.blog-slider__item {
+  padding: 0 20px;
+}
+
+.blog-slider {
+  margin-left: -20px;
+  margin-right: -20px;
+}
+
+/* end решаем вопрост расстояния меджду элементами */
+
+.blog-slider__info {
+  margin-bottom: 12px;
+  line-height: 28px;
+}
+
+.blog-slider__title {
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 34px;
+  color: #2F281E;
+  transition: color 0.5s ease;
+  cursor: pointer;
+  margin-bottom: 48px;
+}
+
+.blog-slider__item:hover .blog-slider__title {
+  color: #FF9900;
+}
+
+.blog-slider__image {
+  width: 348px;
+  height: 185px;
+  object-fit: cover;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+  margin-bottom: 25px;
+}
+
+.blog-slider__dots {
+  display: flex;
+  justify-content: center;
+}
+
+.blog-slider__dots button {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: #EFEFEF;
+  font-size: 0;
+  margin: 0 5px;
+}
+
+/* эта запись читается так: если кнопка находится в классе slick-active то... */
+.blog-slider__dots .slick-active button {
+  background: #FF9900;
+}
+
+/* end blog */
+
+
+/* start footer */
+
+.footer {
+  padding: 100px 0 95px;
+}
+
+.footer__inner {
+  display: flex;
+  justify-content: space-between;
+}
+
+.footer__menu {
+  width: 135px;
+}
+
+.footer__menu-title,
+.footer__form-title {
+  font-size: 20px;
+  line-height: 30px;
+  margin-bottom: 35px;
+}
+
+.footer__menu-item {
+  margin-top: 5px;
+  font-weight: 400;
+}
+
+.footer__form {
+  max-width: 330px;
+}
+
+.footer__form-input {
+  background: #FFFFFF;
+  border: 1px solid #BCD0E5;
+  border-radius: 4px;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 28px;
+  padding: 10px;
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.footer__form-input::placeholder {
+  color: #BCD0E5;
+  font-family: 'Poppins';
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 28px;
+}
+
+.footer__form-btn {
+  width: 132px;
+  padding: 8px 0;
+}
+
+/* end footer */
+
+
+/* start menu__btn */
+.menu__btn {
+  width: 40px;
+  height: 30px;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.menu__btn span {
+  display: block;
+  width: 100%;
+  height: 2px;
+  background: #173A56;
+}
+
+.menu__btn::after,
+.menu__btn::before {
+  content: '';
+  position: absolute;
+  background: #173A56;
+  width: 40px;
+  height: 2px;
+  left: 0;
+}
+
+.menu__btn::after {
+  top: 0;
+}
+
+.menu__btn::before {
+  bottom: 0;
+}
+
+/* end menu__btn */
+
+
+/* Responsive */
+
+@media (max-width: 1199px) {
+  .header-offer__image img {
+    width: 100%;
+  }
+}
+
+
+
+
+@media (max-width: 1180px) {
+  .blog-slider__image {
+    width: 100%;
+    height: 250px;
+  }
+
+  .blog-slider__item {
+    padding: 0 10px;
+  }
+
+  .blog-slider {
+    margin-left: 0;
+    margin-right: 0;
+  }
+}
+
+
+
+
+@media (max-width: 991px) {
+  .header-top {
+    flex-wrap: wrap;
+  }
+
+  .menu {
+    order: 1;
+    width: 100%;
+  }
+
+  .menu__list {
+    justify-content: flex-end;
+    padding-top: 20px;
+  }
+
+  .header-offer__image {
+    display: none;
+  }
+
+  .offer {
+    display: block;
+  }
+
+  .offer-content {
+    max-width: none;
+    margin-right: 0;
+  }
+
+  .offer-content__text {
+    max-width: none;
+  }
+
+  .info__items {
+    flex-wrap: wrap;
+  }
+
+  .info__item {
+    width: 50%;
+    margin-bottom: 40px;
+    padding-right: 15px;
+  }
+
+  .direction__box {
+    display: block;
+  }
+
+  .direction__box:last-child {
+    margin-bottom: 0;
+  }
+
+  .direction__content {
+    max-width: none;
+  }
+
+  .direction__image {
+    display: block;
+    width: auto;
+    max-width: 100%;
+    margin: 50px auto 0;
+  }
+
+  .team__item--5 {
+    top: 200px;
+  }
+
+  .team__item--1 {
+    top: 120px;
+  }
+
+  .footer__inner {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .footer__form {
+    max-width: none;
+    margin-top: 50px;
+  }
+
+  .footer__menu {
+    width: 135px;
+    margin-top: 50px;
+    text-align: center;
+  }
+
+  .footer__form-title {
+    margin-bottom: 15px;
+  }
+
+}
+
+
+
+
+@media (max-width: 767px) {
+  .offer-content__title {
+    font-size: 32px;
+    line-height: 40px;
+  }
+
+  .offer-content__text {
+    font-size: 16px;
+    line-height: 24px;
+  }
+
+  .title {
+    font-size: 28px;
+    line-height: 40px;
+  }
+
+  .info__item-title {
+    font-size: 20px;
+  }
+
+  .btn {
+    font-size: 14px;
+  }
+
+  .team__item {
+    display: none;
+  }
+
+  .team {
+    padding-bottom: 80px;
+  }
+
+  .team__box {
+    padding-top: 80px;
+  }
+}
+
+
+
+
+@media (max-width: 575px) {
+  .info__item {
+    width: 100%;
+    margin-bottom: 40px;
+    padding-right: 0;
+    text-align: center;
+  }
+
+  .blog-slider__title {
+    font-size: 20px;
+    line-height: 28px;
+  }
+
+  .footer__form-title {
+    font-size: 18px;
+    line-height: 24px;
+    text-align: center;
+  }
+
+  .direction {
+    padding-top: 70px;
+  }
+
+  .blog-slider {
+    padding-bottom: 60px;
+  }
+
+  .footer {
+    padding: 50px 0 20px;
+  }
+}
+
+
+
+
+@media (max-width: 490px) {
+  .header-top {
+    display: block;
+  }
+
+  .menu__list {
+    display: block;
+    position: absolute;
+    text-align: right;
+    right: 0;
+    transform: translateY(-300%);
+    transition: transform 0.5s ease;
+  }
+
+  .menu__list.menu-open {
+    transform: translateY(0%);
+    transition: transform 0.5s ease;
+  }
+
+  .menu__item+.menu__item {
+    margin-left: 0;
+  }
+
+  .menu__link {
+    display: block;
+    padding: 10px 15px 10px 0;
+  }
+
+  .menu__btn {
+    display: flex;
+    position: absolute;
+    right: 15px;
+    top: 15px;
+  }
+
+  .header-top__buttons {
+    margin-left: 0;
+    display: block;
+  }
+
+  .header-top__buttons .btn {
+    margin-top: 15px;
+    width: 110px;
+  }
+
+  .offer-content__title {
+    font-size: 28px;
+    line-height: 36px;
+  }
+
+  .offer-content__buttons {
+    display: block;
+  }
+
+  .offer-content__btn {
+    margin-right: 0;
+    margin-bottom: 25px;
+  }
+
+  .title {
+    font-size: 26px;
+    line-height: 36px;
+  }
+
+  .info__item-title {
+    font-size: 18px;
+  }
+
+  .blog-slider__image {
+    height: auto;
+  }
+
+  .blog-slider__item {
+    padding: 0;
+  }
+
+  .blog-slider {
+    margin-top: 25px;
+  }
+
+}
+
+
+
+
+@media (max-width: 380px) {
+  .header-top__buttons .btn {
+    margin-top: 15px;
+    width: 120px;
+    padding: 8px 0;
+  }
+
+}
