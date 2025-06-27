@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BMI Calculator | Health Tracker</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <style>
+      .bmi-gradient {
+        background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+      }
+      .result-gradient {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      }
+      .input-range::-webkit-slider-thumb {
+        -webkit-appearance: none;
+        appearance: none;
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        background: #4facfe;
+        cursor: pointer;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+      }
+      .input-range::-moz-range-thumb {
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        background: #4facfe;
+        cursor: pointer;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+      }
+      .bmi-category {
+        transition: all 0.3s ease;
+      }
+      .pulse-animation {
+        animation: pulse 2s infinite;
+      }
+      @keyframes pulse {
+        0% {
+          transform: scale(1);
+        }
+        50% {
+          transform: scale(1.05);
+        }
+        100% {
+          transform: scale(1);
+        }
+      }
+    </style>
+  </head>
+  <body class="bg-gray-100 min-h-screen font-sans">
+    <div class="container mx-auto px-4 py-8">
+      <div class="max-w-4xl mx-auto">
+        <!-- Header -->
+        <div class="text-center mb-10">
+          <h1 class="text-4xl md:text-5xl font-bold text-gray-800 mb-2">BMI Calculator</h1>
+          <p class="text-gray-600 text-lg">Track your body mass index for better health awareness</p>
+        </div>
+
+        <div class="flex flex-col lg:flex-row gap-8">
+          <!-- Calculator Section -->
+          <div class="w-full lg:w-1/2">
+            <div class="bg-white rounded-2xl shadow-xl overflow-hidden bmi-gradient p-6">
+              <div class="flex items-center mb-6">
+                <i class="fas fa-calculator text-white text-2xl mr-3"></i>
+                <h2 class="text-2xl font-semibold text-white">Calculate Your BMI</h2>
+              </div>
+
+              <!-- Height Input -->
+              <div class="mb-8">
+                <label class="block text-white font-medium mb-3">Height (cm)</label>
+                <div class="flex items-center">
+                  <input type="range" min="100" max="250" value="170" class="input-range w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer" id="heightSlider" />
+                  <span class="ml-4 text-white font-bold w-16 text-center" id="heightValue">170</span>
+                </div>
+              </div>
+
+              <!-- Weight Input -->
+              <div class="mb-8">
+                <label class="block text-white font-medium mb-3">Weight (kg)</label>
+                <div class="flex items-center">
+                  <input type="range" min="30" max="200" value="70" class="input-range w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer" id="weightSlider" />
+                  <span class="ml-4 text-white font-bold w-16 text-center" id="weightValue">70</span>
+                </div>
+              </div>
+
+              <!-- Calculate Button -->
+              <button id="calculateBtn" class="w-full bg-white text-blue-600 hover:bg-gray-100 font-bold py-3 px-4 rounded-lg transition duration-300 flex items-center justify-center"><i class="fas fa-heartbeat mr-2"></i> Calculate BMI</button>
+            </div>
+
+            <!-- BMI Info -->
+            <div class="mt-8 bg-white rounded-2xl shadow-lg p-6">
+              <h3 class="text-xl font-semibold text-gray-800 mb-4 flex items-center"><i class="fas fa-info-circle text-blue-500 mr-2"></i> BMI Categories</h3>
+              <div class="space-y-3">
+                <div class="flex items-center justify-between px-3 py-2 rounded-lg bg-blue-50">
+                  <span class="font-medium text-blue-800">Underweight</span>
+                  <span class="text-gray-600">&lt; 18.5</span>
+                </div>
+                <div class="flex items-center justify-between px-3 py-2 rounded-lg bg-green-50">
+                  <span class="font-medium text-green-800">Normal weight</span>
+                  <span class="text-gray-600">18.5 - 24.9</span>
+                </div>
+                <div class="flex items-center justify-between px-3 py-2 rounded-lg bg-yellow-50">
+                  <span class="font-medium text-yellow-800">Overweight</span>
+                  <span class="text-gray-600">25 - 29.9</span>
+                </div>
+                <div class="flex items-center justify-between px-3 py-2 rounded-lg bg-red-50">
+                  <span class="font-medium text-red-800">Obesity</span>
+                  <span class="text-gray-600">≥ 30</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Result Section -->
+          <div class="w-full lg:w-1/2">
+            <div class="bg-white rounded-2xl shadow-xl overflow-hidden h-full">
+              <div class="result-gradient p-6">
+                <div class="flex items-center mb-6">
+                  <i class="fas fa-chart-line text-white text-2xl mr-3"></i>
+                  <h2 class="text-2xl font-semibold text-white">Your BMI Result</h2>
+                </div>
+                <div class="text-center py-8">
+                  <div class="inline-block bg-white bg-opacity-20 rounded-full p-8 mb-6">
+                    <div id="bmiValue" class="text-5xl font-bold text-white">--</div>
+                  </div>
+                  <div id="bmiCategory" class="text-xl font-semibold text-white mb-2">--</div>
+                  <div id="bmiMessage" class="text-white opacity-80">Enter your details to calculate your BMI</div>
+                </div>
+              </div>
+
+              <!-- Health Tips -->
+              <div class="p-6">
+                <h3 class="text-xl font-semibold text-gray-800 mb-4 flex items-center"><i class="fas fa-lightbulb text-yellow-500 mr-2"></i> Health Tips</h3>
+                <div id="healthTips" class="space-y-4">
+                  <div class="flex items-start">
+                    <div class="bg-blue-100 p-2 rounded-full mr-3">
+                      <i class="fas fa-utensils text-blue-500 text-sm"></i>
+                    </div>
+                    <p class="text-gray-600">Maintain a balanced diet with plenty of fruits and vegetables.</p>
+                  </div>
+                  <div class="flex items-start">
+                    <div class="bg-blue-100 p-2 rounded-full mr-3">
+                      <i class="fas fa-running text-blue-500 text-sm"></i>
+                    </div>
+                    <p class="text-gray-600">Engage in at least 30 minutes of moderate exercise daily.</p>
+                  </div>
+                  <div class="flex items-start">
+                    <div class="bg-blue-100 p-2 rounded-full mr-3">
+                      <i class="fas fa-glass-whiskey text-blue-500 text-sm"></i>
+                    </div>
+                    <p class="text-gray-600">Stay hydrated by drinking plenty of water throughout the day.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Additional Info -->
+        <div class="mt-12 bg-white rounded-2xl shadow-lg p-6 max-w-4xl mx-auto">
+          <h3 class="text-xl font-semibold text-gray-800 mb-4 flex items-center justify-center"><i class="fas fa-question-circle text-purple-500 mr-2"></i> About BMI</h3>
+          <div class="text-gray-600 text-center max-w-3xl mx-auto">
+            <p class="mb-4">Body Mass Index (BMI) is a simple index of weight-for-height that is commonly used to classify underweight, overweight and obesity in adults. It is calculated by dividing a person's weight in kilograms by the square of their height in meters (kg/m²).</p>
+            <p>While BMI is a useful screening tool, it's not a direct measure of body fatness and doesn't account for factors like muscle mass, bone density, or overall body composition. For a comprehensive health assessment, consult with a healthcare professional.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      document.addEventListener('DOMContentLoaded', function () {
+        // Get DOM elements
+        const heightSlider = document.getElementById('heightSlider');
+        const weightSlider = document.getElementById('weightSlider');
+        const heightValue = document.getElementById('heightValue');
+        const weightValue = document.getElementById('weightValue');
+        const calculateBtn = document.getElementById('calculateBtn');
+        const bmiValue = document.getElementById('bmiValue');
+        const bmiCategory = document.getElementById('bmiCategory');
+        const bmiMessage = document.getElementById('bmiMessage');
+        const healthTips = document.getElementById('healthTips');
+
+        // Update displayed values when sliders change
+        heightSlider.addEventListener('input', function () {
+          heightValue.textContent = this.value;
+        });
+
+        weightSlider.addEventListener('input', function () {
+          weightValue.textContent = this.value;
+        });
+
+        // Calculate BMI when button is clicked
+        calculateBtn.addEventListener('click', calculateBMI);
+
+        // Also calculate when sliders are released
+        heightSlider.addEventListener('change', calculateBMI);
+        weightSlider.addEventListener('change', calculateBMI);
+
+        // Initial calculation
+        calculateBMI();
+
+        function calculateBMI() {
+          // Get values
+          const height = parseFloat(heightSlider.value) / 100; // Convert cm to m
+          const weight = parseFloat(weightSlider.value);
+
+          // Calculate BMI
+          const bmi = weight / (height * height);
+          const roundedBMI = bmi.toFixed(1);
+
+          // Display BMI value
+          bmiValue.textContent = roundedBMI;
+
+          // Determine category and set appropriate styling
+          let category = '';
+          let categoryClass = '';
+          let message = '';
+          let tips = '';
+
+          if (bmi < 18.5) {
+            category = 'Underweight';
+            categoryClass = 'text-blue-500';
+            message = 'You may need to gain weight. Consult a healthcare professional.';
+            tips = `
+                        <div class="flex items-start">
+                            <div class="bg-blue-100 p-2 rounded-full mr-3">
+                                <i class="fas fa-utensils text-blue-500 text-sm"></i>
+                            </div>
+                            <p class="text-gray-600">Focus on nutrient-dense foods to gain weight healthily.</p>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="bg-blue-100 p-2 rounded-full mr-3">
+                                <i class="fas fa-dumbbell text-blue-500 text-sm"></i>
+                            </div>
+                            <p class="text-gray-600">Combine strength training with cardio for balanced fitness.</p>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="bg-blue-100 p-2 rounded-full mr-3">
+                                <i class="fas fa-user-md text-blue-500 text-sm"></i>
+                            </div>
+                            <p class="text-gray-600">Consult a doctor to rule out any underlying health issues.</p>
+                        </div>
+                    `;
+          } else if (bmi >= 18.5 && bmi < 25) {
+            category = 'Normal weight';
+            categoryClass = 'text-green-500';
+            message = 'Great job! Maintain your healthy lifestyle.';
+            tips = `
+                        <div class="flex items-start">
+                            <div class="bg-green-100 p-2 rounded-full mr-3">
+                                <i class="fas fa-utensils text-green-500 text-sm"></i>
+                            </div>
+                            <p class="text-gray-600">Continue eating a balanced diet with variety.</p>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="bg-green-100 p-2 rounded-full mr-3">
+                                <i class="fas fa-running text-green-500 text-sm"></i>
+                            </div>
+                            <p class="text-gray-600">Stay active with at least 150 minutes of exercise weekly.</p>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="bg-green-100 p-2 rounded-full mr-3">
+                                <i class="fas fa-heartbeat text-green-500 text-sm"></i>
+                            </div>
+                            <p class="text-gray-600">Regular health checkups help maintain your wellness.</p>
+                        </div>
+                    `;
+          } else if (bmi >= 25 && bmi < 30) {
+            category = 'Overweight';
+            categoryClass = 'text-yellow-500';
+            message = 'Consider lifestyle changes to reach a healthier weight.';
+            tips = `
+                        <div class="flex items-start">
+                            <div class="bg-yellow-100 p-2 rounded-full mr-3">
+                                <i class="fas fa-carrot text-yellow-500 text-sm"></i>
+                            </div>
+                            <p class="text-gray-600">Increase vegetable intake and reduce processed foods.</p>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="bg-yellow-100 p-2 rounded-full mr-3">
+                                <i class="fas fa-walking text-yellow-500 text-sm"></i>
+                            </div>
+                            <p class="text-gray-600">Aim for 10,000 steps daily to increase activity.</p>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="bg-yellow-100 p-2 rounded-full mr-3">
+                                <i class="fas fa-weight text-yellow-500 text-sm"></i>
+                            </div>
+                            <p class="text-gray-600">Small, sustainable changes lead to lasting results.</p>
+                        </div>
+                    `;
+          } else {
+            category = 'Obesity';
+            categoryClass = 'text-red-500';
+            message = 'Consult a healthcare professional for weight management advice.';
+            tips = `
+                        <div class="flex items-start">
+                            <div class="bg-red-100 p-2 rounded-full mr-3">
+                                <i class="fas fa-utensils text-red-500 text-sm"></i>
+                            </div>
+                            <p class="text-gray-600">Work with a dietitian to create a personalized meal plan.</p>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="bg-red-100 p-2 rounded-full mr-3">
+                                <i class="fas fa-swimming-pool text-red-500 text-sm"></i>
+                            </div>
+                            <p class="text-gray-600">Low-impact exercises like swimming can be easier on joints.</p>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="bg-red-100 p-2 rounded-full mr-3">
+                                <i class="fas fa-user-md text-red-500 text-sm"></i>
+                            </div>
+                            <p class="text-gray-600">Medical supervision can help with safe weight management.</p>
+                        </div>
+                    `;
+          }
+
+          // Update category display
+          bmiCategory.textContent = category;
+          bmiCategory.className = `text-xl font-semibold ${categoryClass} mb-2 pulse-animation`;
+
+          // Update message
+          bmiMessage.textContent = message;
+
+          // Update health tips
+          healthTips.innerHTML = tips;
+
+          // Add pulse animation to the result
+          bmiValue.classList.add('pulse-animation');
+          setTimeout(() => {
+            bmiValue.classList.remove('pulse-animation');
+          }, 2000);
+        }
+      });
+    </script>
+  </body>
+</html>
