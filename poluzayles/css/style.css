@@ -1,0 +1,519 @@
+/* --- Переменные и сброс --- */
+:root {
+  --primary: #F26549;
+  --bg-body: #FFF8F3;
+  --text-dark: #333333;
+  --text-gray: #666666;
+  --white: #ffffff;
+  --radius-btn: 50px;
+  --radius-card: 20px;
+  --container: 1200px;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Montserrat', sans-serif;
+  background-color: var(--bg-body);
+  color: var(--text-dark);
+  line-height: 1.5;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  transition: 0.3s;
+}
+
+ul {
+  list-style: none;
+}
+
+/* --- Общие классы --- */
+.container {
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.btn {
+  display: inline-block;
+  background-color: var(--primary);
+  color: var(--white);
+  padding: 12px 30px;
+  border-radius: var(--radius-btn);
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  text-align: center;
+  transition: 0.3s;
+}
+
+.btn:hover {
+  opacity: 0.9;
+  transform: translateY(-2px);
+}
+
+.section-title {
+  font-size: 2rem;
+  font-weight: 800;
+  margin-bottom: 20px;
+  color: var(--primary);
+}
+
+.text-block p {
+  margin-bottom: 15px;
+  color: var(--text-dark);
+  font-size: 0.95rem;
+}
+
+/* --- Хедер --- */
+header {
+  padding: 20px 0;
+  position: relative;
+  z-index: 100;
+}
+
+.nav-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logo-main {
+  font-weight: 900;
+  font-size: 24px;
+  color: var(--primary);
+}
+
+.logo-sub {
+  font-size: 12px;
+  line-height: 1.2;
+  color: var(--primary);
+}
+
+.nav-menu {
+  display: flex;
+  gap: 30px;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text-gray);
+}
+
+.nav-menu a:hover {
+  color: var(--primary);
+}
+
+.lang-switch {
+  font-weight: bold;
+  color: var(--primary);
+  border: 1px solid var(--primary);
+  padding: 5px 10px;
+  border-radius: 20px;
+}
+
+/* Бургер меню (скрыто на ПК) */
+.burger-btn {
+  display: none;
+  cursor: pointer;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.burger-btn span {
+  width: 25px;
+  height: 3px;
+  background-color: var(--primary);
+  border-radius: 2px;
+  transition: 0.3s;
+}
+
+/* --- Hero Section --- */
+.hero {
+  padding: 60px 0 40px;
+  position: relative;
+}
+
+.hero-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.hero-text {
+  max-width: 45%;
+}
+
+.hero-subtitle {
+  color: var(--text-gray);
+  margin-bottom: 10px;
+  font-weight: 600;
+}
+
+.hero h1 {
+  font-size: 3.5rem;
+  line-height: 1.1;
+  font-weight: 900;
+  color: var(--text-dark);
+  margin-bottom: 30px;
+}
+
+.hero-image {
+  max-width: 50%;
+}
+
+/* --- Лента брендов --- */
+.brands-strip {
+  background: var(--primary);
+  border-radius: var(--radius-card);
+  padding: 20px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: -30px;
+  position: relative;
+  z-index: 2;
+  margin-bottom: 80px;
+}
+
+.brand-item {
+  text-align: center;
+  color: white;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.brand-img-placeholder {
+  width: 60px;
+  height: 80px;
+  background: rgba(255, 255, 255, 0.2);
+  margin: 0 auto 10px;
+  border-radius: 5px;
+}
+
+/* --- О нас --- */
+.about {
+  padding: 40px 0;
+}
+
+.about-wrapper {
+  display: flex;
+  gap: 50px;
+  align-items: center;
+}
+
+.about-text {
+  flex: 1;
+}
+
+.about-image {
+  flex: 1;
+}
+
+.about-image img {
+  border-radius: var(--radius-card);
+  width: 100%;
+  object-fit: cover;
+}
+
+.aps-logo-small {
+  color: var(--primary);
+  font-weight: 800;
+  margin-bottom: 20px;
+  font-size: 1.5rem;
+}
+
+.read-more {
+  color: var(--primary);
+  font-size: 0.8rem;
+  cursor: pointer;
+}
+
+/* --- Статистика --- */
+.stats {
+  padding: 40px 0;
+  margin: 40px 0;
+  background: #FCECE4;
+  border-radius: var(--radius-card);
+}
+
+.stats-grid {
+  display: flex;
+  justify-content: space-around;
+  text-align: center;
+}
+
+.stat-item strong {
+  display: block;
+  font-size: 2.5rem;
+  color: var(--primary);
+  font-weight: 700;
+}
+
+.stat-item span {
+  font-size: 0.9rem;
+  color: var(--text-gray);
+  max-width: 150px;
+  display: inline-block;
+}
+
+/* --- Миссия --- */
+.mission {
+  background-color: var(--primary);
+  border-radius: var(--radius-card);
+  padding: 60px;
+  color: white;
+  margin-bottom: 80px;
+}
+
+.mission-wrapper {
+  display: flex;
+  gap: 60px;
+}
+
+.mission-text {
+  flex: 1;
+}
+
+.mission-text h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+
+.mission-text p {
+  margin-bottom: 20px;
+  opacity: 0.9;
+  font-size: 0.95rem;
+}
+
+.mission-cards {
+  flex: 1;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.mission-card {
+  background: white;
+  color: var(--text-dark);
+  padding: 20px;
+  border-radius: var(--radius-card);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 140px;
+}
+
+.mission-card-icon {
+  width: 40px;
+  height: 40px;
+  background: #eee;
+  margin-bottom: 10px;
+  border-radius: 50%;
+}
+
+.mission-card span {
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+/* --- Партнеры --- */
+.partners {
+  margin-bottom: 80px;
+  text-align: center;
+}
+
+.partners-row {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  align-items: center;
+  opacity: 0.7;
+}
+
+.partner-logo {
+  height: 40px;
+  background: #ccc;
+  width: 120px;
+  border-radius: 5px;
+}
+
+/* --- Продукция --- */
+.products {
+  margin-bottom: 80px;
+}
+
+.products-row-top {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+  margin-bottom: 30px;
+}
+
+.products-row-bottom {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 30px;
+}
+
+.product-card {
+  background: #FCECE4;
+  border-radius: var(--radius-card);
+  padding: 40px 20px;
+  text-align: center;
+  transition: 0.3s;
+}
+
+.product-card:hover {
+  background: #fff;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+}
+
+.product-img {
+  height: 180px;
+  background: transparent;
+  margin: 0 auto 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.product-img img {
+  max-height: 100%;
+}
+
+.product-title {
+  font-weight: 700;
+  font-size: 1.2rem;
+  margin-bottom: 15px;
+}
+
+/* --- Футер / Форма --- */
+.footer-cta {
+  background: var(--primary);
+  border-radius: var(--radius-card);
+  padding: 50px;
+  color: white;
+  margin-bottom: 50px;
+}
+
+.cta-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.cta-text h2 {
+  font-size: 1.8rem;
+  margin-bottom: 10px;
+}
+
+.cta-form {
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+.cta-input {
+  padding: 15px 20px;
+  border-radius: var(--radius-btn);
+  border: none;
+  outline: none;
+  min-width: 250px;
+}
+
+.cta-btn {
+  background: #FCECE4;
+  color: var(--text-dark);
+  padding: 15px 40px;
+  border-radius: var(--radius-btn);
+  border: none;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+/* --- Адаптив (Mobile) --- */
+@media (max-width: 768px) {
+  .burger-btn {
+    display: flex;
+  }
+
+  .nav-menu {
+    display: none;
+    /* Скрыто по умолчанию */
+    position: absolute;
+    top: 70px;
+    left: 0;
+    width: 100%;
+    background: white;
+    flex-direction: column;
+    padding: 20px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    gap: 15px;
+    text-align: center;
+    border-radius: 0 0 20px 20px;
+  }
+
+  /* Класс, который добавляет JS */
+  .nav-menu.active {
+    display: flex;
+  }
+
+  .hero-content,
+  .about-wrapper,
+  .mission-wrapper,
+  .cta-wrapper {
+    flex-direction: column;
+  }
+
+  .hero-text,
+  .hero-image {
+    max-width: 100%;
+    text-align: center;
+  }
+
+  .brands-strip {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+  }
+
+  .stats-grid {
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+
+  .products-row-top,
+  .products-row-bottom {
+    grid-template-columns: 1fr;
+  }
+
+  .partners-row {
+    flex-wrap: wrap;
+  }
+
+  .cta-form {
+    justify-content: center;
+  }
+
+  .cta-input {
+    width: 100%;
+  }
+}
