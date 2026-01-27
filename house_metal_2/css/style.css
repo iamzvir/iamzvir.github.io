@@ -1,0 +1,250 @@
+/* --- Сброс стилей и переменные --- */
+:root {
+  --text-dark: #2D3440;
+  --text-light: #555555;
+  --accent-gold: #D4AF37;
+  /* Золотистый цвет как на фото */
+  --accent-hover: #b8962e;
+  --bg-placeholder: #e0e0e0;
+  /* Цвет заглушки фона */
+  --white: #ffffff;
+  --container-width: 1240px;
+  --font-main: 'Manrope', sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-main);
+  color: var(--text-dark);
+  background-color: #f9f9f9;
+}
+
+.container {
+  max-width: var(--container-width);
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  transition: 0.3s;
+}
+
+ul {
+  list-style: none;
+}
+
+/* --- Header --- */
+.header {
+  position: absolute;
+  /* Накладываем шапку поверх фона */
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 100;
+  padding: 20px 0;
+  background: transparent;
+  /* Прозрачный фон */
+}
+
+.header-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Логотип */
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.logo-text {
+  font-size: 22px;
+  font-weight: 800;
+  text-transform: uppercase;
+  color: var(--text-dark);
+  letter-spacing: 0.5px;
+}
+
+.logo-text .accent {
+  color: var(--accent-gold);
+  font-size: 24px;
+}
+
+/* Навигация */
+.nav-list {
+  display: flex;
+  gap: 30px;
+}
+
+.nav-list li a {
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--text-dark);
+}
+
+.nav-list li a:hover {
+  color: var(--accent-gold);
+}
+
+/* Стрелочка для пункта "Ціни" */
+.has-dropdown a::after {
+  content: '⌄';
+  margin-left: 5px;
+  position: relative;
+  top: -2px;
+}
+
+/* Кнопки */
+.btn {
+  display: inline-block;
+  padding: 12px 28px;
+  border-radius: 4px;
+  font-weight: 600;
+  font-size: 14px;
+  cursor: pointer;
+  text-align: center;
+}
+
+.btn-header {
+  background-color: var(--accent-gold);
+  color: var(--white);
+}
+
+.btn-header:hover {
+  background-color: var(--accent-hover);
+}
+
+/* Бургер (скрыт на десктопе) */
+.burger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+}
+
+.burger span {
+  width: 25px;
+  height: 3px;
+  background-color: var(--text-dark);
+}
+
+/* --- Hero Section --- */
+
+.hero {
+  position: relative;
+  height: 100vh;
+  min-height: 650px;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  background-image:
+    linear-gradient(to bottom,
+      rgba(249, 249, 249, 1) 0%,
+      rgba(249, 249, 249, 0.8) 15%,
+      rgba(249, 249, 249, 0) 45%),
+
+    linear-gradient(to right,
+      rgba(255, 255, 255, 0.6) 0%,
+      rgba(255, 255, 255, 0) 60%),
+    url('../images/bg_header.jpg');
+
+
+  background-size: cover;
+
+  background-position: center bottom;
+
+  background-repeat: no-repeat;
+}
+
+
+.hero-bg-placeholder {
+  display: none;
+}
+
+
+
+.hero-content {
+  width: 100%;
+  padding-top: 80px;
+  /* Отступ, чтобы текст не наезжал на шапку */
+}
+
+.hero-title {
+  font-size: 64px;
+  line-height: 1.1;
+  font-weight: 500;
+  /* Шрифт на картинке не супер жирный */
+  color: var(--text-dark);
+  margin-bottom: 24px;
+}
+
+.hero-subtitle {
+  font-size: 18px;
+  line-height: 1.6;
+  color: var(--text-light);
+  /* #443232 */
+  max-width: 450px;
+  margin-bottom: 40px;
+}
+
+.hero-buttons {
+  display: flex;
+  gap: 20px;
+}
+
+.btn-primary {
+  background-color: #A68A58;
+  /* Более темный золотой/коричневый как на кнопке слева */
+  color: var(--white);
+  padding: 16px 32px;
+  font-size: 16px;
+}
+
+.btn-primary:hover {
+  opacity: 0.9;
+}
+
+.btn-glass {
+  background-color: rgba(255, 255, 255, 0.7);
+  /* Полупрозрачный белый */
+  color: var(--text-dark);
+  padding: 16px 32px;
+  font-size: 16px;
+  backdrop-filter: blur(5px);
+  /* Эффект размытия фона под кнопкой */
+}
+
+.btn-glass:hover {
+  background-color: rgba(255, 255, 255, 1);
+}
+
+/* --- Адаптив (простой) --- */
+@media (max-width: 992px) {
+  .nav {
+    display: none;
+  }
+
+  /* Скрываем меню на планшетах */
+  .burger {
+    display: flex;
+  }
+
+  .btn-header {
+    display: none;
+  }
+
+  /* Скрываем кнопку шапки */
+
+  .hero-title {
+    font-size: 42px;
+  }
+}
