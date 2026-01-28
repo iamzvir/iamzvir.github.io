@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="uk">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Контейнерні будинки під ключ</title>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+  <!-- Шапка (Header) -->
+  <header class="header">
+    <div class="container header-row">
+
+      <!-- Логотип -->
+      <a href="#" class="logo">
+        <svg width="200" height="35" viewBox="0 0 220 50" fill="none">
+          <!-- 1. ИКОНКА ДОМИКА -->
+          <!-- 
+                         Рисуем одной линией (stroke), чтобы повторить стиль оригинала.
+                         M 4 46 -> Начало (острый хвост слева внизу)
+                         L 54 43 -> Линия вправо (чуть вверх)
+                         L 54 18 -> Правая стена вверх
+                         L 29 4  -> Крыша
+                         L 6 18  -> Левая стена вниз
+                         L 9 36  -> Конец левой стены (не соединяется с началом!)
+                      -->
+          <path d="M4 46 L54 43 L54 18 L29 4 L6 18 L9 36" stroke="#2D3440" stroke-width="3" stroke-linecap="round"
+            stroke-linejoin="round" fill="none" />
+
+          <!-- 2. ЖЕЛТОЕ ОКНО -->
+          <!-- Пятиугольник внутри -->
+          <path d="M19 24 L29 17 L39 24 V35 H19 V24 Z" fill="#F2C94C" />
+
+          <!-- 3. ТЕКСТ -->
+          <text x="75" y="36" font-family="Arial, Helvetica, sans-serif" font-size="26" font-weight="500" fill="#2D3440"
+            letter-spacing="0.5">ТВІЙ ДІМ</text>
+
+          <!-- 4. ПЛЮСИК -->
+          <!-- Рисуем линиями для контроля толщины -->
+
+          <path d="M198 28 H212 M205 21 V35" stroke="#F2C94C" stroke-width="2" stroke-linecap="square" />
+        </svg>
+      </a>
+
+      <!-- Навигация -->
+      <nav class="nav">
+        <ul class="nav-list">
+          <li><a href="#">Наші будинки</a></li>
+          <li><a href="#">Моделі</a></li>
+          <li><a href="#">Як це працює</a></li>
+          <li><a href="#">Галерея</a></li>
+          <li><a href="#">Ціни</a></li>
+          <li><a href="#">Контакти</a></li>
+        </ul>
+      </nav>
+
+      <!-- Кнопка в шапке -->
+      <a href="#" class="btn btn-header">Замовити консультацію</a>
+
+      <!-- Бургер меню (для мобильных) -->
+      <div class="burger">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section (Первый экран) -->
+  <section class="hero">
+    <!-- Место под фоновое изображение -->
+    <div class="hero-bg-placeholder"></div>
+
+    <div class="container hero-content">
+      <h1 class="hero-title">Твій дім — без років очікування</h1>
+      <p class="hero-subtitle">
+        Купуйте модульні будинки швидко, якісно та комфортно.
+        Сучасні рішення для вашого життя.
+      </p>
+
+      <div class="hero-buttons">
+        <a href="#" class="btn btn-primary">Обрати модель</a>
+        <a href="#" class="btn btn-glass">Розрахувати вартість</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Categories Bar -->
+  <section class="categories-bar">
+    <div class="container categories-wrapper">
+      <div class="cat-item">
+        <div class="cat-image">
+          <img src="images/for_life.jpg" alt="Для життя">
+        </div>
+        <span>Для життя</span>
+      </div>
+      <div class="cat-item">
+        <div class="cat-image">
+          <img src="images/for_faz.jpg" alt="Для дачі">
+        </div>
+        <span>Для дачі</span>
+      </div>
+      <div class="cat-item">
+        <div class="cat-image">
+          <img src="images/for_buss.jpg" alt="Для бізнесу">
+        </div>
+        <span>Для бізнесу</span>
+      </div>
+      <div class="cat-item">
+        <div class="cat-image">
+          <img src="images/for_VPO.jpg" alt="Для ВПО">
+        </div>
+        <span>Для ВПО</span>
+      </div>
+      <div class="cat-item">
+        <div class="cat-image">
+          <img src="images/speed_h.jpg" alt="Інше житло">
+        </div>
+        <span>Інше житло</span>
+      </div>
+    </div>
+  </section>
+
+  <main>
+    <!-- Advantages -->
+    <section class="section advantages">
+      <div class="container">
+        <h2 class="section-title">Чому обирають контейнерні будинки?</h2>
+        <div class="adv-grid">
+          <div class="adv-item">
+            <div class="adv-icon">⏱️</div>
+            <span>Заселення від 30 днів</span>
+          </div>
+          <div class="adv-item">
+            <div class="adv-icon">📍</div>
+            <span>Мобільність</span>
+          </div>
+          <div class="adv-item">
+            <div class="adv-icon">💡</div>
+            <span>Енергоефективність</span>
+          </div>
+          <div class="adv-item">
+            <div class="adv-icon">💰</div>
+            <span>Доступна ціна</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Projects -->
+    <section class="section projects">
+      <div class="container">
+        <div class="projects-grid">
+          <div class="project-card">
+            <img src="images/image 1.png" alt="House">
+            <div class="project-info">
+              <h3>20 ft Компактний будинок</h3>
+            </div>
+          </div>
+          <div class="project-card">
+            <img src="images/image2.png" alt="House">
+            <div class="project-info">
+              <h3>40 ft Сімейний модуль</h3>
+            </div>
+          </div>
+          <div class="project-card">
+            <img src="images/image3.png" alt="Office">
+            <div class="project-info">
+              <h3>Офісні рішення</h3>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Pricing -->
+    <section class="section pricing">
+      <div class="container">
+        <h2 class="section-title">Вартість від</h2>
+        <div class="pricing-grid">
+          <div class="price-card yellow-bg">
+            <h3>Від 12 000 €</h3>
+            <p>Стартовий варіант</p>
+          </div>
+          <div class="price-card yellow-bg">
+            <h3>Від 25 000 €</h3>
+            <p>Комфортний будинок</p>
+          </div>
+          <div class="price-card white-bg">
+            <h3>Індивідуальний проект</h3>
+            <p>За вашим запитом</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Process -->
+    <section class="section process">
+      <div class="container">
+        <h2 class="section-title">Як ми працюємо</h2>
+        <div class="process-steps">
+          <div class="step">
+            <div class="step-image">
+              <span class="step-icon">📝</span>
+            </div>
+            <span>Заявка</span>
+          </div>
+          <div class="step">
+            <div class="step-image">
+              <span class="step-icon">📐</span>
+            </div>
+            <span>Проєкт</span>
+          </div>
+          <div class="step">
+            <div class="step-image">
+              <span class="step-icon">🏗️</span>
+            </div>
+            <span>Виробництво</span>
+          </div>
+          <div class="step">
+            <div class="step-image">
+              <span class="step-icon">🚚</span>
+            </div>
+            <span>Доставка</span>
+          </div>
+          <div class="step">
+            <div class="step-image">
+              <span class="step-icon">🔧</span>
+            </div>
+            <span>Монтаж</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Gallery Strip -->
+    <section class="gallery-strip">
+      <div class="gallery-slider">
+        <div class="gallery-track">
+          <img src="images/photo_2026-01-28_17-27-59.jpg" alt="Gallery">
+          <img src="images/photo_2026-01-28_17-28-10.jpg" alt="Gallery">
+          <img src="images/photo_2026-01-27_21-44-16.jpg" alt="Gallery">
+          <img src="images/photo_2026-01-28_17-33-30.jpg" alt="Gallery">
+          <img src="images/photo_2026-01-28_17-33-40.jpg" alt="Gallery">
+          <img src="images/photo_2026-01-28_17-33-50.jpg" alt="Gallery">
+        </div>
+        <button class="gallery-btn gallery-btn-prev">‹</button>
+        <button class="gallery-btn gallery-btn-next">›</button>
+        <div class="gallery-dots">
+          <span class="dot active"></span>
+          <span class="dot"></span>
+        </div>
+      </div>
+    </section>
+    </div>
+    </section>
+  </main>
+
+  <!-- Footer / Contact -->
+  <footer class="footer">
+    <div class="container">
+      <h2 class="footer-title">Наше виробництво та гарантії</h2>
+      <div class="footer-content">
+        <!-- Form -->
+        <div class="footer-form-wrapper">
+          <form id="contactForm" class="contact-form">
+            <div class="form-row">
+              <input type="text" placeholder="Ваше ім'я" required>
+              <input type="tel" placeholder="Телефон" required>
+            </div>
+            <div class="form-row">
+              <select>
+                <option>Телефон / Telegram / Viber</option>
+                <option>Тільки дзвінок</option>
+              </select>
+              <input type="text" placeholder="Місто">
+            </div>
+            <textarea placeholder="Коментар" rows="3"></textarea>
+            <button type="submit" class="btn btn-primary btn-block">Відправити заявку</button>
+          </form>
+        </div>
+
+        <!-- Contacts -->
+        <div class="footer-contacts">
+          <h3>Напишіть нам:</h3>
+          <ul class="social-links">
+            <li><a href="#" class="social-btn telegram">Telegram</a></li>
+            <li><a href="#" class="social-btn viber">Viber</a></li>
+            <li><a href="#" class="social-btn whatsapp">WhatsApp</a></li>
+          </ul>
+          <div class="footer-info">
+            <p>📞 +38 098 123 45 67</p>
+            <p>📍 Україна</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/script.js"></script>
+</body>
+
+</html>
