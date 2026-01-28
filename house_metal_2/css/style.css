@@ -95,14 +95,6 @@ ul {
   color: var(--accent-gold);
 }
 
-/* Стрелочка для пункта "Ціни" */
-.has-dropdown a::after {
-  content: '⌄';
-  margin-left: 5px;
-  position: relative;
-  top: -2px;
-}
-
 /* Кнопки */
 .btn {
   display: inline-block;
@@ -247,4 +239,5 @@ ul {
   .hero-title {
     font-size: 42px;
   }
+
 }
