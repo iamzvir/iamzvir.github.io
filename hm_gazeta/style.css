@@ -1,0 +1,411 @@
+/* --- Базовые стили --- */
+:root {
+  --primary-yellow: #FDB913;
+  --dark-blue: #1E3A5F;
+  --footer-dark: #172D47;
+  --text-black: #1A1A1A;
+  --text-gray: #666666;
+  --bg-light: #F5F5F5;
+  --white: #FFFFFF;
+  --tg-color: #0088CC;
+  --vb-color: #7360F2;
+  --wa-color: #25D366;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Montserrat', sans-serif;
+  color: var(--text-black);
+  line-height: 1.6;
+  background-color: var(--white);
+}
+
+.container {
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.section-title {
+  font-size: 42px;
+  text-align: center;
+  margin-bottom: 50px;
+  font-weight: 700;
+}
+
+/* --- Hero Section --- */
+.hero {
+  height: 700px;
+  background: linear-gradient(to right, rgba(158, 153, 153, 0.5), rgba(119, 113, 113, 0.2)),
+    url('images/bg_header.jpg');
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  color: var(--white);
+  position: relative;
+}
+
+.hero-content {
+  max-width: 800px;
+}
+
+.hero h1 {
+  font-size: 56px;
+  line-height: 1.2;
+  margin-bottom: 15px;
+}
+
+.subtitle {
+  font-size: 20px;
+  opacity: 0.9;
+  margin-bottom: 40px;
+}
+
+.btn {
+  display: inline-block;
+  padding: 16px 32px;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 16px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  border: none;
+}
+
+.btn-primary {
+  background-color: var(--primary-yellow);
+  color: var(--text-black);
+  margin-right: 15px;
+}
+
+.btn-primary:hover {
+  background-color: #e5a811;
+}
+
+.btn-outline {
+  background-color: rgba(255, 255, 255, 0.1);
+  border: 2px solid var(--white);
+  color: var(--white);
+}
+
+.btn-outline:hover {
+  background-color: var(--white);
+  color: var(--text-black);
+}
+
+.hero-features {
+  display: flex;
+  gap: 30px;
+  margin-top: 80px;
+}
+
+.feature-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.feature-icon {
+  width: 60px;
+  height: 60px;
+  background: var(--white);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--primary-yellow);
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+/* --- Advantages --- */
+.advantages {
+  padding: 80px 0;
+}
+
+.advantages-grid {
+  display: flex;
+  justify-content: space-between;
+  gap: 40px;
+}
+
+.adv-item {
+  flex: 1;
+  text-align: center;
+}
+
+.adv-icon {
+  width: 70px;
+  height: 70px;
+  background: var(--primary-yellow);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 20px;
+  font-size: 28px;
+}
+
+/* --- Projects Grid --- */
+.projects {
+  padding: 80px 0;
+  background-color: var(--bg-light);
+}
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 25px;
+}
+
+.card {
+  background: var(--white);
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+}
+
+.card img {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+}
+
+.card-body {
+  padding: 20px;
+}
+
+.card-desc {
+  font-size: 14px;
+  color: var(--text-gray);
+  margin-top: 5px;
+}
+
+/* --- Pricing --- */
+.pricing {
+  padding: 80px 0;
+}
+
+.pricing-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.price-card {
+  padding: 40px 30px;
+  border-radius: 8px;
+  background: var(--white);
+  border: 2px solid #E0E0E0;
+  text-align: center;
+}
+
+.price-card.featured {
+  background: var(--primary-yellow);
+  border: none;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+}
+
+.price-label {
+  font-size: 16px;
+}
+
+.price-value {
+  font-size: 42px;
+  font-weight: 700;
+  margin: 10px 0;
+}
+
+/* --- Footer & Form --- */
+.main-footer {
+  background-color: var(--dark-blue);
+  color: var(--white);
+  padding: 80px 0 0;
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr;
+  gap: 60px;
+  padding-bottom: 60px;
+}
+
+.footer-form h2 {
+  margin-bottom: 30px;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+  margin-bottom: 15px;
+}
+
+input,
+textarea {
+  width: 100%;
+  padding: 14px 18px;
+  border-radius: 4px;
+  border: none;
+  font-family: inherit;
+}
+
+textarea {
+  height: 100px;
+  margin-bottom: 20px;
+  resize: vertical;
+}
+
+.btn-submit {
+  background-color: var(--primary-yellow);
+  color: var(--text-black);
+  width: 100%;
+}
+
+.messengers {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.msg-item {
+  color: var(--white);
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.msg-item i {
+  font-size: 24px;
+}
+
+.tg {
+  color: var(--tg-color);
+}
+
+.vb {
+  color: var(--vb-color);
+}
+
+.wa {
+  color: var(--wa-color);
+}
+
+.bottom-footer {
+  background-color: var(--footer-dark);
+  padding: 20px 0;
+  font-size: 14px;
+  opacity: 0.7;
+}
+
+.bottom-flex {
+  display: flex;
+  justify-content: space-between;
+}
+
+/* --- Адаптивность --- */
+
+@media (max-width: 1199px) {
+
+  .projects-grid,
+  .pricing-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .hero h1 {
+    font-size: 42px;
+  }
+}
+
+@media (max-width: 767px) {
+
+  .projects-grid,
+  .pricing-grid,
+  .footer-grid,
+  .form-row,
+  .advantages-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .advantages-grid {
+    flex-direction: column;
+  }
+
+  .hero h1 {
+    font-size: 32px;
+  }
+
+  .hero {
+    height: auto;
+    padding: 100px 0;
+  }
+
+  .hero-features {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .bottom-flex {
+    flex-direction: column;
+    gap: 10px;
+    text-align: center;
+  }
+}
+
+/* Стили для анимации появления */
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.8s ease-out;
+}
+
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Задержки для карточек, чтобы они появлялись по очереди */
+.projects-grid .card:nth-child(2) {
+  transition-delay: 0.2s;
+}
+
+.projects-grid .card:nth-child(3) {
+  transition-delay: 0.4s;
+}
+
+.pricing-grid .price-card:nth-child(2) {
+  transition-delay: 0.2s;
+}
+
+.pricing-grid .price-card:nth-child(3) {
+  transition-delay: 0.4s;
+}
+
+.advantages-grid .adv-item:nth-child(2) {
+  transition-delay: 0.1s;
+}
+
+.advantages-grid .adv-item:nth-child(3) {
+  transition-delay: 0.2s;
+}
+
+.advantages-grid .adv-item:nth-child(4) {
+  transition-delay: 0.3s;
+}
