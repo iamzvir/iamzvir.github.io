@@ -4,7 +4,7 @@
 <head>
    <meta charset="UTF-8">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <title>Личный сайт студента GeekBrains</title>
+   <title>Личный сайт Юрбаса</title>
    <link rel="stylesheet" href="style.css">
    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
 </head>
@@ -82,7 +82,7 @@
          let userAnswer = readInt();
          tryCount++;
          if (userAnswer == answer) {
-            write('<b>Поздравляю, вы угадали!</b>');
+            write('<b>Поздравляю, Наконец то!</b>');
             hide('userAnswer');
             hide('button');
          } else if (tryCount >= maxTryCount) {
@@ -90,14 +90,15 @@
             hide('userAnswer');
             hide('button');
          } else if (userAnswer > answer) {
-            write('Вы ввели большее число <b>Полпробуйте ещё раз.</b>');
+            write('Перебор<b>Полпробуйте ещё раз.</b>');
          } else if (userAnswer < answer) {
-            write('Вы ввели меньшее число <b>Полпробуйте ещё раз.</b>');
+            write('Недобор<b>Полпробуйте ещё раз.</b>');
          }
 
       }
 
    </script>
 </body>
+
 
 </html>
