@@ -200,7 +200,6 @@ p {
 /* Responsive design */
 @media (max-width: 768px) {
    .nav {
-      flex-direction: column;
       padding: 1rem;
    }
 
