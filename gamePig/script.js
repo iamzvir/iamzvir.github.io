@@ -51,8 +51,8 @@ const initGame = function () {
    document.querySelector(`.player--${activePlayer}`).classList.add('player--active');
    document.getElementById(`current--${activePlayer}`).textContent = 0;
    diceElement.classList.add('hidden');
-   btnHold.classlist.remove('hidden');
-   btnRoll.classlist.remove('hidden');
+   btnRoll.classlist.toggle('hidden');
+   btnHold.classlist.toggle('hidden');
 }
 
 
