@@ -41,6 +41,8 @@ const switchActivePlayer = function () {
 // Ф-ция сброса к дефолтным значениям
 const initGame = function () {
    isPlaying = true;
+   btnRoll.classlist.toggle('hidden');
+   btnHold.classlist.toggle('hidden');
    currentScore = 0;
    totalScors[0] = 0;
    totalScors[1] = 0;
@@ -51,8 +53,6 @@ const initGame = function () {
    document.querySelector(`.player--${activePlayer}`).classList.add('player--active');
    document.getElementById(`current--${activePlayer}`).textContent = 0;
    diceElement.classList.add('hidden');
-   btnRoll.classlist.toggle('hidden');
-   btnHold.classlist.toggle('hidden');
 }
 
 
