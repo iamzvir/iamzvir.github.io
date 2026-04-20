@@ -1,4 +1,4 @@
-'use strict';
+
 
 // Обращение к елементам DOM:
 const score0Element = document.getElementById('score--0'); // Основные очки игрока 0
@@ -51,8 +51,8 @@ const initGame = function () {
    document.querySelector(`.player--${activePlayer}`).classList.add('player--active');
    document.getElementById(`current--${activePlayer}`).textContent = 0;
    diceElement.classList.add('hidden');
-   btnHold.classlist.toggle('hidden');
-   btnRoll.classlist.toggle('hidden');
+   btnHold.classlist.remove('hidden');
+   btnRoll.classlist.remove('hidden');
 }
 
 
