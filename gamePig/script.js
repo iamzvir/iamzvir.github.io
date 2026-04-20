@@ -51,6 +51,8 @@ const initGame = function () {
    document.querySelector(`.player--${activePlayer}`).classList.add('player--active');
    document.getElementById(`current--${activePlayer}`).textContent = 0;
    diceElement.classList.add('hidden');
+   btnHold.classlist.toggle('hidden');
+   btnRoll.classlist.toggle('hidden');
 }
 
 
@@ -79,8 +81,8 @@ btnHold.addEventListener('click', function () {
       document.getElementById(`score--${activePlayer}`).textContent = totalScors[activePlayer];
       if (totalScors[activePlayer] >= 100) {
          isPlaying = false;
-         btnHold.classList.toggle('hidden');
-         btnRoll.classList.toggle('hidden');
+         btnHold.classList.add('hidden');
+         btnRoll.classList.add('hidden');
          document.querySelector(`.player--${activePlayer}`).classList.add('player--winner');
          document.querySelector(`.player--${activePlayer}`).classList.remove('player--active');
          diceElement.classList.add('hidden');
