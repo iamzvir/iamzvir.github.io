@@ -41,8 +41,8 @@ const switchActivePlayer = function () {
 // Ф-ция сброса к дефолтным значениям
 const initGame = function () {
    isPlaying = true;
-   btnRoll.classlist.toggle('hidden');
-   btnHold.classlist.toggle('hidden');
+   btnRoll.classList.toggle('hidden');
+   btnHold.classList.toggle('hidden');
    currentScore = 0;
    totalScors[0] = 0;
    totalScors[1] = 0;
